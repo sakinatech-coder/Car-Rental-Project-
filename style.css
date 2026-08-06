@@ -2,109 +2,132 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f7fc;
+    background: #f4f4f4;
     color: #333;
 }
 
 header {
-    background: #111827;
+    background: #111;
     color: white;
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
 }
 
-header h1 {
-    font-size: 28px;
+header nav {
+    margin-top: 10px;
 }
 
-nav a {
+header nav a {
     color: white;
     text-decoration: none;
-    margin: 0 12px;
+    margin: 0 15px;
     font-weight: bold;
 }
 
-nav a:hover {
-    color: #facc15;
+header nav a:hover {
+    color: orange;
 }
 
 .hero {
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(to right, #2563eb, #1d4ed8);
+    background: linear-gradient(to right, #222, #555);
     color: white;
+    text-align: center;
+    padding: 60px 20px;
 }
 
 .hero h2 {
     font-size: 40px;
-    margin-bottom: 15px;
 }
 
 .hero p {
+    margin: 15px 0;
     font-size: 18px;
-    margin-bottom: 20px;
 }
 
-.hero button {
-    background: #facc15;
-    color: black;
+button {
+    background: orange;
+    color: white;
     border: none;
     padding: 12px 25px;
-    font-size: 18px;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-.hero button:hover {
-    background: #eab308;
+button:hover {
+    background: darkorange;
 }
 
 section {
-    padding: 50px 20px;
+    padding: 40px 20px;
 }
 
-section h2 {
+#cars {
     text-align: center;
-    margin-bottom: 30px;
 }
 
 .car-card {
     background: white;
-    width: 300px;
+    width: 350px;
     margin: 20px auto;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
 }
 
 .car-card img {
     width: 100%;
-    border-radius: 10px;
+    height: 220px;
+    object-fit: cover;
 }
 
 .car-card h3 {
     margin: 15px 0;
 }
 
-.car-card button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
+.car-card p {
+    padding: 5px 15px;
 }
 
-.car-card button:hover {
-    background: #1d4ed8;
+.car-card button {
+    margin: 15px;
 }
+
+#benefits ul {
+    list-style: none;
+    text-align: center;
+}
+
+#benefits li {
+    padding: 10px;
+    font-size: 18px;
+}
+
+#about,
+#contact {
+    text-align: center;
+}
+
+form input,
+form textarea {
+    width: 80%;
+    max-width: 500px;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}}
 
 #benefits ul {
     max-width: 500px;
