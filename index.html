@@ -12,20 +12,37 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- ================= HEADER ================= -->
 
-<header class="navbar">
+<header>
 
     <div class="logo">
         <a href="index.html">DriveEasy</a>
     </div>
 
     <nav>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#cars">Cars</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#cars">Cars</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+            <li>
+                <a href="book.html" class="book-btn">Book Now</a>
+            </li>
+
         </ul>
     </nav>
 
@@ -67,6 +84,7 @@
             <option>Mahindra</option>
             <option>BMW</option>
             <option>Scorpio</option>
+            <option>Lamborghini</option>
         </select>
 
         <select>
@@ -77,9 +95,12 @@
 
         <select>
             <option>Price Per Day</option>
+            <option>₹1500</option>
+            <option>₹2500</option>
             <option>₹3500</option>
             <option>₹4000</option>
             <option>₹7000</option>
+            <option>₹15000</option>
         </select>
 
         <button type="submit">
@@ -100,11 +121,224 @@
     <div class="car-container">
 
 
-        <!-- MAHINDRA THAR -->
+        <!-- ================= THAR ================= -->
 
-        <div class="car-card">
+        <div class="car-card"
+             onclick="showCar('thar')"
+             style="cursor:pointer;">
 
             <img
+                src="images/Thar-front.jpg"
+                alt="Mahindra Thar"
+            >
+
+            <h3>Mahindra Thar</h3>
+
+            <p>₹3500 / Day</p>
+
+            <div class="car-features">
+
+                <span>❄️ AC</span>
+                <span>👥 5 Seats</span>
+                <span>⛽ Diesel</span>
+                <span>⚙️ Manual</span>
+                <span>🚀 155 km/h</span>
+
+            </div>
+
+            <div class="car-description">
+
+                Premium interior with comfortable seats,
+                touchscreen infotainment and modern dashboard.
+
+            </div>
+
+            <button
+                class="btn"
+                onclick="event.stopPropagation(); window.location.href='book.html';"
+            >
+                Book Now
+            </button>
+
+        </div>
+
+
+        <!-- ================= BMW ================= -->
+
+        <div class="car-card"
+             onclick="showCar('bmw')"
+             style="cursor:pointer;">
+
+            <img
+                src="images/bmw.jpg"
+                alt="BMW X5"
+            >
+
+            <h3>BMW X5</h3>
+
+            <p>₹7000 / Day</p>
+
+            <div class="car-features">
+
+                <span>❄️ AC</span>
+                <span>👥 5 Seats</span>
+                <span>⛽ Petrol</span>
+                <span>⚙️ Automatic</span>
+                <span>🚀 243 km/h</span>
+
+            </div>
+
+            <div class="car-description">
+
+                Luxury interior with digital dashboard,
+                premium seats and advanced infotainment system.
+
+            </div>
+
+            <button
+                class="btn"
+                onclick="event.stopPropagation(); window.location.href='book.html';"
+            >
+                Book Now
+            </button>
+
+        </div>
+
+
+        <!-- ================= SCORPIO ================= -->
+
+        <div class="car-card"
+             onclick="showCar('scorpio')"
+             style="cursor:pointer;">
+
+            <img
+                src="images/scorpio.jpg"
+                alt="Scorpio N"
+            >
+
+            <h3>Scorpio N</h3>
+
+            <p>₹4000 / Day</p>
+
+            <div class="car-features">
+
+                <span>❄️ AC</span>
+                <span>👥 7 Seats</span>
+                <span>⛽ Diesel</span>
+                <span>⚙️ Automatic</span>
+                <span>🚀 165 km/h</span>
+
+            </div>
+
+            <div class="car-description">
+
+                Spacious interior with comfortable seating,
+                modern dashboard and touchscreen system.
+
+            </div>
+
+            <button
+                class="btn"
+                onclick="event.stopPropagation(); window.location.href='book.html';"
+            >
+                Book Now
+            </button>
+
+        </div>
+
+
+        <!-- ================= LAMBORGHINI ================= -->
+
+        <div class="car-card"
+             onclick="showCar('lamborghini')"
+             style="cursor:pointer;">
+
+            <img
+                src="images/lamborghini.jpg"
+                alt="Lamborghini"
+            >
+
+            <h3>Lamborghini</h3>
+
+            <p>₹15000 / Day</p>
+
+            <div class="car-features">
+
+                <span>❄️ AC</span>
+                <span>👥 2 Seats</span>
+                <span>⛽ Petrol</span>
+                <span>⚙️ Automatic</span>
+                <span>🚀 325 km/h</span>
+
+            </div>
+
+            <div class="car-description">
+
+                Premium luxury interior with sporty seats,
+                digital dashboard and advanced infotainment system.
+
+            </div>
+
+            <button
+                class="btn"
+                onclick="event.stopPropagation(); window.location.href='book.html';"
+            >
+                Book Now
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================= THAR DETAILS ================== -->
+<!-- ================================================= -->
+
+<section id="thar" class="car-details">
+
+    <div class="car-details-main">
+
+        <h2>Mahindra Thar</h2>
+
+        <img
+            src="images/Thar-front.jpg"
+            alt="Mahindra Thar"
+        >
+
+        <div class="details-info">
+
+            <p>
+                <strong>Price:</strong>
+                ₹3500 / Day
+            </p>
+
+            <p>
+                <strong>AC:</strong>
+                Yes
+            </p>
+
+            <p>
+                <strong>Seats:</strong>
+                5
+            </p>
+
+            <p>
+                <strong>Fuel:</strong>
+                Diesel
+            </p>
+
+            <p>
+                <strong>Transmission:</strong>
+                Manual
+            </p>
+
+            <p>
+                <strong>Top Speed:</strong>
+                155 km/h
+            </            <img
                 src="images/Thar-front.jpg"
                 src="images/Thar-interior.jpg"
                 src="images/Thar-dashboard.jpg"
