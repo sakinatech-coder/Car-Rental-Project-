@@ -1,68 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>DriveEasy Car Rental</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Car Details */
-        .car-details {
+        /* ================= CAR DETAILS POPUP ================= */
+
+        .car-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .car-modal-content {
             background: white;
-            margin: 30px auto;
-            padding: 30px;
+            width: 100%;
             max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            padding: 25px;
+            position: relative;
             text-align: center;
         }
 
-        .car-details h2 {
-            margin-bottom: 15px;
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            border: none;
+            background: #ff3c00;
+            color: white;
+            font-size: 25px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
         }
 
-        .details-info {
-            margin: 15px 0;
-            font-size: 17px;
+        .car-modal-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .car-modal-content p {
             line-height: 1.7;
         }
 
-        .detail-images {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        .car-features {
+            margin: 15px 0;
+            line-height: 2;
+            font-size: 17px;
         }
 
-        .detail-images img {
-            width: 300px;
-            height: 200px;
+        .car-gallery {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .car-gallery img {
+            width: 250px;
+            height: 170px;
             object-fit: cover;
             border-radius: 10px;
         }
+
+        /* ================= CAR CARD ================= */
 
         .car-card {
             cursor: pointer;
         }
 
-        .view-details {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 18px;
-            background: #222;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
+        .car-card > img {
+            cursor: pointer;
         }
 
-        .view-details:hover {
-            background: #ff3c00;
+        .car-card button {
+            cursor: pointer;
         }
     </style>
 </head>
+
 
 <body>
 
@@ -76,11 +108,29 @@
 
     <nav>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#cars">Cars</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="book.html" class="book-btn">Book Now</a></li>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#cars">Cars</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+            <li>
+                <a href="book.html" class="book-btn">
+                    Book Now
+                </a>
+            </li>
+
         </ul>
     </nav>
 
@@ -100,7 +150,9 @@
             Safe, Comfortable and Reliable rides.
         </p>
 
-        <a href="#cars" class="btn">Explore Cars</a>
+        <a href="#cars" class="btn">
+            Explore Cars
+        </a>
 
     </div>
 
@@ -137,533 +189,8 @@
             <option>₹15000</option>
         </select>
 
-        <button type="submit">Search Car</button>
-
-    </form>
-
-</section>
-
-
-<!-- ================= CARS ================= -->
-
-<section id="cars">
-
-    <h2>Available Cars</h2>
-
-    <div class="car-container">
-
-
-        <!-- ========== THAR ========== -->
-
-        <div class="car-card">
-
-            <a href="#thar-details">
-                <img src="images/Thar-front.jpg" alt="Mahindra Thar">
-            </a>
-
-            <h3>Mahindra Thar</h3>
-
-            <p>₹3500 / Day</p>
-
-            <p>
-                ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>
-                🚀 155 km/h &nbsp; ⚙️ Manual
-            </p>
-
-            <a href="#thar-details" class="view-details">
-                View Details
-            </a>
-
-            <br>
-
-            <a href="book.html" class="btn">
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- ========== BMW ========== -->
-
-        <div class="car-card">
-
-            <a href="#bmw-details">
-                <img src="images/bmw-front.jpg" alt="BMW X5">
-            </a>
-
-            <h3>BMW X5</h3>
-
-            <p>₹7000 / Day</p>
-
-            <p>
-                ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>
-                🚀 243 km/h &nbsp; ⚙️ Automatic
-            </p>
-
-            <a href="#bmw-details" class="view-details">
-                View Details
-            </a>
-
-            <br>
-
-            <a href="book.html" class="btn">
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- ========== SCORPIO ========== -->
-
-        <div class="car-card">
-
-            <a href="#scorpio-details">
-                <img src="images/scorpio-front.jpg" alt="Scorpio N">
-            </a>
-
-            <h3>Scorpio N</h3>
-
-            <p>₹4000 / Day</p>
-
-            <p>
-                ❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>
-                🚀 165 km/h &nbsp; ⚙️ Automatic
-            </p>
-
-            <a href="#scorpio-details" class="view-details">
-                View Details
-            </a>
-
-            <br>
-
-            <a href="book.html" class="btn">
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- ========== LAMBORGHINI ========== -->
-
-        <div class="car-card">
-
-            <a href="#lamborghini-details">
-                <img src="images/lamborghini-front.jpg" alt="Lamborghini">
-            </a>
-
-            <h3>Lamborghini</h3>
-
-            <p>₹15000 / Day</p>
-
-            <p>
-                ❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>
-                🚀 325 km/h &nbsp; ⚙️ Automatic
-            </p>
-
-            <a href="#lamborghini-details" class="view-details">
-                View Details
-            </a>
-
-            <br>
-
-            <a href="book.html" class="btn">
-                Book Now
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= THAR DETAILS ================= -->
-
-<section id="thar-details" class="car-details">
-
-    <h2>Mahindra Thar</h2>
-
-    <p class="details-info">
-        Premium and powerful SUV perfect for adventure and long journeys.
-    </p>
-
-    <p class="details-info">
-        ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>
-        ⚙️ Manual Transmission &nbsp; 🚀 155 km/h
-    </p>
-
-    <h3>Interior & Dashboard</h3>
-
-    <div class="detail-images">
-
-        <img src="images/Thar-front.jpg" alt="Thar Front">
-
-        <img src="images/Thar-interior.jpg" alt="Thar Interior">
-
-        <img src="images/Thar-dashboard.jpg" alt="Thar Dashboard">
-
-    </div>
-
-    <br>
-
-    <a href="book.html" class="btn">Book Thar</a>
-
-</section>
-
-
-<!-- ================= BMW DETAILS ================= -->
-
-<section id="bmw-details" class="car-details">
-
-    <h2>BMW X5</h2>
-
-    <p class="details-info">
-        Luxury SUV with premium comfort, advanced technology and powerful performance.
-    </p>
-
-    <p class="details-info">
-        ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>
-        ⚙️ Automatic Transmission &nbsp; 🚀 243 km/h
-    </p>
-
-    <h3>Interior & Dashboard</h3>
-
-    <div class="detail-images">
-
-        <img src="images/bmw-front.jpg" alt="BMW Front">
-
-        <img src="images/bmw-interior.jpg" alt="BMW Interior">
-
-    </div>
-
-    <br>
-
-    <a href="book.html" class="btn">Book BMW</a>
-
-</section>
-
-
-<!-- ================= SCORPIO DETAILS ================= -->
-
-<section id="scorpio-details" class="car-details">
-
-    <h2>Scorpio N</h2>
-
-    <p class="details-info">
-        Spacious SUV with comfortable seating and modern dashboard.
-    </p>
-
-    <p class="details-info">
-        ❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>
-        ⚙️ Automatic Transmission &nbsp; 🚀 165 km/h
-    </p>
-
-    <h3>Interior & Dashboard</h3>
-
-    <div class="detail-images">
-
-        <img src="images/scorpio-front.jpg" alt="Scorpio Front">
-
-        <img src="images/scorpio-interior.jpg" alt="Scorpio Interior">
-
-        <img src="images/scorpio-dashboard.jpg" alt="Scorpio Dashboard">
-
-    </div>
-
-<!-- ================= CARS ================= -->
-
-<section id="cars">
-
-    <h2>Available Cars</h2>
-
-    <div class="car-container">
-
-        <!-- THAR -->
-        <div class="car-card">
-
-            <img src="images/Thar-front.jpg"
-                 alt="Mahindra Thar"
-                 onclick="showCar('thar')">
-
-            <h3>Mahindra Thar</h3>
-            <p>₹3500 / Day</p>
-
-            <p>
-                ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>
-                🚀 155 km/h &nbsp; ⚙️ Manual
-            </p>
-
-            <button class="view-details"
-                    onclick="showCar('thar')">
-                View Details
-            </button>
-
-            <br><br>
-
-            <a href="book.html" class="btn">Book Now</a>
-
-        </div>
-
-
-        <!-- BMW -->
-        <div class="car-card">
-
-            <img src="images/bmw-front.jpg"
-                 alt="BMW X5"
-                 onclick="showCar('bmw')">
-
-            <h3>BMW X5</h3>
-            <p>₹7000 / Day</p>
-
-            <p>
-                ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>
-                🚀 243 km/h &nbsp; ⚙️ Automatic
-            </p>
-
-            <button class="view-details"
-                    onclick="showCar('bmw')">
-                View Details
-            </button>
-
-            <br><br>
-
-            <a href="book.html" class="btn">Book Now</a>
-
-        </div>
-
-
-        <!-- SCORPIO -->
-        <div class="car-card">
-
-            <img src="images/scorpio-front.jpg"
-                 alt="Scorpio N"
-                 onclick="showCar('scorpio')">
-
-            <h3>Scorpio N</h3>
-            <p>₹4000 / Day</p>
-
-            <p>
-                ❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>
-                🚀 165 km/h &nbsp; ⚙️ Automatic
-            </p>
-
-            <button class="view-details"
-                    onclick="showCar('scorpio')">
-                View Details
-            </button>
-
-            <br><br>
-
-            <a href="book.html" class="btn">Book Now</a>
-
-        </div>
-
-
-        <!-- LAMBORGHINI -->
-        <div class="car-card">
-
-            <img src="images/lamborghini-front.jpg"
-                 alt="Lamborghini"
-                 onclick="showCar('lamborghini')">
-
-            <h3>Lamborghini</h3>
-            <p>₹15000 / Day</p>
-
-            <p>
-                ❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>
-                🚀 325 km/h &nbsp; ⚙️ Automatic
-            </p>
-
-            <button class="view-details"
-                    onclick="showCar('lamborghini')">
-                View Details
-            </button>
-
-            <br><br>
-
-            <a href="book.html" class="btn">Book Now</a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CAR DETAILS POPUP ================= -->
-
-<div id="carModal" class="car-modal">
-
-    <div class="car-modal-content">
-
-        <button class="close-btn" onclick="closeCar()">×</button>
-
-        <h2 id="carTitle"></h2>
-
-        <p id="carDescription"></p>
-
-        <div class="car-features" id="carFeatures"></div>
-
-        <h3>Interior & Dashboard</h3>
-
-        <div class="car-gallery">
-
-            <img id="carFront" src="" alt="Car Front">
-
-            <img id="carInterior" src="" alt="Car Interior">
-
-            <img id="carDashboard" src="" alt="Car Dashboard">
-
-        </div>
-
-        <br>
-
-        <a href="book.html" class="btn">Book This Car</a>
-
-    </div>
-
-</div>
-
-
-<!-- ================= CAR JAVASCRIPT ================= -->
-
-<script>
-
-function showCar(car) {
-
-    const modal = document.getElementById("carModal");
-
-    const title = document.getElementById("carTitle");
-    const description = document.getElementById("carDescription");
-    const features = document.getElementById("carFeatures");
-
-    const front = document.getElementById("carFront");
-    const interior = document.getElementById("carInterior");
-    const dashboard = document.getElementById("carDashboard");
-
-
-    if (car === "thar") {
-
-        title.innerText = "Mahindra Thar";
-
-        description.innerText =
-        "Mahindra Thar is a powerful SUV with comfortable interior, modern dashboard and excellent performance.";
-
-        features.innerHTML =
-        "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>" +
-        "🚀 155 km/h &nbsp; ⚙️ Manual<br>" +
-        "💰 ₹3500 / Day";
-
-        front.src = "images/Thar-front.jpg";
-        interior.src = "images/Thar-interior.jpg";
-        dashboard.src = "images/Thar-dashboard.jpg";
-    }
-
-
-    if (car === "bmw") {
-
-        title.innerText = "BMW X5";
-
-        description.innerText =
-        "BMW X5 is a premium luxury SUV with advanced technology, comfortable seats and digital features.";
-
-        features.innerHTML =
-        "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>" +
-        "🚀 243 km/h &nbsp; ⚙️ Automatic<br>" +
-        "💰 ₹7000 / Day";
-
-        front.src = "images/bmw-front.jpg";
-        interior.src = "images/bmw-interior.jpg";
-
-        dashboard.style.display = "none";
-    }
-
-
-    if (car === "scorpio") {
-
-        title.innerText = "Scorpio N";
-
-        description.innerText =
-        "Scorpio N is a spacious SUV with comfortable seating, modern interior and powerful performance.";
-
-        features.innerHTML =
-        "❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>" +
-        "🚀 165 km/h &nbsp; ⚙️ Automatic<br>" +
-        "💰 ₹4000 / Day";
-
-        front.src = "images/scorpio-front.jpg";
-        interior.src = "images/scorpio-interior.jpg";
-        dashboard.src = "images/scorpio-dashboard.jpg";
-
-        dashboard.style.display = "block";
-    }
-
-
-    if (car === "lamborghini") {
-
-        title.innerText = "Lamborghini";
-
-        description.innerText =
-        "Lamborghini is a high-performance sports car with a premium luxury interior and advanced digital features.";
-
-        features.innerHTML =
-        "❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>" +
-        "🚀 325 km/h &nbsp; ⚙️ Automatic<br>" +
-        "💰 ₹15000 / Day";
-
-        front.src = "images/lamborghini-front.jpg";
-        interior.src = "images/lamborghini-interior.jpg";
-
-        dashboard.style.display = "none";
-    }
-
-
-    modal.style.display = "flex";
-}
-
-
-function closeCar() {
-
-    document.getElementById("carModal").style.display = "none";
-
-}
-
-</script>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
-    <h2>About Us</h2>
-
-    <p>
-        DriveEasy is a trusted car rental service offering premium,
-        comfortable and affordable cars for every journey.
-    </p>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact">
-
-    <h2>Contact Us</h2>
-
-    <p>Email: driveeasy@gmail.com</p>
-
-    <p>Phone: +91 98765 43210</p>
-
-    <p>Address: Chandigarh, India</p>
-
-</section>
-
-
-<script src="script.js"></script>
-
-</body>
-</html>            Search Car
+        <button type="submit">
+            Search Car
         </button>
 
     </form>
@@ -671,7 +198,7 @@ function closeCar() {
 </section>
 
 
-<!-- ================= CARS ================= -->
+<!-- ================= AVAILABLE CARS ================= -->
 
 <section id="cars">
 
@@ -683,8 +210,7 @@ function closeCar() {
         <!-- ================= THAR ================= -->
 
         <div class="car-card"
-             onclick="showCar('thar')"
-             style="cursor:pointer;">
+             onclick="showCar('thar')">
 
             <img
                 src="images/Thar-front.jpg"
@@ -695,29 +221,31 @@ function closeCar() {
 
             <p>₹3500 / Day</p>
 
-            <div class="car-features">
-
-                <span>❄️ AC</span>
-                <span>👥 5 Seats</span>
-                <span>⛽ Diesel</span>
-                <span>⚙️ Manual</span>
-                <span>🚀 155 km/h</span>
-
-            </div>
-
-            <div class="car-description">
-
-                Premium interior with comfortable seats,
-                touchscreen infotainment and modern dashboard.
-
-            </div>
+            <p>
+                ❄️ AC &nbsp;
+                👥 5 Seats &nbsp;
+                ⛽ Diesel
+                <br>
+                🚀 155 km/h &nbsp;
+                ⚙️ Manual
+            </p>
 
             <button
+                class="view-details"
+                onclick="event.stopPropagation(); showCar('thar')"
+            >
+                View Details
+            </button>
+
+            <br><br>
+
+            <a
+                href="book.html"
                 class="btn"
-                onclick="event.stopPropagation(); window.location.href='book.html';"
+                onclick="event.stopPropagation();"
             >
                 Book Now
-            </button>
+            </a>
 
         </div>
 
@@ -725,11 +253,10 @@ function closeCar() {
         <!-- ================= BMW ================= -->
 
         <div class="car-card"
-             onclick="showCar('bmw')"
-             style="cursor:pointer;">
+             onclick="showCar('bmw')">
 
             <img
-                src="images/bmw.jpg"
+                src="images/bmw-front.jpg"
                 alt="BMW X5"
             >
 
@@ -737,29 +264,31 @@ function closeCar() {
 
             <p>₹7000 / Day</p>
 
-            <div class="car-features">
-
-                <span>❄️ AC</span>
-                <span>👥 5 Seats</span>
-                <span>⛽ Petrol</span>
-                <span>⚙️ Automatic</span>
-                <span>🚀 243 km/h</span>
-
-            </div>
-
-            <div class="car-description">
-
-                Luxury interior with digital dashboard,
-                premium seats and advanced infotainment system.
-
-            </div>
+            <p>
+                ❄️ AC &nbsp;
+                👥 5 Seats &nbsp;
+                ⛽ Petrol
+                <br>
+                🚀 243 km/h &nbsp;
+                ⚙️ Automatic
+            </p>
 
             <button
+                class="view-details"
+                onclick="event.stopPropagation(); showCar('bmw')"
+            >
+                View Details
+            </button>
+
+            <br><br>
+
+            <a
+                href="book.html"
                 class="btn"
-                onclick="event.stopPropagation(); window.location.href='book.html';"
+                onclick="event.stopPropagation();"
             >
                 Book Now
-            </button>
+            </a>
 
         </div>
 
@@ -767,11 +296,10 @@ function closeCar() {
         <!-- ================= SCORPIO ================= -->
 
         <div class="car-card"
-             onclick="showCar('scorpio')"
-             style="cursor:pointer;">
+             onclick="showCar('scorpio')">
 
             <img
-                src="images/scorpio.jpg"
+                src="images/scorpio-front.jpg"
                 alt="Scorpio N"
             >
 
@@ -779,29 +307,31 @@ function closeCar() {
 
             <p>₹4000 / Day</p>
 
-            <div class="car-features">
-
-                <span>❄️ AC</span>
-                <span>👥 7 Seats</span>
-                <span>⛽ Diesel</span>
-                <span>⚙️ Automatic</span>
-                <span>🚀 165 km/h</span>
-
-            </div>
-
-            <div class="car-description">
-
-                Spacious interior with comfortable seating,
-                modern dashboard and touchscreen system.
-
-            </div>
+            <p>
+                ❄️ AC &nbsp;
+                👥 7 Seats &nbsp;
+                ⛽ Diesel
+                <br>
+                🚀 165 km/h &nbsp;
+                ⚙️ Automatic
+            </p>
 
             <button
+                class="view-details"
+                onclick="event.stopPropagation(); showCar('scorpio')"
+            >
+                View Details
+            </button>
+
+            <br><br>
+
+            <a
+                href="book.html"
                 class="btn"
-                onclick="event.stopPropagation(); window.location.href='book.html';"
+                onclick="event.stopPropagation();"
             >
                 Book Now
-            </button>
+            </a>
 
         </div>
 
@@ -809,11 +339,10 @@ function closeCar() {
         <!-- ================= LAMBORGHINI ================= -->
 
         <div class="car-card"
-             onclick="showCar('lamborghini')"
-             style="cursor:pointer;">
+             onclick="showCar('lamborghini')">
 
             <img
-                src="images/lamborghini.jpg"
+                src="images/lamborghini-front.jpg"
                 alt="Lamborghini"
             >
 
@@ -821,30 +350,32 @@ function closeCar() {
 
             <p>₹15000 / Day</p>
 
-            <div class="car-features">
-
-                <span>❄️ AC</span>
-                <span>👥 2 Seats</span>
-                <span>⛽ Petrol</span>
-                <span>⚙️ Automatic</span>
-                <span>🚀 325 km/h</span>
-
-            </div>
-
-            <div class="car-description">
-
-                Premium luxury interior with sporty seats,
-                digital dashboard and advanced infotainment system.
-
-            </div>
+            <p>
+                ❄️ AC &nbsp;
+                👥 2 Seats &nbsp;
+                ⛽ Petrol
+                <br>
+                🚀 325 km/h &nbsp;
+                ⚙️ Automatic
+            </p>
 
             <button
-                class="btn"
-                onclick="event.stopPropagation(); window.location.href='book.html';"
+                class="view-details"
+                onclick="event.stopPropagation(); showCar('lamborghini')"
             >
-                Book Now
+                View Details
             </button>
 
+            <br><br>
+
+            <a
+                href="book.html"
+                class="btn"
+                onclick="event.stopPropagation();"
+            >
+                Book Now
+            </a>
+
         </div>
 
     </div>
@@ -853,332 +384,239 @@ function closeCar() {
 
 
 <!-- ================================================= -->
-<!-- ================= THAR DETAILS ================== -->
+<!-- ================= CAR POPUP ===================== -->
 <!-- ================================================= -->
 
-<section id="thar" class="car-details">
+<div id="carModal" class="car-modal">
 
-    <div class="car-details-main">
+    <div class="car-modal-content">
 
-        <h2>Mahindra Thar</h2>
-
-        <img
-            src="images/Thar-front.jpg"
-            alt="Mahindra Thar"
+        <button
+            class="close-btn"
+            onclick="closeCar()"
         >
+            ×
+        </button>
 
-        <div class="details-info">
 
-            <p>
-                <strong>Price:</strong>
-                ₹3500 / Day
-            </p>
+        <h2 id="carTitle"></h2>
 
-            <p>
-                <strong>AC:</strong>
-                Yes
-            </p>
 
-            <p>
-                <strong>Seats:</strong>
-                5
-            </p>
+        <p id="carDescription"></p>
 
-            <p>
-                <strong>Fuel:</strong>
-                Diesel
-            </p>
 
-            <p>
-                <strong>Transmission:</strong>
-                Manual
-            </p>
-
-            <p>
-                <strong>Top Speed:</strong>
-                155 km/h
-            </            <img
-                src="images/Thar-front.jpg"
-                src="images/Thar-interior.jpg"
-                src="images/Thar-dashboard.jpg"
-                alt="Mahindra Thar"
-            >
-
-            <h3>Mahindra Thar</h3>
-
-            <p class="price">
-                ₹3500 / Day
-            </p>
-
-            <div class="car-features">
-
-                <span>❄️ AC</span>
-                <span>👥 5 Seats</span>
-                <span>⛽ Diesel</span>
-                <span>⚙️ Manual</span>
-                <span>🚀 155 km/h</span>
-                <span>📱 Touchscreen</span>
-
-            </div>
-
-            <div class="car-info">
-
-                <h4>Interior & Dashboard</h4>
-
-                <p>
-                    Premium interior with comfortable seats,
-                    touchscreen infotainment and modern dashboard.
-                </p>
-
-            </div>
-
-            <a href="book.html" class="btn">
-                Book Now
-            </a>
-
+        <div
+            class="car-features"
+            id="carFeatures">
         </div>
 
 
-        <!-- BMW X5 -->
+        <h3>
+            Interior & Dashboard
+        </h3>
 
-        <div class="car-card">
+
+        <div class="car-gallery">
 
             <img
-                src="images/bmw-front.jpg"
-                src="images/bmw-interior.jpg
-                alt="BMW X5"
+                id="carFront"
+                src=""
+                alt="Car Front"
             >
-
-            <h3>BMW X5</h3>
-
-            <p class="price">
-                ₹7000 / Day
-            </p>
-
-            <div class="car-features">
-
-                <span>❄️ AC</span>
-                <span>👥 5 Seats</span>
-                <span>⛽ Petrol</span>
-                <span>⚙️ Automatic</span>
-                <span>🚀 243 km/h</span>
-                <span>📱 Digital Display</span>
-
-            </div>
-
-            <div class="car-info">
-
-                <h4>Interior & Dashboard</h4>
-
-                <p>
-                    Luxury interior with digital dashboard,
-                    premium seats and advanced infotainment system.
-                </p>
-
-            </div>
-
-            <a href="book.html" class="btn">
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- SCORPIO N -->
-
-        <div class="car-card">
 
             <img
-                src="images/scorpio-front.jpg"
-                src="images/scorpio-interior.jpg"
-                src="images/bmw-dashboard.jpg"
-                alt="Scorpio N"
+                id="carInterior"
+                src=""
+                alt="Car Interior"
             >
 
-            <h3>Scorpio N</h3>
-
-            <p class="price">
-                ₹4000 / Day
-            </p>
-
-            <div class="car-features">
-
-                <span>❄️ AC</span>
-                <span>👥 7 Seats</span>
-                <span>⛽ Diesel</span>
-                <span>⚙️ Automatic</span>
-                <span>🚀 165 km/h</span>
-                <span>📱 Touchscreen</span>
-
-            </div>
-
-            <div class="car-info">
-
-                <h4>Interior & Dashboard</h4>
-
-                <p>
-                    Spacious interior with comfortable seating,
-                    modern dashboard and touchscreen system.
-                </p>
-
-            </div>
-
-            <a href="book.html" class="btn">
-                Book Now
-            </a>
+            <img
+                id="carDashboard"
+                src=""
+                alt="Car Dashboard"
+            >
 
         </div>
-        <!-- LAMBORGHINI -->
-
-<div class="car-card">
-
-<!-- Cars Section -->
-
-<section id="cars">
-
-    <h2>Available Cars</h2>
-
-    <div class="car-container">
-
-        <!-- THAR -->
-        <details class="car-card">
-            <summary>
-                <img src="images/Thar-front.jpg" alt="Mahindra Thar">
-                <h3>Mahindra Thar</h3>
-                <p>₹3500 / Day</p>
-                <span class="view-details">Click Image / Name for Details</span>
-            </summary>
-
-            <div class="car-details">
-                <h2>Mahindra Thar</h2>
-
-                <p>❄️ AC &nbsp; 💺 5 Seats &nbsp; ⛽ Diesel</p>
-                <p>⚙️ Manual &nbsp; 🚗 155 km/h</p>
-                <p>📱 Touchscreen Dashboard</p>
-
-                <h3>Features</h3>
-                <p>
-                    Premium interior, comfortable seats,
-                    touchscreen infotainment, powerful engine
-                    and modern dashboard.
-                </p>
-
-                <h3>Interior & Dashboard</h3>
-
-                <div class="inside-images">
-                    <img src="images/thar-interior.jpg" alt="Thar Interior">
-                    <img src="images/thar-dashboard.jpg" alt="Thar Dashboard">
-                </div>
-
-                <a href="book.html" class="btn">Book Now</a>
-            </div>
-        </details>
 
 
-        <!-- BMW -->
-        <details class="car-card">
-            <summary>
-                <img src="images/bmw.jpg" alt="BMW X5">
-                <h3>BMW X5</h3>
-                <p>₹7000 / Day</p>
-                <span class="view-details">Click Image / Name for Details</span>
-            </summary>
-
-            <div class="car-details">
-                <h2>BMW X5</h2>
-
-                <p>❄️ AC &nbsp; 💺 5 Seats &nbsp; ⛽ Petrol</p>
-                <p>⚙️ Automatic &nbsp; 🚗 243 km/h</p>
-                <p>📱 Digital Dashboard</p>
-
-                <h3>Features</h3>
-                <p>
-                    Luxury interior, premium seats,
-                    digital dashboard and advanced infotainment system.
-                </p>
-
-                <h3>Interior & Dashboard</h3>
-
-                <div class="inside-images">
-                    <img src="images/bmw-interior.jpg" alt="BMW Interior">
-                    <img src="images/bmw-dashboard.jpg" alt="BMW Dashboard">
-                </div>
-
-                <a href="book.html" class="btn">Book Now</a>
-            </div>
-        </details>
+        <br>
 
 
-        <!-- SCORPIO -->
-        <details class="car-card">
-            <summary>
-                <img src="images/scorpio.jpg" alt="Scorpio N">
-                <h3>Scorpio N</h3>
-                <p>₹4000 / Day</p>
-                <span class="view-details">Click Image / Name for Details</span>
-            </summary>
-
-            <div class="car-details">
-                <h2>Scorpio N</h2>
-
-                <p>❄️ AC &nbsp; 💺 7 Seats &nbsp; ⛽ Diesel</p>
-                <p>⚙️ Automatic &nbsp; 🚗 165 km/h</p>
-                <p>📱 Touchscreen Dashboard</p>
-
-                <h3>Features</h3>
-                <p>
-                    Spacious interior, comfortable seating,
-                    modern dashboard and touchscreen system.
-                </p>
-
-                <h3>Interior & Dashboard</h3>
-
-                <div class="inside-images">
-                    <img src="images/scorpio-interior.jpg" alt="Scorpio Interior">
-                    <img src="images/scorpio-dashboard.jpg" alt="Scorpio Dashboard">
-                </div>
-
-                <a href="book.html" class="btn">Book Now</a>
-            </div>
-        </details>
-
-
-        <!-- LAMBORGHINI -->
-        <details class="car-card">
-            <summary>
-                <img src="images/lamborghini.jpg" alt="Lamborghini">
-                <h3>Lamborghini</h3>
-                <p>₹15000 / Day</p>
-                <span class="view-details">Click Image / Name for Details</span>
-            </summary>
-
-            <div class="car-details">
-                <h2>Lamborghini</h2>
-
-                <p>❄️ AC &nbsp; 💺 2 Seats &nbsp; ⛽ Petrol</p>
-                <p>⚙️ Automatic &nbsp; 🚗 325 km/h</p>
-                <p>📱 Digital Dashboard</p>
-
-                <h3>Features</h3>
-                <p>
-                    Premium luxury interior, sporty seats,
-                    digital dashboard and advanced infotainment system.
-                </p>
-
-                <h3>Interior & Dashboard</h3>
-
-                <div class="inside-images">
-                    <img src="images/lamborghini-interior.jpg" alt="Lamborghini Interior">
-                    <img src="images/lamborghini-dashboard.jpg" alt="Lamborghini Dashboard">
-                </div>
-
-                <a href="book.html" class="btn">Book Now</a>
-            </div>
-        </details>
+        <a
+            href="book.html"
+            class="btn"
+        >
+            Book This Car
+        </a>
 
     </div>
 
-</section>
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function showCar(car) {
+
+    const modal =
+        document.getElementById("carModal");
+
+    const title =
+        document.getElementById("carTitle");
+
+    const description =
+        document.getElementById("carDescription");
+
+    const features =
+        document.getElementById("carFeatures");
+
+    const front =
+        document.getElementById("carFront");
+
+    const interior =
+        document.getElementById("carInterior");
+
+    const dashboard =
+        document.getElementById("carDashboard");
+
+
+    /* Reset dashboard every time */
+
+    dashboard.style.display = "block";
+
+
+    /* ================= THAR ================= */
+
+    if (car === "thar") {
+
+        title.innerText = "Mahindra Thar";
+
+        description.innerText =
+            "Mahindra Thar is a powerful SUV with comfortable interior, modern dashboard and excellent performance.";
+
+        features.innerHTML =
+            "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>" +
+            "🚀 155 km/h &nbsp; ⚙️ Manual<br>" +
+            "💰 ₹3500 / Day";
+
+        front.src =
+            "images/Thar-front.jpg";
+
+        interior.src =
+            "images/Thar-interior.jpg";
+
+        dashboard.src =
+            "images/Thar-dashboard.jpg";
+    }
+
+
+    /* ================= BMW ================= */
+
+    if (car === "bmw") {
+
+        title.innerText = "BMW X5";
+
+        description.innerText =
+            "BMW X5 is a premium luxury SUV with advanced technology, comfortable seats and digital features.";
+
+        features.innerHTML =
+            "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>" +
+            "🚀 243 km/h &nbsp; ⚙️ Automatic<br>" +
+            "💰 ₹7000 / Day";
+
+        front.src =
+            "images/bmw-front.jpg";
+
+        interior.src =
+            "images/bmw-interior.jpg";
+
+        dashboard.src =
+            "images/bmw-dashboard.jpg";
+    }
+
+
+    /* ================= SCORPIO ================= */
+
+    if (car === "scorpio") {
+
+        title.innerText = "Scorpio N";
+
+        description.innerText =
+            "Scorpio N is a spacious SUV with comfortable seating, modern interior and powerful performance.";
+
+        features.innerHTML =
+            "❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>" +
+            "🚀 165 km/h &nbsp; ⚙️ Automatic<br>" +
+            "💰 ₹4000 / Day";
+
+        front.src =
+            "images/scorpio-front.jpg";
+
+        interior.src =
+            "images/scorpio-interior.jpg";
+
+        dashboard.src =
+            "images/scorpio-dashboard.jpg";
+    }
+
+
+    /* ================= LAMBORGHINI ================= */
+
+    if (car === "lamborghini") {
+
+        title.innerText = "Lamborghini";
+
+        description.innerText =
+            "Lamborghini is a high-performance sports car with a premium luxury interior and advanced digital features.";
+
+        features.innerHTML =
+            "❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>" +
+            "🚀 325 km/h &nbsp; ⚙️ Automatic<br>" +
+            "💰 ₹15000 / Day";
+
+        front.src =
+            "images/lamborghini-front.jpg";
+
+        interior.src =
+            "images/lamborghini-interior.jpg";
+
+        dashboard.src =
+            "images/lamborghini-dashboard.jpg";
+    }
+
+
+    /* OPEN POPUP */
+
+    modal.style.display = "flex";
+}
+
+
+/* ================= CLOSE POPUP ================= */
+
+function closeCar() {
+
+    document.getElementById("carModal").style.display =
+        "none";
+
+}
+
+
+/* Close popup by clicking outside */
+
+document.getElementById("carModal").addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === this) {
+            closeCar();
+        }
+
+    }
+);
+
+</script>
 
 
 <!-- ================= ABOUT ================= -->
@@ -1188,8 +626,9 @@ function closeCar() {
     <h2>About Us</h2>
 
     <p>
-        DriveEasy is a trusted car rental service offering
-        premium, comfortable and affordable cars for every journey.
+        DriveEasy is a trusted car rental service
+        offering premium, comfortable and affordable
+        cars for every journey.
     </p>
 
 </section>
@@ -1201,51 +640,22 @@ function closeCar() {
 
     <h2>Contact Us</h2>
 
-    <p>Email: driveeasy@gmail.com</p>
-
-    <p>Phone: +91 98765 43210</p>
-
-    <p>Address: Chandigarh, India</p>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
     <p>
-        © 2026 DriveEasy Car Rental. All Rights Reserved.
+        Email: driveeasy@gmail.com
     </p>
 
-</footer>
+    <p>
+        Phone: +91 98765 43210
+    </p>
+
+    <p>
+        Address: Chandigarh, India
+    </p>
+
+</section>
 
 
 <script src="script.js"></script>
 
-</body>
-</html>        <p>₹4000 / Day</p>
-        <a href="book.html" class="btn">Book Now</a>
-    </div>
-
-    </div>
-</section>
-    <!-- About Section -->
-<section id="about">
-    <h2>About Us</h2>
-    <p>
-        DriveEasy is a trusted car rental service offering premium,
-        comfortable and affordable cars for every journey.
-    </p>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: driveeasy@gmail.com</p>
-    <p>Phone: +91 98765 43210</p>
-    <p>Address: Chandigarh, India</p>
-</section>
-<script src="script.js"></script>
 </body>
 </html>
