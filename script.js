@@ -1,97 +1,66 @@
-// Smooth Scroll
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
+// ===============================
+// DRIVE EASY - FINAL JAVASCRIPT
+// ===============================
 
-        const target = document.querySelector(this.getAttribute('href'));
+// Search Car
+const searchForm = document.querySelector(".search form");
 
-        if(target){
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
+if (searchForm) {
+    searchForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        alert("Car search feature is ready! 🚗");
     });
-});
+}
 
-// Rent Now Button
-document.querySelectorAll(".car-card button").forEach(button => {
 
-    button.addEventListener("click", function(){
-
-        alert("🚗 Thank You!\n\nYour booking request has been received.\nOur team will contact you shortly.");
-
-    });
-
-});
-
+// ===============================
 // Booking Form
-const form = document.querySelector("form");
+// ===============================
 
-if(form){
+const bookingForm = document.querySelector(".booking-form");
 
-form.addEventListener("submit", function(e){
+if (bookingForm) {
 
-    e.preventDefault();
+    bookingForm.addEventListener("submit", function(event) {
 
-    alert("✅ Booking Submitted Successfully!");
+        event.preventDefault();
 
-    form.reset();
+        const name = document.getElementById("name").value;
+        const car = document.getElementById("car").value;
+        const pickup = document.getElementById("pickup").value;
+        const returnDate = document.getElementById("returnDate").value;
+
+        if (returnDate < pickup) {
+            alert("Return date cannot be before pickup date.");
+            return;
+        }
+
+        alert(
+            "🎉 Booking Confirmed!\n\n" +
+            "Name: " + name + "\n" +
+            "Car: " + car + "\n" +
+            "Pickup Date: " + pickup + "\n" +
+            "Return Date: " + returnDate
+        );
+    });
+}
+
+
+// ===============================
+// Button Animation
+// ===============================
+
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+        button.style.transform = "scale(0.95)";
+
+        setTimeout(function() {
+            button.style.transform = "";
+        }, 150);
+    });
 
 });
-
-}
-
-// Navbar Background Change
-window.addEventListener("scroll", function(){
-
-const header = document.querySelector("header");
-
-if(window.scrollY > 50){
-
-header.style.background="#000";
-
-header.style.boxShadow="0 3px 15px rgba(0,0,0,.5)";
-
-}else{
-
-header.style.background="#111";
-
-header.style.boxShadow="none";
-
-}
-
-});
-
-// Hero Button Animation
-const heroBtn=document.querySelector(".btn");
-
-if(heroBtn){
-
-setInterval(()=>{
-
-heroBtn.style.transform="scale(1.05)";
-
-setTimeout(()=>{
-
-heroBtn.style.transform="scale(1)";
-
-},500);
-
-},1500);
-
-}
-
-// Search Button
-const searchBtn=document.querySelector(".search button");
-
-if(searchBtn){
-
-searchBtn.addEventListener("click",function(e){
-
-e.preventDefault();
-
-alert("🔍 Searching Available Cars...");
-
-});
-
-}
