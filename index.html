@@ -1,48 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>DriveEasy Car Rental</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Car Details */
+        .car-details {
+            background: white;
+            margin: 30px auto;
+            padding: 30px;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .car-details h2 {
+            margin-bottom: 15px;
+        }
+
+        .details-info {
+            margin: 15px 0;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .detail-images {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .detail-images img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .car-card {
+            cursor: pointer;
+        }
+
+        .view-details {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 18px;
+            background: #222;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .view-details:hover {
+            background: #ff3c00;
+        }
+    </style>
 </head>
 
 <body>
 
 <!-- ================= HEADER ================= -->
 
-<header>
+<header class="navbar">
 
     <div class="logo">
         <a href="index.html">DriveEasy</a>
     </div>
 
     <nav>
-        <ul>
-
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#cars">Cars</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-
-            <li>
-                <a href="book.html" class="book-btn">Book Now</a>
-            </li>
-
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#cars">Cars</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="book.html" class="book-btn">Book Now</a></li>
         </ul>
     </nav>
 
@@ -62,9 +100,7 @@
             Safe, Comfortable and Reliable rides.
         </p>
 
-        <a href="#cars" class="btn">
-            Explore Cars
-        </a>
+        <a href="#cars" class="btn">Explore Cars</a>
 
     </div>
 
@@ -73,7 +109,7 @@
 
 <!-- ================= SEARCH ================= -->
 
-<section id="search" class="search">
+<section class="search">
 
     <h2>Find Your Car</h2>
 
@@ -95,16 +131,317 @@
 
         <select>
             <option>Price Per Day</option>
-            <option>₹1500</option>
-            <option>₹2500</option>
             <option>₹3500</option>
             <option>₹4000</option>
             <option>₹7000</option>
             <option>₹15000</option>
         </select>
 
-        <button type="submit">
-            Search Car
+        <button type="submit">Search Car</button>
+
+    </form>
+
+</section>
+
+
+<!-- ================= CARS ================= -->
+
+<section id="cars">
+
+    <h2>Available Cars</h2>
+
+    <div class="car-container">
+
+
+        <!-- ========== THAR ========== -->
+
+        <div class="car-card">
+
+            <a href="#thar-details">
+                <img src="images/Thar-front.jpg" alt="Mahindra Thar">
+            </a>
+
+            <h3>Mahindra Thar</h3>
+
+            <p>₹3500 / Day</p>
+
+            <p>
+                ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>
+                🚀 155 km/h &nbsp; ⚙️ Manual
+            </p>
+
+            <a href="#thar-details" class="view-details">
+                View Details
+            </a>
+
+            <br>
+
+            <a href="book.html" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- ========== BMW ========== -->
+
+        <div class="car-card">
+
+            <a href="#bmw-details">
+                <img src="images/bmw-front.jpg" alt="BMW X5">
+            </a>
+
+            <h3>BMW X5</h3>
+
+            <p>₹7000 / Day</p>
+
+            <p>
+                ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>
+                🚀 243 km/h &nbsp; ⚙️ Automatic
+            </p>
+
+            <a href="#bmw-details" class="view-details">
+                View Details
+            </a>
+
+            <br>
+
+            <a href="book.html" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- ========== SCORPIO ========== -->
+
+        <div class="car-card">
+
+            <a href="#scorpio-details">
+                <img src="images/scorpio-front.jpg" alt="Scorpio N">
+            </a>
+
+            <h3>Scorpio N</h3>
+
+            <p>₹4000 / Day</p>
+
+            <p>
+                ❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>
+                🚀 165 km/h &nbsp; ⚙️ Automatic
+            </p>
+
+            <a href="#scorpio-details" class="view-details">
+                View Details
+            </a>
+
+            <br>
+
+            <a href="book.html" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- ========== LAMBORGHINI ========== -->
+
+        <div class="car-card">
+
+            <a href="#lamborghini-details">
+                <img src="images/lamborghini-front.jpg" alt="Lamborghini">
+            </a>
+
+            <h3>Lamborghini</h3>
+
+            <p>₹15000 / Day</p>
+
+            <p>
+                ❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>
+                🚀 325 km/h &nbsp; ⚙️ Automatic
+            </p>
+
+            <a href="#lamborghini-details" class="view-details">
+                View Details
+            </a>
+
+            <br>
+
+            <a href="book.html" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= THAR DETAILS ================= -->
+
+<section id="thar-details" class="car-details">
+
+    <h2>Mahindra Thar</h2>
+
+    <p class="details-info">
+        Premium and powerful SUV perfect for adventure and long journeys.
+    </p>
+
+    <p class="details-info">
+        ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>
+        ⚙️ Manual Transmission &nbsp; 🚀 155 km/h
+    </p>
+
+    <h3>Interior & Dashboard</h3>
+
+    <div class="detail-images">
+
+        <img src="images/Thar-front.jpg" alt="Thar Front">
+
+        <img src="images/Thar-interior.jpg" alt="Thar Interior">
+
+        <img src="images/Thar-dashboard.jpg" alt="Thar Dashboard">
+
+    </div>
+
+    <br>
+
+    <a href="book.html" class="btn">Book Thar</a>
+
+</section>
+
+
+<!-- ================= BMW DETAILS ================= -->
+
+<section id="bmw-details" class="car-details">
+
+    <h2>BMW X5</h2>
+
+    <p class="details-info">
+        Luxury SUV with premium comfort, advanced technology and powerful performance.
+    </p>
+
+    <p class="details-info">
+        ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>
+        ⚙️ Automatic Transmission &nbsp; 🚀 243 km/h
+    </p>
+
+    <h3>Interior & Dashboard</h3>
+
+    <div class="detail-images">
+
+        <img src="images/bmw-front.jpg" alt="BMW Front">
+
+        <img src="images/bmw-interior.jpg" alt="BMW Interior">
+
+    </div>
+
+    <br>
+
+    <a href="book.html" class="btn">Book BMW</a>
+
+</section>
+
+
+<!-- ================= SCORPIO DETAILS ================= -->
+
+<section id="scorpio-details" class="car-details">
+
+    <h2>Scorpio N</h2>
+
+    <p class="details-info">
+        Spacious SUV with comfortable seating and modern dashboard.
+    </p>
+
+    <p class="details-info">
+        ❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>
+        ⚙️ Automatic Transmission &nbsp; 🚀 165 km/h
+    </p>
+
+    <h3>Interior & Dashboard</h3>
+
+    <div class="detail-images">
+
+        <img src="images/scorpio-front.jpg" alt="Scorpio Front">
+
+        <img src="images/scorpio-interior.jpg" alt="Scorpio Interior">
+
+        <img src="images/scorpio-dashboard.jpg" alt="Scorpio Dashboard">
+
+    </div>
+
+    <br>
+
+    <a href="book.html" class="btn">Book Scorpio</a>
+
+</section>
+
+
+<!-- ================= LAMBORGHINI DETAILS ================= -->
+
+<section id="lamborghini-details" class="car-details">
+
+    <h2>Lamborghini</h2>
+
+    <p class="details-info">
+        Premium sports car with luxury interior and high-performance driving experience.
+    </p>
+
+    <p class="details-info">
+        ❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>
+        ⚙️ Automatic Transmission &nbsp; 🚀 325 km/h
+    </p>
+
+    <h3>Interior</h3>
+
+    <div class="detail-images">
+
+        <img src="images/lamborghini-front.jpg" alt="Lamborghini Front">
+
+        <img src="images/lamborghini-interior.jpg" alt="Lamborghini Interior">
+
+    </div>
+
+    <br>
+
+    <a href="book.html" class="btn">Book Lamborghini</a>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <h2>About Us</h2>
+
+    <p>
+        DriveEasy is a trusted car rental service offering premium,
+        comfortable and affordable cars for every journey.
+    </p>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>Email: driveeasy@gmail.com</p>
+
+    <p>Phone: +91 98765 43210</p>
+
+    <p>Address: Chandigarh, India</p>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>            Search Car
         </button>
 
     </form>
