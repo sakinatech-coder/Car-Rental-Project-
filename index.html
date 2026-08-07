@@ -370,43 +370,265 @@
 
     </div>
 
-    <br>
+<!-- ================= CARS ================= -->
 
-    <a href="book.html" class="btn">Book Scorpio</a>
+<section id="cars">
 
-</section>
+    <h2>Available Cars</h2>
+
+    <div class="car-container">
+
+        <!-- THAR -->
+        <div class="car-card">
+
+            <img src="images/Thar-front.jpg"
+                 alt="Mahindra Thar"
+                 onclick="showCar('thar')">
+
+            <h3>Mahindra Thar</h3>
+            <p>₹3500 / Day</p>
+
+            <p>
+                ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>
+                🚀 155 km/h &nbsp; ⚙️ Manual
+            </p>
+
+            <button class="view-details"
+                    onclick="showCar('thar')">
+                View Details
+            </button>
+
+            <br><br>
+
+            <a href="book.html" class="btn">Book Now</a>
+
+        </div>
 
 
-<!-- ================= LAMBORGHINI DETAILS ================= -->
+        <!-- BMW -->
+        <div class="car-card">
 
-<section id="lamborghini-details" class="car-details">
+            <img src="images/bmw-front.jpg"
+                 alt="BMW X5"
+                 onclick="showCar('bmw')">
 
-    <h2>Lamborghini</h2>
+            <h3>BMW X5</h3>
+            <p>₹7000 / Day</p>
 
-    <p class="details-info">
-        Premium sports car with luxury interior and high-performance driving experience.
-    </p>
+            <p>
+                ❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>
+                🚀 243 km/h &nbsp; ⚙️ Automatic
+            </p>
 
-    <p class="details-info">
-        ❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>
-        ⚙️ Automatic Transmission &nbsp; 🚀 325 km/h
-    </p>
+            <button class="view-details"
+                    onclick="showCar('bmw')">
+                View Details
+            </button>
 
-    <h3>Interior</h3>
+            <br><br>
 
-    <div class="detail-images">
+            <a href="book.html" class="btn">Book Now</a>
 
-        <img src="images/lamborghini-front.jpg" alt="Lamborghini Front">
+        </div>
 
-        <img src="images/lamborghini-interior.jpg" alt="Lamborghini Interior">
+
+        <!-- SCORPIO -->
+        <div class="car-card">
+
+            <img src="images/scorpio-front.jpg"
+                 alt="Scorpio N"
+                 onclick="showCar('scorpio')">
+
+            <h3>Scorpio N</h3>
+            <p>₹4000 / Day</p>
+
+            <p>
+                ❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>
+                🚀 165 km/h &nbsp; ⚙️ Automatic
+            </p>
+
+            <button class="view-details"
+                    onclick="showCar('scorpio')">
+                View Details
+            </button>
+
+            <br><br>
+
+            <a href="book.html" class="btn">Book Now</a>
+
+        </div>
+
+
+        <!-- LAMBORGHINI -->
+        <div class="car-card">
+
+            <img src="images/lamborghini-front.jpg"
+                 alt="Lamborghini"
+                 onclick="showCar('lamborghini')">
+
+            <h3>Lamborghini</h3>
+            <p>₹15000 / Day</p>
+
+            <p>
+                ❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>
+                🚀 325 km/h &nbsp; ⚙️ Automatic
+            </p>
+
+            <button class="view-details"
+                    onclick="showCar('lamborghini')">
+                View Details
+            </button>
+
+            <br><br>
+
+            <a href="book.html" class="btn">Book Now</a>
+
+        </div>
 
     </div>
 
-    <br>
-
-    <a href="book.html" class="btn">Book Lamborghini</a>
-
 </section>
+
+
+<!-- ================= CAR DETAILS POPUP ================= -->
+
+<div id="carModal" class="car-modal">
+
+    <div class="car-modal-content">
+
+        <button class="close-btn" onclick="closeCar()">×</button>
+
+        <h2 id="carTitle"></h2>
+
+        <p id="carDescription"></p>
+
+        <div class="car-features" id="carFeatures"></div>
+
+        <h3>Interior & Dashboard</h3>
+
+        <div class="car-gallery">
+
+            <img id="carFront" src="" alt="Car Front">
+
+            <img id="carInterior" src="" alt="Car Interior">
+
+            <img id="carDashboard" src="" alt="Car Dashboard">
+
+        </div>
+
+        <br>
+
+        <a href="book.html" class="btn">Book This Car</a>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CAR JAVASCRIPT ================= -->
+
+<script>
+
+function showCar(car) {
+
+    const modal = document.getElementById("carModal");
+
+    const title = document.getElementById("carTitle");
+    const description = document.getElementById("carDescription");
+    const features = document.getElementById("carFeatures");
+
+    const front = document.getElementById("carFront");
+    const interior = document.getElementById("carInterior");
+    const dashboard = document.getElementById("carDashboard");
+
+
+    if (car === "thar") {
+
+        title.innerText = "Mahindra Thar";
+
+        description.innerText =
+        "Mahindra Thar is a powerful SUV with comfortable interior, modern dashboard and excellent performance.";
+
+        features.innerHTML =
+        "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>" +
+        "🚀 155 km/h &nbsp; ⚙️ Manual<br>" +
+        "💰 ₹3500 / Day";
+
+        front.src = "images/Thar-front.jpg";
+        interior.src = "images/Thar-interior.jpg";
+        dashboard.src = "images/Thar-dashboard.jpg";
+    }
+
+
+    if (car === "bmw") {
+
+        title.innerText = "BMW X5";
+
+        description.innerText =
+        "BMW X5 is a premium luxury SUV with advanced technology, comfortable seats and digital features.";
+
+        features.innerHTML =
+        "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>" +
+        "🚀 243 km/h &nbsp; ⚙️ Automatic<br>" +
+        "💰 ₹7000 / Day";
+
+        front.src = "images/bmw-front.jpg";
+        interior.src = "images/bmw-interior.jpg";
+
+        dashboard.style.display = "none";
+    }
+
+
+    if (car === "scorpio") {
+
+        title.innerText = "Scorpio N";
+
+        description.innerText =
+        "Scorpio N is a spacious SUV with comfortable seating, modern interior and powerful performance.";
+
+        features.innerHTML =
+        "❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>" +
+        "🚀 165 km/h &nbsp; ⚙️ Automatic<br>" +
+        "💰 ₹4000 / Day";
+
+        front.src = "images/scorpio-front.jpg";
+        interior.src = "images/scorpio-interior.jpg";
+        dashboard.src = "images/scorpio-dashboard.jpg";
+
+        dashboard.style.display = "block";
+    }
+
+
+    if (car === "lamborghini") {
+
+        title.innerText = "Lamborghini";
+
+        description.innerText =
+        "Lamborghini is a high-performance sports car with a premium luxury interior and advanced digital features.";
+
+        features.innerHTML =
+        "❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>" +
+        "🚀 325 km/h &nbsp; ⚙️ Automatic<br>" +
+        "💰 ₹15000 / Day";
+
+        front.src = "images/lamborghini-front.jpg";
+        interior.src = "images/lamborghini-interior.jpg";
+
+        dashboard.style.display = "none";
+    }
+
+
+    modal.style.display = "flex";
+}
+
+
+function closeCar() {
+
+    document.getElementById("carModal").style.display = "none";
+
+}
+
+</script>
 
 
 <!-- ================= ABOUT ================= -->
