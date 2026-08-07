@@ -235,4 +235,50 @@ nav ul{
   }
   .car-card{width:95%}
 }
+/* ===== Professional Fixed Navbar ===== */
 
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,.4);
+}
+
+.logo h2{
+    color:#ff3b3b;
+    margin:0;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+    margin:0;
+    padding:0;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#ff3b3b;
+}
+
+body{
+    padding-top:80px;
+}
+
+html{
+    scroll-behavior:smooth;
+}
