@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>DriveEasy Car Rental</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- Header -->
+<!-- ================= NAVBAR ================= -->
+
 <header class="navbar">
 
     <div class="logo">
@@ -18,20 +22,22 @@
 
     <nav>
         <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#cars">Cars</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            
         </ul>
     </nav>
 
 </header>
 
-<!-- Hero Section -->
-<section id ="home" class="hero">
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
 
     <div class="hero-text">
+
         <h1>Find Your Perfect Rental Car</h1>
 
         <p>
@@ -39,72 +45,288 @@
             Safe, Comfortable and Reliable rides.
         </p>
 
-        <a href="#cars" class="btn">Explore Cars</a>
+        <a href="#cars" class="btn">
+            Explore Cars
+        </a>
+
     </div>
 
 </section>
 
-<!-- Search Section -->
+
+<!-- ================= SEARCH ================= -->
 
 <section id="search" class="search">
 
-<h2>Find Your Car</h2>
+    <h2>Find Your Car</h2>
 
-<form>
+    <form>
 
-<select>
-<option>Select Brand</option>
-<option>Mahindra</option>
-<option>BMW</option>
-<option>Lamborghini</option>
-<option>Scorpio</option>
-</select>
+        <select>
+            <option>Select Brand</option>
+            <option>Mahindra</option>
+            <option>BMW</option>
+            <option>Scorpio</option>
+        </select>
 
-<select>
-<option>Fuel Type</option>
-<option>Petrol</option>
-<option>Diesel</option>
-</select>
+        <select>
+            <option>Fuel Type</option>
+            <option>Petrol</option>
+            <option>Diesel</option>
+        </select>
 
-<select>
-<option>Price Per Day</option>
-<option>₹1500</option>
-<option>₹2500</option>
-<option>₹3500</option>
-<option>₹5000</option>
-</select>
+        <select>
+            <option>Price Per Day</option>
+            <option>₹3500</option>
+            <option>₹4000</option>
+            <option>₹7000</option>
+        </select>
 
-<button type="submit">Search Car</button>
+        <button type="submit">
+            Search Car
+        </button>
 
-</form>
+    </form>
 
 </section>
 
-<!-- Cars Section Starts -->
+
+<!-- ================= CARS ================= -->
 
 <section id="cars">
 
-<h2>Available Cars</h2>
+    <h2>Available Cars</h2>
+
     <div class="car-container">
 
-    <div class="car-card">
-        <img src="images/Thar-front.jpg" alt="Mahindra Thar">
-        <h3>Mahindra Thar</h3>
-        <p>₹3500 / Day</p>
-        <a href="book.html" class="btn">Book Now</a>
+
+        <!-- MAHINDRA THAR -->
+
+        <div class="car-card">
+
+            <img
+                src="images/Thar-front.jpg"
+                src="images/Thar-interior.jpg"
+                src="images/Thar-dashboard.jpg"
+                alt="Mahindra Thar"
+            >
+
+            <h3>Mahindra Thar</h3>
+
+            <p class="price">
+                ₹3500 / Day
+            </p>
+
+            <div class="car-features">
+
+                <span>❄️ AC</span>
+                <span>👥 5 Seats</span>
+                <span>⛽ Diesel</span>
+                <span>⚙️ Manual</span>
+                <span>🚀 155 km/h</span>
+                <span>📱 Touchscreen</span>
+
+            </div>
+
+            <div class="car-info">
+
+                <h4>Interior & Dashboard</h4>
+
+                <p>
+                    Premium interior with comfortable seats,
+                    touchscreen infotainment and modern dashboard.
+                </p>
+
+            </div>
+
+            <a href="book.html" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- BMW X5 -->
+
+        <div class="car-card">
+
+            <img
+                src="images/bmw-front.jpg"
+                src="images/bmw-interior.jpg
+                alt="BMW X5"
+            >
+
+            <h3>BMW X5</h3>
+
+            <p class="price">
+                ₹7000 / Day
+            </p>
+
+            <div class="car-features">
+
+                <span>❄️ AC</span>
+                <span>👥 5 Seats</span>
+                <span>⛽ Petrol</span>
+                <span>⚙️ Automatic</span>
+                <span>🚀 243 km/h</span>
+                <span>📱 Digital Display</span>
+
+            </div>
+
+            <div class="car-info">
+
+                <h4>Interior & Dashboard</h4>
+
+                <p>
+                    Luxury interior with digital dashboard,
+                    premium seats and advanced infotainment system.
+                </p>
+
+            </div>
+
+            <a href="book.html" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- SCORPIO N -->
+
+        <div class="car-card">
+
+            <img
+                src="images/scorpio-front.jpg"
+                src="images/scorpio-interior.jpg"
+                src="images/bmw-dashboard.jpg"
+                alt="Scorpio N"
+            >
+
+            <h3>Scorpio N</h3>
+
+            <p class="price">
+                ₹4000 / Day
+            </p>
+
+            <div class="car-features">
+
+                <span>❄️ AC</span>
+                <span>👥 7 Seats</span>
+                <span>⛽ Diesel</span>
+                <span>⚙️ Automatic</span>
+                <span>🚀 165 km/h</span>
+                <span>📱 Touchscreen</span>
+
+            </div>
+
+            <div class="car-info">
+
+                <h4>Interior & Dashboard</h4>
+
+                <p>
+                    Spacious interior with comfortable seating,
+                    modern dashboard and touchscreen system.
+                </p>
+
+            </div>
+
+            <a href="book.html" class="btn">
+                Book Now
+            </a>
+
+        </div>
+        <!-- LAMBORGHINI -->
+
+<div class="car-card">
+
+    <img
+        src="images/lamborghini-front.jpg"
+        src="images/lamborghini-interior.jpg"
+        alt="Lamborghini"
+    >
+
+    <h3>Lamborghini</h3>
+
+    <p class="price">
+        ₹15000 / Day
+    </p>
+
+    <div class="car-features">
+
+        <span>❄️ AC</span>
+        <span>👥 2 Seats</span>
+        <span>⛽ Petrol</span>
+        <span>⚙️ Automatic</span>
+        <span>🚀 325 km/h</span>
+        <span>📱 Digital Display</span>
+
     </div>
 
-    <div class="car-card">
-        <img src="images/bmw-front.jpg" alt="BMW">
-        <h3>BMW X5</h3>
-        <p>₹7000 / Day</p>
-        <a href="book.html" class="btn">Book Now</a>
+    <div class="car-info">
+
+        <h4>Interior & Dashboard</h4>
+
+        <p>
+            Premium luxury interior with sporty seats,
+            digital dashboard and advanced infotainment system.
+        </p>
+
     </div>
 
-    <div class="car-card">
-        <img src="images/scorpio-front.jpg" alt="Scorpio">
-        <h3>Scorpio N</h3>
-        <p>₹4000 / Day</p>
+    <a href="book.html" class="btn">
+        Book Now
+    </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <h2>About Us</h2>
+
+    <p>
+        DriveEasy is a trusted car rental service offering
+        premium, comfortable and affordable cars for every journey.
+    </p>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>Email: driveeasy@gmail.com</p>
+
+    <p>Phone: +91 98765 43210</p>
+
+    <p>Address: Chandigarh, India</p>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 DriveEasy Car Rental. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>        <p>₹4000 / Day</p>
         <a href="book.html" class="btn">Book Now</a>
     </div>
 
