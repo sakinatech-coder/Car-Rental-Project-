@@ -1,56 +1,228 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Your Car | DriveEasy</title>
-    <link rel="stylesheet" href="book.css">
+
+    <title>Book Your Car - DriveEasy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .booking-page{
+            min-height:100vh;
+            padding:120px 20px 60px;
+            background:#f4f4f4;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+        }
+
+        .booking-box{
+            width:100%;
+            max-width:600px;
+            background:white;
+            padding:35px;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,.2);
+        }
+
+        .booking-box h1{
+            text-align:center;
+            margin-bottom:10px;
+            color:#222;
+        }
+
+        .booking-box .subtitle{
+            text-align:center;
+            color:#666;
+            margin-bottom:30px;
+        }
+
+        .booking-form label{
+            display:block;
+            margin:15px 0 7px;
+            font-weight:bold;
+            color:#333;
+        }
+
+        .booking-form input,
+        .booking-form select,
+        .booking-form textarea{
+            width:100%;
+            padding:13px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:16px;
+            outline:none;
+        }
+
+        .booking-form input:focus,
+        .booking-form select:focus,
+        .booking-form textarea:focus{
+            border-color:#ff3c00;
+        }
+
+        .booking-form textarea{
+            height:100px;
+            resize:none;
+        }
+
+        .booking-form button{
+            width:100%;
+            margin-top:25px;
+            padding:14px;
+            border:none;
+            border-radius:6px;
+            background:#ff3c00;
+            color:white;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        .booking-form button:hover{
+            background:#d62f00;
+        }
+
+        .back-home{
+            display:block;
+            text-align:center;
+            margin-top:20px;
+            color:#ff3c00;
+            text-decoration:none;
+            font-weight:bold;
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-    <h1>DriveEasy Car Rental</h1>
+<!-- Header -->
+<header class="navbar">
+
+    <div class="logo">
+        <a href="index.html">DriveEasy</a>
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#cars">Cars</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="book.html" class="book-btn">Book Now</a></li>
+        </ul>
+    </nav>
+
 </header>
 
-<section class="booking">
-    <h2>Book Your Car</h2>
 
-    <form id="bookingForm">
+<!-- Booking Section -->
+<section class="booking-page">
 
-        <input type="text" placeholder="Full Name" required>
+    <div class="booking-box">
 
-        <input type="email" placeholder="Email Address" required>
+        <h1>Book Your Car</h1>
 
-        <input type="tel" placeholder="Phone Number" required>
+        <p class="subtitle">
+            Fill in your details to reserve your favourite car.
+        </p>
 
-        <select required>
-            <option value="">Select Car</option>
-            <option>Mahindra Thar</option>
-            <option>Mahindra Scorpio</option>
-            <option>BMW</option>
-            <option>Lamborghini</option>
-        </select>
+        <form class="booking-form" onsubmit="bookCar(event)">
 
-        <label>Pickup Date</label>
-        <input type="date" required>
+            <label for="name">Full Name</label>
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required
+            >
 
-        <label>Return Date</label>
-        <input type="date" required>
+            <label for="phone">Phone Number</label>
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+            >
 
-        <textarea placeholder="Special Request"></textarea>
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
 
-        <button type="submit">Confirm Booking</button>
+            <label for="car">Select Car</label>
+            <select id="car" required>
+                <option value="">Choose a car</option>
+                <option value="Mahindra Thar">Mahindra Thar - ₹3500 / Day</option>
+                <option value="BMW X5">BMW X5 - ₹7000 / Day</option>
+                <option value="Scorpio N">Scorpio N - ₹4000 / Day</option>
+                <option value="Lamborghini">Lamborghini - ₹15000 / Day</option>
+            </select>
 
-    </form>
+            <label for="pickup">Pickup Date</label>
+            <input
+                type="date"
+                id="pickup"
+                required
+            >
 
-    <br>
+            <label for="return">Return Date</label>
+            <input
+                type="date"
+                id="return"
+                required
+            >
 
-    <a href="cars.html" class="back-btn">⬅ Back to Cars</a>
+            <label for="message">Additional Message</label>
+            <textarea
+                id="message"
+                placeholder="Any special request..."
+            ></textarea>
+
+            <button type="submit">
+                Confirm Booking
+            </button>
+
+        </form>
+
+        <a href="index.html" class="back-home">
+            ← Back to Home
+        </a>
+
+    </div>
 
 </section>
 
-<script src="book.js"></script>
+
+<script>
+function bookCar(event){
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let car = document.getElementById("car").value;
+    let pickup = document.getElementById("pickup").value;
+    let returnDate = document.getElementById("return").value;
+
+    if(returnDate < pickup){
+        alert("Return date cannot be before pickup date.");
+        return;
+    }
+
+    alert(
+        "Booking Confirmed!\\n\\n" +
+        "Name: " + name + "\\n" +
+        "Car: " + car + "\\n" +
+        "Pickup: " + pickup + "\\n" +
+        "Return: " + returnDate
+    );
+}
+</script>
 
 </body>
 </html>
