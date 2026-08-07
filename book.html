@@ -1,1 +1,56 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Car | DriveEasy</title>
+    <link rel="stylesheet" href="book.css">
+</head>
+<body>
+
+<header>
+    <h1>DriveEasy Car Rental</h1>
+</header>
+
+<section class="booking">
+    <h2>Book Your Car</h2>
+
+    <form id="bookingForm">
+
+        <input type="text" placeholder="Full Name" required>
+
+        <input type="email" placeholder="Email Address" required>
+
+        <input type="tel" placeholder="Phone Number" required>
+
+        <select required>
+            <option value="">Select Car</option>
+            <option>Mahindra Thar</option>
+            <option>Mahindra Scorpio</option>
+            <option>BMW</option>
+            <option>Lamborghini</option>
+        </select>
+
+        <label>Pickup Date</label>
+        <input type="date" required>
+
+        <label>Return Date</label>
+        <input type="date" required>
+
+        <textarea placeholder="Special Request"></textarea>
+
+        <button type="submit">Confirm Booking</button>
+
+    </form>
+
+    <br>
+
+    <a href="cars.html" class="back-btn">⬅ Back to Cars</a>
+
+</section>
+
+<script src="book.js"></script>
+
+</body>
+</html>
