@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +11,8 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ================= CAR DETAILS POPUP ================= */
+
+        /* ================= CAR POPUP ================= */
 
         .car-modal {
             display: none;
@@ -31,7 +33,7 @@
             max-height: 90vh;
             overflow-y: auto;
             border-radius: 15px;
-            padding: 25px;
+            padding: 30px;
             position: relative;
             text-align: center;
         }
@@ -39,7 +41,7 @@
         .close-btn {
             position: absolute;
             right: 15px;
-            top: 10px;
+            top: 15px;
             border: none;
             background: #ff3c00;
             color: white;
@@ -51,7 +53,7 @@
         }
 
         .car-modal-content h2 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .car-modal-content p {
@@ -69,7 +71,7 @@
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .car-gallery img {
@@ -85,18 +87,21 @@
             cursor: pointer;
         }
 
-        .car-card > img {
+        .car-card img {
             cursor: pointer;
         }
 
         .car-card button {
             cursor: pointer;
         }
+
     </style>
+
 </head>
 
 
 <body>
+
 
 <!-- ================= HEADER ================= -->
 
@@ -107,6 +112,7 @@
     </div>
 
     <nav>
+
         <ul class="nav-links">
 
             <li>
@@ -132,6 +138,7 @@
             </li>
 
         </ul>
+
     </nav>
 
 </header>
@@ -165,29 +172,68 @@
 
     <h2>Find Your Car</h2>
 
-    <form>
+    <form id="searchForm">
 
-        <select>
-            <option>Select Brand</option>
-            <option>Mahindra</option>
-            <option>BMW</option>
-            <option>Scorpio</option>
-            <option>Lamborghini</option>
+        <select id="brandSelect">
+
+            <option value="">Select Brand</option>
+
+            <option value="thar">
+                Mahindra
+            </option>
+
+            <option value="bmw">
+                BMW
+            </option>
+
+            <option value="scorpio">
+                Scorpio
+            </option>
+
+            <option value="lamborghini">
+                Lamborghini
+            </option>
+
         </select>
 
-        <select>
-            <option>Fuel Type</option>
-            <option>Petrol</option>
-            <option>Diesel</option>
+
+        <select id="fuelSelect">
+
+            <option value="">Fuel Type</option>
+
+            <option value="petrol">
+                Petrol
+            </option>
+
+            <option value="diesel">
+                Diesel
+            </option>
+
         </select>
 
-        <select>
-            <option>Price Per Day</option>
-            <option>₹3500</option>
-            <option>₹4000</option>
-            <option>₹7000</option>
-            <option>₹15000</option>
+
+        <select id="priceSelect">
+
+            <option value="">Price Per Day</option>
+
+            <option value="3500">
+                ₹3500
+            </option>
+
+            <option value="4000">
+                ₹4000
+            </option>
+
+            <option value="7000">
+                ₹7000
+            </option>
+
+            <option value="15000">
+                ₹15000
+            </option>
+
         </select>
+
 
         <button type="submit">
             Search Car
@@ -204,12 +250,16 @@
 
     <h2>Available Cars</h2>
 
+
     <div class="car-container">
 
 
         <!-- ================= THAR ================= -->
 
         <div class="car-card"
+             data-car="thar"
+             data-fuel="diesel"
+             data-price="3500"
              onclick="showCar('thar')">
 
             <img
@@ -217,9 +267,13 @@
                 alt="Mahindra Thar"
             >
 
-            <h3>Mahindra Thar</h3>
+            <h3>
+                Mahindra Thar
+            </h3>
 
-            <p>₹3500 / Day</p>
+            <p>
+                ₹3500 / Day
+            </p>
 
             <p>
                 ❄️ AC &nbsp;
@@ -253,6 +307,9 @@
         <!-- ================= BMW ================= -->
 
         <div class="car-card"
+             data-car="bmw"
+             data-fuel="petrol"
+             data-price="7000"
              onclick="showCar('bmw')">
 
             <img
@@ -260,9 +317,13 @@
                 alt="BMW X5"
             >
 
-            <h3>BMW X5</h3>
+            <h3>
+                BMW X5
+            </h3>
 
-            <p>₹7000 / Day</p>
+            <p>
+                ₹7000 / Day
+            </p>
 
             <p>
                 ❄️ AC &nbsp;
@@ -296,6 +357,9 @@
         <!-- ================= SCORPIO ================= -->
 
         <div class="car-card"
+             data-car="scorpio"
+             data-fuel="diesel"
+             data-price="4000"
              onclick="showCar('scorpio')">
 
             <img
@@ -303,9 +367,13 @@
                 alt="Scorpio N"
             >
 
-            <h3>Scorpio N</h3>
+            <h3>
+                Scorpio N
+            </h3>
 
-            <p>₹4000 / Day</p>
+            <p>
+                ₹4000 / Day
+            </p>
 
             <p>
                 ❄️ AC &nbsp;
@@ -339,6 +407,9 @@
         <!-- ================= LAMBORGHINI ================= -->
 
         <div class="car-card"
+             data-car="lamborghini"
+             data-fuel="petrol"
+             data-price="15000"
              onclick="showCar('lamborghini')">
 
             <img
@@ -346,9 +417,13 @@
                 alt="Lamborghini"
             >
 
-            <h3>Lamborghini</h3>
+            <h3>
+                Lamborghini
+            </h3>
 
-            <p>₹15000 / Day</p>
+            <p>
+                ₹15000 / Day
+            </p>
 
             <p>
                 ❄️ AC &nbsp;
@@ -378,18 +453,21 @@
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- ================= CAR POPUP ===================== -->
-<!-- ================================================= -->
+<!-- ================= CAR POPUP ================= -->
 
-<div id="carModal" class="car-modal">
+<div
+    id="carModal"
+    class="car-modal"
+>
 
     <div class="car-modal-content">
+
 
         <button
             class="close-btn"
@@ -407,8 +485,8 @@
 
         <div
             class="car-features"
-            id="carFeatures">
-        </div>
+            id="carFeatures"
+        ></div>
 
 
         <h3>
@@ -418,11 +496,13 @@
 
         <div class="car-gallery">
 
+
             <img
                 id="carFront"
                 src=""
                 alt="Car Front"
             >
+
 
             <img
                 id="carInterior"
@@ -430,11 +510,13 @@
                 alt="Car Interior"
             >
 
+
             <img
                 id="carDashboard"
                 src=""
                 alt="Car Dashboard"
             >
+
 
         </div>
 
@@ -449,6 +531,7 @@
             Book This Car
         </a>
 
+
     </div>
 
 </div>
@@ -458,31 +541,41 @@
 
 <script>
 
+
+/* ================= SHOW CAR ================= */
+
 function showCar(car) {
+
 
     const modal =
         document.getElementById("carModal");
 
+
     const title =
         document.getElementById("carTitle");
+
 
     const description =
         document.getElementById("carDescription");
 
+
     const features =
         document.getElementById("carFeatures");
+
 
     const front =
         document.getElementById("carFront");
 
+
     const interior =
         document.getElementById("carInterior");
+
 
     const dashboard =
         document.getElementById("carDashboard");
 
 
-    /* Reset dashboard every time */
+    /* Reset images */
 
     dashboard.style.display = "block";
 
@@ -491,24 +584,32 @@ function showCar(car) {
 
     if (car === "thar") {
 
-        title.innerText = "Mahindra Thar";
+
+        title.innerText =
+            "Mahindra Thar";
+
 
         description.innerText =
             "Mahindra Thar is a powerful SUV with comfortable interior, modern dashboard and excellent performance.";
+
 
         features.innerHTML =
             "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>" +
             "🚀 155 km/h &nbsp; ⚙️ Manual<br>" +
             "💰 ₹3500 / Day";
 
+
         front.src =
             "images/Thar-front.jpg";
+
 
         interior.src =
             "images/Thar-interior.jpg";
 
+
         dashboard.src =
             "images/Thar-dashboard.jpg";
+
     }
 
 
@@ -516,24 +617,32 @@ function showCar(car) {
 
     if (car === "bmw") {
 
-        title.innerText = "BMW X5";
+
+        title.innerText =
+            "BMW X5";
+
 
         description.innerText =
             "BMW X5 is a premium luxury SUV with advanced technology, comfortable seats and digital features.";
+
 
         features.innerHTML =
             "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>" +
             "🚀 243 km/h &nbsp; ⚙️ Automatic<br>" +
             "💰 ₹7000 / Day";
 
+
         front.src =
             "images/bmw-front.jpg";
+
 
         interior.src =
             "images/bmw-interior.jpg";
 
+
         dashboard.src =
             "images/bmw-dashboard.jpg";
+
     }
 
 
@@ -541,24 +650,32 @@ function showCar(car) {
 
     if (car === "scorpio") {
 
-        title.innerText = "Scorpio N";
+
+        title.innerText =
+            "Scorpio N";
+
 
         description.innerText =
             "Scorpio N is a spacious SUV with comfortable seating, modern interior and powerful performance.";
+
 
         features.innerHTML =
             "❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>" +
             "🚀 165 km/h &nbsp; ⚙️ Automatic<br>" +
             "💰 ₹4000 / Day";
 
+
         front.src =
             "images/scorpio-front.jpg";
+
 
         interior.src =
             "images/scorpio-interior.jpg";
 
+
         dashboard.src =
             "images/scorpio-dashboard.jpg";
+
     }
 
 
@@ -566,34 +683,44 @@ function showCar(car) {
 
     if (car === "lamborghini") {
 
-        title.innerText = "Lamborghini";
+
+        title.innerText =
+            "Lamborghini";
+
 
         description.innerText =
             "Lamborghini is a high-performance sports car with a premium luxury interior and advanced digital features.";
+
 
         features.innerHTML =
             "❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>" +
             "🚀 325 km/h &nbsp; ⚙️ Automatic<br>" +
             "💰 ₹15000 / Day";
 
+
         front.src =
             "images/lamborghini-front.jpg";
+
 
         interior.src =
             "images/lamborghini-interior.jpg";
 
+
         dashboard.src =
             "images/lamborghini-dashboard.jpg";
+
     }
 
 
-    /* OPEN POPUP */
+    /* Open popup */
 
-    modal.style.display = "flex";
+    modal.style.display =
+        "flex";
+
 }
 
 
-/* ================= CLOSE POPUP ================= */
+/* ================= CLOSE CAR ================= */
 
 function closeCar() {
 
@@ -603,18 +730,101 @@ function closeCar() {
 }
 
 
-/* Close popup by clicking outside */
+/* ================= CLICK OUTSIDE POPUP ================= */
 
-document.getElementById("carModal").addEventListener(
-    "click",
-    function(event) {
+document
+    .getElementById("carModal")
+    .addEventListener("click", function(event) {
 
         if (event.target === this) {
+
             closeCar();
+
         }
 
-    }
-);
+    });
+
+
+/* ================= SEARCH ================= */
+
+document
+    .getElementById("searchForm")
+    .addEventListener("submit", function(event) {
+
+
+        event.preventDefault();
+
+
+        const brand =
+            document.getElementById("brandSelect").value;
+
+
+        const fuel =
+            document.getElementById("fuelSelect").value;
+
+
+        const price =
+            document.getElementById("priceSelect").value;
+
+
+        const cards =
+            document.querySelectorAll(".car-card");
+
+
+        cards.forEach(function(card) {
+
+
+            const cardCar =
+                card.getAttribute("data-car");
+
+
+            const cardFuel =
+                card.getAttribute("data-fuel");
+
+
+            const cardPrice =
+                card.getAttribute("data-price");
+
+
+            let show = true;
+
+
+            if (brand !== "" && brand !== cardCar) {
+
+                show = false;
+
+            }
+
+
+            if (fuel !== "" && fuel !== cardFuel) {
+
+                show = false;
+
+            }
+
+
+            if (price !== "" && price !== cardPrice) {
+
+                show = false;
+
+            }
+
+
+            if (show) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+
+    });
+
 
 </script>
 
@@ -623,12 +833,16 @@ document.getElementById("carModal").addEventListener(
 
 <section id="about">
 
-    <h2>About Us</h2>
+    <h2>
+        About Us
+    </h2>
 
     <p>
+
         DriveEasy is a trusted car rental service
         offering premium, comfortable and affordable
         cars for every journey.
+
     </p>
 
 </section>
@@ -638,7 +852,9 @@ document.getElementById("carModal").addEventListener(
 
 <section id="contact">
 
-    <h2>Contact Us</h2>
+    <h2>
+        Contact Us
+    </h2>
 
     <p>
         Email: driveeasy@gmail.com
@@ -655,7 +871,11 @@ document.getElementById("carModal").addEventListener(
 </section>
 
 
+<!-- ================= EXTERNAL JAVASCRIPT ================= -->
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
