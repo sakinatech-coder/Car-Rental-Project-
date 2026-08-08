@@ -165,15 +165,14 @@ if (bookingForm) {
 
 }
 
-
 // =====================================
 // VIEW CAR DETAILS
 // =====================================
 
-const detailButtons =
+const detailsButtons =
     document.querySelectorAll(".car-card .btn");
 
-detailButtons.forEach(function (button) {
+detailsButtons.forEach(function (button) {
 
     button.addEventListener("click", function (event) {
 
@@ -193,15 +192,12 @@ detailButtons.forEach(function (button) {
         if (carName === "Mahindra Thar") {
             carType = "thar";
         }
-
         else if (carName === "Mahindra Scorpio") {
             carType = "scorpio";
         }
-
         else if (carName === "BMW 5 Series") {
             carType = "bmw";
         }
-
         else if (carName === "Lamborghini Huracan") {
             carType = "lamborghini";
         }
