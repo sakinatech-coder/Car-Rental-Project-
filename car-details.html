@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Car Details | DriveEasy</title>
+
+    <link rel="stylesheet" href="car-details.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="details-navbar">
+
+    <div class="details-logo">
+        <a href="index.html">
+            Drive<span>Easy</span>
+        </a>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= CAR DETAILS ================= -->
+
+<main class="details-page">
+
+    <div class="details-card">
+
+        <div class="details-image-box">
+
+            <img id="carImage" src="" alt="Car">
+
+        </div>
+
+
+        <div class="details-info">
+
+            <p class="details-small">
+                PREMIUM RENTAL CAR
+            </p>
+
+            <h1 id="carName">
+                Car Name
+            </h1>
+
+            <h2 id="carPrice">
+                ₹0 / Day
+            </h2>
+
+
+            <div class="car-specs">
+
+                <div>
+                    <strong>⚙️ Transmission</strong>
+                    <span id="carTransmission">-</span>
+                </div>
+
+                <div>
+                    <strong>⛽ Fuel</strong>
+                    <span id="carFuel">-</span>
+                </div>
+
+                <div>
+                    <strong>👥 Seats</strong>
+                    <span id="carSeats">-</span>
+                </div>
+
+            </div>
+
+
+            <div class="car-features">
+
+                <h3>Why Choose This Car?</h3>
+
+                <p>✨ Premium & Well Maintained</p>
+                <p>🛡️ Safe & Reliable</p>
+                <p>📞 24/7 Customer Support</p>
+                <p>🚗 Perfect for Your Journey</p>
+
+            </div>
+
+
+            <div class="details-buttons">
+
+                <a href="book.html" class="book-btn">
+                    Book This Car 🚗
+                </a>
+
+                <a href="cars.html" class="back-btn">
+                    ← Back to Cars
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const car = params.get("car");
+
+
+const cars = {
+
+    thar: {
+        name: "Mahindra Thar",
+        price: "₹3500 / Day",
+        image: "images/Thar-front.jpg",
+        transmission: "Manual",
+        fuel: "Diesel",
+        seats: "4 Seats"
+    },
+
+    scorpio: {
+        name: "Mahindra Scorpio",
+        price: "₹3000 / Day",
+        image: "images/scorpio-front.jpg",
+        transmission: "Manual",
+        fuel: "Diesel",
+        seats: "7 Seats"
+    },
+
+    bmw: {
+        name: "BMW 5 Series",
+        price: "₹9000 / Day",
+        image: "images/bmw-front.jpg",
+        transmission: "Automatic",
+        fuel: "Petrol",
+        seats: "5 Seats"
+    },
+
+    lamborghini: {
+        name: "Lamborghini Huracan",
+        price: "₹25000 / Day",
+        image: "images/lamborghini-front.jpg",
+        transmission: "Automatic",
+        fuel: "Petrol",
+        seats: "2 Seats"
+    }
+
+};
+
+
+const selectedCar = cars[car] || cars.thar;
+
+
+document.getElementById("carImage").src =
+    selectedCar.image;
+
+document.getElementById("carImage").alt =
+    selectedCar.name;
+
+document.getElementById("carName").textContent =
+    selectedCar.name;
+
+document.getElementById("carPrice").textContent =
+    selectedCar.price;
+
+document.getElementById("carTransmission").textContent =
+    selectedCar.transmission;
+
+document.getElementById("carFuel").textContent =
+    selectedCar.fuel;
+
+document.getElementById("carSeats").textContent =
+    selectedCar.seats;
+
+</script>
+
+</body>
+</html>
