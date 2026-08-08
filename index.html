@@ -2,143 +2,30 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DriveEasy Car Rental</title>
+    <title>DriveEasy - Premium Car Rental</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        /* ================= CAR POPUP ================= */
-
-        .car-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .car-modal-content {
-            background: white;
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow-y: auto;
-            border-radius: 15px;
-            padding: 30px;
-            position: relative;
-            text-align: center;
-        }
-
-        .close-btn {
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            border: none;
-            background: #ff3c00;
-            color: white;
-            font-size: 25px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .car-modal-content h2 {
-            margin-bottom: 15px;
-        }
-
-        .car-modal-content p {
-            line-height: 1.7;
-        }
-
-        .car-features {
-            margin: 15px 0;
-            line-height: 2;
-            font-size: 17px;
-        }
-
-        .car-gallery {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .car-gallery img {
-            width: 250px;
-            height: 170px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        /* ================= CAR CARD ================= */
-
-        .car-card {
-            cursor: pointer;
-        }
-
-        .car-card img {
-            cursor: pointer;
-        }
-
-        .car-card button {
-            cursor: pointer;
-        }
-
-    </style>
-
 </head>
-
 
 <body>
 
-
-<!-- ================= HEADER ================= -->
+<!-- ================= NAVBAR ================= -->
 
 <header class="navbar">
 
     <div class="logo">
-        <a href="index.html">DriveEasy</a>
+        <a href="index.html">Drive<span>Easy</span></a>
     </div>
 
     <nav>
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#cars">Cars</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-
-            <li>
-                <a href="book.html" class="book-btn">
-                    Book Now
-                </a>
-            </li>
-
-        </ul>
-
+        <a href="index.html" class="active">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="book.html" class="nav-book">Book Now</a>
     </nav>
 
 </header>
@@ -147,748 +34,259 @@
 <!-- ================= HERO ================= -->
 
 <section class="hero">
+
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-        <span class="hero-tag">🚘 PREMIUM CAR RENTALS</span>
+
+        <div class="small-title">
+            🚘 PREMIUM CAR RENTALS
+        </div>
 
         <h1>
-            Find Your <span>Perfect Rental Car</span>
+            Find Your
+            <span>Perfect Rental Car</span>
         </h1>
 
         <p>
-            Drive your dream car without the dream price.
-            Choose from premium, comfortable and reliable cars
-            for every journey.
+            Experience the freedom of the road with premium,
+            comfortable and reliable cars for every journey.
         </p>
 
         <div class="hero-buttons">
-            <a href="cars.html" class="hero-btn">Explore Cars 🚗</a>
-            <a href="#about" class="secondary-btn">Learn More</a>
+
+            <a href="cars.html" class="main-btn">
+                Explore Cars 🚗
+            </a>
+
+            <a href="book.html" class="outline-btn">
+                Book Your Car
+            </a>
+
         </div>
 
-        <div class="hero-features">
-            <div>
+        <!-- FEATURES -->
+
+        <div class="features">
+
+            <div class="feature">
                 <strong>100+</strong>
-                <small>Premium Cars</small>
+                <span>Premium Cars</span>
             </div>
 
-            <div>
+            <div class="feature">
                 <strong>24/7</strong>
-                <small>Customer Support</small>
+                <span>Customer Support</span>
             </div>
 
-            <div>
+            <div class="feature">
                 <strong>100%</strong>
-                <small>Safe & Reliable</small>
+                <span>Safe & Reliable</span>
             </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ================= SEARCH ================= -->
-
-<section class="search">
-
-    <h2>Find Your Car</h2>
-
-    <form id="searchForm">
-
-        <select id="brandSelect">
-
-            <option value="">Select Brand</option>
-
-            <option value="thar">
-                Mahindra
-            </option>
-
-            <option value="bmw">
-                BMW
-            </option>
-
-            <option value="scorpio">
-                Scorpio
-            </option>
-
-            <option value="lamborghini">
-                Lamborghini
-            </option>
-
-        </select>
-
-
-        <select id="fuelSelect">
-
-            <option value="">Fuel Type</option>
-
-            <option value="petrol">
-                Petrol
-            </option>
-
-            <option value="diesel">
-                Diesel
-            </option>
-
-        </select>
-
-
-        <select id="priceSelect">
-
-            <option value="">Price Per Day</option>
-
-            <option value="3500">
-                ₹3500
-            </option>
-
-            <option value="4000">
-                ₹4000
-            </option>
-
-            <option value="7000">
-                ₹7000
-            </option>
-
-            <option value="15000">
-                ₹15000
-            </option>
-
-        </select>
-
-
-        <button type="submit">
-            Search Car
-        </button>
-
-    </form>
-
-</section>
-
-
-<!-- ================= AVAILABLE CARS ================= -->
-
-<section id="cars">
-
-    <h2>Available Cars</h2>
-
-
-    <div class="car-container">
-
-
-        <!-- ================= THAR ================= -->
-
-        <div class="car-card"
-             data-car="thar"
-             data-fuel="diesel"
-             data-price="3500"
-             onclick="showCar('thar')">
-
-            <img
-                src="images/Thar-front.jpg"
-                alt="Mahindra Thar"
-            >
-
-            <h3>
-                Mahindra Thar
-            </h3>
-
-            <p>
-                ₹3500 / Day
-            </p>
-
-            <p>
-                ❄️ AC &nbsp;
-                👥 5 Seats &nbsp;
-                ⛽ Diesel
-                <br>
-                🚀 155 km/h &nbsp;
-                ⚙️ Manual
-            </p>
-
-            <button
-                class="view-details"
-                onclick="event.stopPropagation(); showCar('thar')"
-            >
-                View Details
-            </button>
-
-            <br><br>
-
-            <a
-                href="book.html"
-                class="btn"
-                onclick="event.stopPropagation();"
-            >
-                Book Now
-            </a>
 
         </div>
-
-
-        <!-- ================= BMW ================= -->
-
-        <div class="car-card"
-             data-car="bmw"
-             data-fuel="petrol"
-             data-price="7000"
-             onclick="showCar('bmw')">
-
-            <img
-                src="images/bmw-front.jpg"
-                alt="BMW X5"
-            >
-
-            <h3>
-                BMW X5
-            </h3>
-
-            <p>
-                ₹7000 / Day
-            </p>
-
-            <p>
-                ❄️ AC &nbsp;
-                👥 5 Seats &nbsp;
-                ⛽ Petrol
-                <br>
-                🚀 243 km/h &nbsp;
-                ⚙️ Automatic
-            </p>
-
-            <button
-                class="view-details"
-                onclick="event.stopPropagation(); showCar('bmw')"
-            >
-                View Details
-            </button>
-
-            <br><br>
-
-            <a
-                href="book.html"
-                class="btn"
-                onclick="event.stopPropagation();"
-            >
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- ================= SCORPIO ================= -->
-
-        <div class="car-card"
-             data-car="scorpio"
-             data-fuel="diesel"
-             data-price="4000"
-             onclick="showCar('scorpio')">
-
-            <img
-                src="images/scorpio-front.jpg"
-                alt="Scorpio N"
-            >
-
-            <h3>
-                Scorpio N
-            </h3>
-
-            <p>
-                ₹4000 / Day
-            </p>
-
-            <p>
-                ❄️ AC &nbsp;
-                👥 7 Seats &nbsp;
-                ⛽ Diesel
-                <br>
-                🚀 165 km/h &nbsp;
-                ⚙️ Automatic
-            </p>
-
-            <button
-                class="view-details"
-                onclick="event.stopPropagation(); showCar('scorpio')"
-            >
-                View Details
-            </button>
-
-            <br><br>
-
-            <a
-                href="book.html"
-                class="btn"
-                onclick="event.stopPropagation();"
-            >
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- ================= LAMBORGHINI ================= -->
-
-        <div class="car-card"
-             data-car="lamborghini"
-             data-fuel="petrol"
-             data-price="15000"
-             onclick="showCar('lamborghini')">
-
-            <img
-                src="images/lamborghini-front.jpg"
-                alt="Lamborghini"
-            >
-
-            <h3>
-                Lamborghini
-            </h3>
-
-            <p>
-                ₹15000 / Day
-            </p>
-
-            <p>
-                ❄️ AC &nbsp;
-                👥 2 Seats &nbsp;
-                ⛽ Petrol
-                <br>
-                🚀 325 km/h &nbsp;
-                ⚙️ Automatic
-            </p>
-
-            <button
-                class="view-details"
-                onclick="event.stopPropagation(); showCar('lamborghini')"
-            >
-                View Details
-            </button>
-
-            <br><br>
-
-            <a
-                href="book.html"
-                class="btn"
-                onclick="event.stopPropagation();"
-            >
-                Book Now
-            </a>
-
-        </div>
-
 
     </div>
 
 </section>
 
 
-<!-- ================= CAR POPUP ================= -->
+<!-- ================= WHY DRIVE EASY ================= -->
 
-<div
-    id="carModal"
-    class="car-modal"
->
+<section class="why-us">
 
-    <div class="car-modal-content">
+    <div class="section-title">
 
+        <p>WHY CHOOSE US</p>
 
-        <button
-            class="close-btn"
-            onclick="closeCar()"
-        >
-            ×
-        </button>
+        <h2>
+            Your Journey,
+            <span>Our Priority</span>
+        </h2>
+
+    </div>
 
 
-        <h2 id="carTitle"></h2>
+    <div class="why-container">
 
+        <div class="why-card">
 
-        <p id="carDescription"></p>
+            <div class="icon">🚗</div>
 
+            <h3>Premium Cars</h3>
 
-        <div
-            class="car-features"
-            id="carFeatures"
-        ></div>
-
-
-        <h3>
-            Interior & Dashboard
-        </h3>
-
-
-        <div class="car-gallery">
-
-
-            <img
-                id="carFront"
-                src=""
-                alt="Car Front"
-            >
-
-
-            <img
-                id="carInterior"
-                src=""
-                alt="Car Interior"
-            >
-
-
-            <img
-                id="carDashboard"
-                src=""
-                alt="Car Dashboard"
-            >
-
+            <p>
+                Choose from a wide range of stylish,
+                comfortable and well-maintained cars.
+            </p>
 
         </div>
 
 
-        <br>
+        <div class="why-card">
+
+            <div class="icon">💰</div>
+
+            <h3>Best Prices</h3>
+
+            <p>
+                Enjoy affordable rental prices with
+                no unnecessary hidden charges.
+            </p>
+
+        </div>
 
 
-        <a
-            href="book.html"
-            class="btn"
-        >
-            Book This Car
-        </a>
+        <div class="why-card">
 
+            <div class="icon">🛡️</div>
+
+            <h3>Safe & Reliable</h3>
+
+            <p>
+                Our vehicles are regularly maintained
+                to make your journey safe and smooth.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">📞</div>
+
+            <h3>24/7 Support</h3>
+
+            <p>
+                Our customer support team is always
+                ready to help whenever you need us.
+            </p>
+
+        </div>
 
     </div>
 
-</div>
-
-
-<!-- ================= JAVASCRIPT ================= -->
-
-<script>
-
-
-/* ================= SHOW CAR ================= */
-
-function showCar(car) {
-
-
-    const modal =
-        document.getElementById("carModal");
-
-
-    const title =
-        document.getElementById("carTitle");
-
-
-    const description =
-        document.getElementById("carDescription");
-
-
-    const features =
-        document.getElementById("carFeatures");
-
-
-    const front =
-        document.getElementById("carFront");
-
-
-    const interior =
-        document.getElementById("carInterior");
-
-
-    const dashboard =
-        document.getElementById("carDashboard");
-
-
-    /* Reset images */
-
-    dashboard.style.display = "block";
-
-
-    /* ================= THAR ================= */
-
-    if (car === "thar") {
-
-
-        title.innerText =
-            "Mahindra Thar";
-
-
-        description.innerText =
-            "Mahindra Thar is a powerful SUV with comfortable interior, modern dashboard and excellent performance.";
-
-
-        features.innerHTML =
-            "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>" +
-            "🚀 155 km/h &nbsp; ⚙️ Manual<br>" +
-            "💰 ₹3500 / Day";
-
-
-        front.src =
-            "images/Thar-front.jpg";
-
-
-        interior.src =
-            "images/Thar-interior.jpg";
-
-
-        dashboard.src =
-            "images/Thar-dashboard.jpg";
-
-    }
-
-
-    /* ================= BMW ================= */
-
-    if (car === "bmw") {
-
-
-        title.innerText =
-            "BMW X5";
-
-
-        description.innerText =
-            "BMW X5 is a premium luxury SUV with advanced technology, comfortable seats and digital features.";
-
-
-        features.innerHTML =
-            "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>" +
-            "🚀 243 km/h &nbsp; ⚙️ Automatic<br>" +
-            "💰 ₹7000 / Day";
-
-
-        front.src =
-            "images/bmw-front.jpg";
-
-
-        interior.src =
-            "images/bmw-interior.jpg";
-
-    }
-
-
-    /* ================= SCORPIO ================= */
-
-    if (car === "scorpio") {
-
-
-        title.innerText =
-            "Scorpio N";
-
-
-        description.innerText =
-            "Scorpio N is a spacious SUV with comfortable seating, modern interior and powerful performance.";
-
-
-        features.innerHTML =
-            "❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>" +
-            "🚀 165 km/h &nbsp; ⚙️ Automatic<br>" +
-            "💰 ₹4000 / Day";
-
-
-        front.src =
-            "images/scorpio-front.jpg";
-
-
-        interior.src =
-            "images/scorpio-interior.jpg";
-
-
-        dashboard.src =
-            "images/scorpio-dashboard.jpg";
-
-    }
-
-
-    /* ================= LAMBORGHINI ================= */
-
-    if (car === "lamborghini") {
-
-
-        title.innerText =
-            "Lamborghini";
-
-
-        description.innerText =
-            "Lamborghini is a high-performance sports car with a premium luxury interior and advanced digital features.";
-
-
-        features.innerHTML =
-            "❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>" +
-            "🚀 325 km/h &nbsp; ⚙️ Automatic<br>" +
-            "💰 ₹15000 / Day";
-
-
-        front.src =
-            "images/lamborghini-front.jpg";
-
-
-        interior.src =
-            "images/lamborghini-interior.jpg";
-
-    }
-
-
-    /* Open popup */
-
-    modal.style.display =
-        "flex";
-
-}
-
-
-/* ================= CLOSE CAR ================= */
-
-function closeCar() {
-
-    document.getElementById("carModal").style.display =
-        "none";
-
-}
-
-
-/* ================= CLICK OUTSIDE POPUP ================= */
-
-document
-    .getElementById("carModal")
-    .addEventListener("click", function(event) {
-
-        if (event.target === this) {
-
-            closeCar();
-
-        }
-
-    });
-
-
-/* ================= SEARCH ================= */
-
-document
-    .getElementById("searchForm")
-    .addEventListener("submit", function(event) {
-
-
-        event.preventDefault();
-
-
-        const brand =
-            document.getElementById("brandSelect").value;
-
-
-        const fuel =
-            document.getElementById("fuelSelect").value;
-
-
-        const price =
-            document.getElementById("priceSelect").value;
-
-
-        const cards =
-            document.querySelectorAll(".car-card");
-
-
-        cards.forEach(function(card) {
-
-
-            const cardCar =
-                card.getAttribute("data-car");
-
-
-            const cardFuel =
-                card.getAttribute("data-fuel");
-
-
-            const cardPrice =
-                card.getAttribute("data-price");
-
-
-            let show = true;
-
-
-            if (brand !== "" && brand !== cardCar) {
-
-                show = false;
-
-            }
-
-
-            if (fuel !== "" && fuel !== cardFuel) {
-
-                show = false;
-
-            }
-
-
-            if (price !== "" && price !== cardPrice) {
-
-                show = false;
-
-            }
-
-
-            if (show) {
-
-                card.style.display = "";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-
-    });
-
-
-</script>
+</section>
 
 
 <!-- ================= ABOUT ================= -->
 
-<section id="about">
+<section id="about" class="about-section">
 
-    <h2>
-        About Us
-    </h2>
+    <div class="about-content">
 
-    <p>
+        <p class="about-small">
+            ABOUT DRIVE EASY
+        </p>
 
-        DriveEasy is a trusted car rental service
-        offering premium, comfortable and affordable
-        cars for every journey.
+        <h2>
+            Drive More.
+            <span>Worry Less.</span>
+        </h2>
 
-    </p>
+        <p>
+            DriveEasy is a modern car rental service created
+            for people who want comfortable, reliable and
+            premium cars at affordable prices.
+        </p>
+
+        <p>
+            Whether you are planning a road trip, business
+            journey or weekend adventure, we have the perfect
+            car for you.
+        </p>
+
+        <a href="cars.html" class="main-btn">
+            View Our Cars 🚘
+        </a>
+
+    </div>
 
 </section>
 
 
 <!-- ================= CONTACT ================= -->
 
-<section id="contact">
+<section id="contact" class="contact-section">
 
-    <h2>
-        Contact Us
-    </h2>
+    <div class="section-title">
 
-    <p>
-        Email: driveeasy@gmail.com
-    </p>
+        <p>GET IN TOUCH</p>
 
-    <p>
-        Phone: +91 98765 43210
-    </p>
+        <h2>
+            Contact <span>DriveEasy</span>
+        </h2>
 
-    <p>
-        Address: Chandigarh, India
-    </p>
+    </div>
+
+
+    <div class="contact-container">
+
+        <div class="contact-box">
+
+            <div class="contact-icon">📧</div>
+
+            <h3>Email</h3>
+
+            <p>driveeasy@gmail.com</p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <div class="contact-icon">📞</div>
+
+            <h3>Phone</h3>
+
+            <p>+91 98765 43210</p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <div class="contact-icon">📍</div>
+
+            <h3>Location</h3>
+
+            <p>Chandigarh, India</p>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- ================= EXTERNAL JAVASCRIPT ================= -->
+<!-- ================= FOOTER ================= -->
 
-<script src="script.js?v=2"></script>
+<footer>
+
+    <div class="footer-logo">
+        Drive<span>Easy</span>
+    </div>
+
+    <p>
+        Premium cars. Better journeys. 🚗
+    </p>
+
+    <div class="footer-links">
+
+        <a href="index.html">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="book.html">Book Now</a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 DriveEasy Car Rental. All Rights Reserved.
+    </p>
+
+</footer>
 
 
 </body>
-
 </html>
