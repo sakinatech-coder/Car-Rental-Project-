@@ -754,3 +754,11 @@ body {
     max-width: 100%;
     overflow-x: hidden;
 }
+/* ===== FINAL HERO BACKGROUND FIX ===== */
+
+.hero {
+    background-image: url("images/home-bg.jpg") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
