@@ -1,0 +1,446 @@
+/* =========================================
+   DRIVE EASY - CAR DETAILS DASHBOARD
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07090d;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.details-navbar {
+    width: 100%;
+    min-height: 70px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #0b0e14;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* LOGO */
+
+.details-logo a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.details-logo span {
+    color: #ff1493;
+}
+
+
+/* NAVIGATION */
+
+.details-navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.details-navbar nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.details-navbar nav a:hover {
+    color: #ff1493;
+}
+
+
+/* ================= DETAILS PAGE ================= */
+
+.details-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 70px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 20, 147, 0.12),
+            transparent 35%
+        ),
+        #07090d;
+}
+
+
+/* ================= DETAILS CARD ================= */
+
+.details-card {
+    width: 100%;
+    max-width: 1100px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background: #10141d;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55);
+}
+
+
+/* ================= IMAGE ================= */
+
+.details-image-box {
+    min-height: 520px;
+
+    background: #090c12;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.details-image-box img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 520px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.details-image-box:hover img {
+    transform: scale(1.04);
+}
+
+
+/* ================= INFORMATION ================= */
+
+.details-info {
+    padding: 55px 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* SMALL TITLE */
+
+.details-small {
+    color: #ff1493;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+
+/* CAR NAME */
+
+.details-info h1 {
+    font-size: 42px;
+    line-height: 1.15;
+
+    margin-bottom: 15px;
+
+    color: #ffffff;
+}
+
+
+/* PRICE */
+
+.details-info h2 {
+    color: #ff1493;
+
+    font-size: 27px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ================= SPECS ================= */
+
+.car-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.car-specs div {
+    padding: 17px 12px;
+
+    background: #181d28;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.car-specs strong {
+    display: block;
+
+    font-size: 12px;
+
+    color: #b9bfca;
+
+    margin-bottom: 5px;
+}
+
+.car-specs span {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+
+/* ================= FEATURES ================= */
+
+.car-features {
+    margin-bottom: 30px;
+}
+
+.car-features h3 {
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+.car-features p {
+    color: #c5c9d2;
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.details-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.book-btn,
+.back-btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+
+/* BOOK BUTTON */
+
+.book-btn {
+    background: #ff1493;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 25px rgba(255, 20, 147, 0.25);
+}
+
+.book-btn:hover {
+    transform: translateY(-2px);
+
+    background: #ff2aa0;
+}
+
+
+/* BACK BUTTON */
+
+.back-btn {
+    background: transparent;
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.back-btn:hover {
+    border-color: #ff1493;
+
+    color: #ff1493;
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 900px) {
+
+    .details-navbar {
+        padding: 0 5%;
+    }
+
+    .details-navbar nav {
+        gap: 18px;
+    }
+
+    .details-card {
+        grid-template-columns: 1fr;
+    }
+
+    .details-image-box {
+        min-height: 380px;
+    }
+
+    .details-image-box img {
+        min-height: 380px;
+    }
+
+    .details-info {
+        padding: 40px 35px;
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .details-navbar {
+        min-height: 65px;
+
+        padding: 0 20px;
+    }
+
+    .details-logo a {
+        font-size: 21px;
+    }
+
+    .details-navbar nav {
+        gap: 12px;
+    }
+
+    .details-navbar nav a {
+        font-size: 11px;
+    }
+
+
+    .details-page {
+        padding: 30px 15px;
+    }
+
+
+    .details-card {
+        border-radius: 18px;
+    }
+
+
+    .details-image-box {
+        min-height: 250px;
+    }
+
+    .details-image-box img {
+        min-height: 250px;
+    }
+
+
+    .details-info {
+        padding: 30px 22px;
+    }
+
+
+    .details-info h1 {
+        font-size: 30px;
+    }
+
+
+    .details-info h2 {
+        font-size: 22px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .car-specs {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+
+    .car-specs div {
+        padding: 13px;
+    }
+
+
+    .details-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .book-btn,
+    .back-btn {
+        text-align: center;
+
+        width: 100%;
+    }
+
+}
