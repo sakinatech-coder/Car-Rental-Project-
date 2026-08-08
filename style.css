@@ -120,18 +120,15 @@ nav ul li a:hover {
     position: relative;
     min-height: calc(100vh - 72px);
     width: 100%;
+
     display: flex;
     align-items: center;
+
     overflow: hidden;
 
-    /* IMPORTANT:
-       Your existing HTML/background image can still work.
-       If your hero already has a background-image in another
-       rule, keep that image declaration there.
-    */
-
-    background-position: center;
+    background-image: url("home-bg.jpg");
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
