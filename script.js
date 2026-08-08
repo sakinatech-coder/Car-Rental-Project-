@@ -15,9 +15,17 @@ if (searchForm) {
 
         event.preventDefault();
 
-        const brand = document.getElementById("brandSelect").value;
-        const fuel = document.getElementById("fuelSelect").value;
-        const price = document.getElementById("priceSelect").value;
+        const brandElement = document.getElementById("brandSelect");
+        const fuelElement = document.getElementById("fuelSelect");
+        const priceElement = document.getElementById("priceSelect");
+
+        if (!brandElement || !fuelElement || !priceElement) {
+            return;
+        }
+
+        const brand = brandElement.value;
+        const fuel = fuelElement.value;
+        const price = priceElement.value;
 
         const cards = document.querySelectorAll(".car-card");
 
@@ -53,15 +61,23 @@ if (searchForm) {
         });
 
 
-        // Scroll to cars
+        const carsSection = document.getElementById("cars");
 
-        document.getElementById("cars").scrollIntoView({
-            behavior: "smooth"
-        });
+        if (carsSection) {
+
+            carsSection.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
 
 
         if (!found) {
-            alert("Sorry! No car found with these options. 🚗");
+
+            alert(
+                "Sorry! No car found with these options. 🚗"
+            );
+
         }
 
     });
@@ -81,24 +97,57 @@ if (bookingForm) {
 
         event.preventDefault();
 
-        const nameElement = document.getElementById("name");
-        const carElement = document.getElementById("car");
-        const pickupElement = document.getElementById("pickup");
-        const returnElement = document.getElementById("returnDate");
+        const nameElement =
+            document.getElementById("name");
 
-        if (!nameElement || !carElement || !pickupElement || !returnElement) {
+        const carElement =
+            document.getElementById("car");
+
+        const pickupElement =
+            document.getElementById("pickup");
+
+        const returnElement =
+            document.getElementById("returnDate");
+
+
+        if (
+            !nameElement ||
+            !carElement ||
+            !pickupElement ||
+            !returnElement
+        ) {
             return;
         }
 
-        const name = nameElement.value;
-        const car = carElement.value;
-        const pickup = pickupElement.value;
-        const returnDate = returnElement.value;
+
+        const name =
+            nameElement.value.trim();
+
+        const car =
+            carElement.value;
+
+        const pickup =
+            pickupElement.value;
+
+        const returnDate =
+            returnElement.value;
+
+
+        if (!name || !car || !pickup || !returnDate) {
+
+            alert(
+                "Please fill all required fields."
+            );
+
+            return;
+        }
 
 
         if (returnDate < pickup) {
 
-            alert("Return date cannot be before pickup date.");
+            alert(
+                "Return date cannot be before pickup date."
+            );
 
             return;
         }
@@ -121,13 +170,17 @@ if (bookingForm) {
 // BUTTON ANIMATION
 // =====================================
 
-const buttons = document.querySelectorAll(".btn");
+const buttons =
+    document.querySelectorAll(".btn");
+
 
 buttons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
-        button.style.transform = "scale(0.95)";
+        button.style.transform =
+            "scale(0.95)";
+
 
         setTimeout(function () {
 
