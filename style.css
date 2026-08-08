@@ -3,9 +3,7 @@
    Mobile + Tablet + Laptop + Desktop
    ========================================================= */
 
-/* =========================
-   RESET
-   ========================= */
+/* ---------- RESET ---------- */
 
 * {
     margin: 0;
@@ -19,7 +17,7 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #080808;
+    background: #07090d;
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
@@ -43,9 +41,9 @@ textarea {
 }
 
 
-/* =========================
-   GENERAL CONTAINER
-   ========================= */
+/* =========================================================
+   COMMON CONTAINER
+   ========================================================= */
 
 .container {
     width: 90%;
@@ -54,204 +52,174 @@ textarea {
 }
 
 
-/* =========================
+/* =========================================================
    HEADER / NAVBAR
-   ========================= */
+   ========================================================= */
 
-header {
+header,
+.navbar,
+nav {
     width: 100%;
     position: relative;
     z-index: 1000;
-    background: rgba(5, 5, 5, 0.88);
+}
+
+header {
+    background: rgba(5, 8, 13, 0.92);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 nav {
-    width: 90%;
-    max-width: 1200px;
     min-height: 72px;
-    margin: 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    gap: 20px;
+    padding: 0 5%;
 }
 
-.logo,
-.logo a {
-    font-size: 24px;
+.logo {
+    font-size: 25px;
     font-weight: 800;
-    letter-spacing: -0.5px;
     color: #ffffff;
+    white-space: nowrap;
 }
 
 .logo span {
-    color: #ff176f;
+    color: #ff1764;
 }
 
 nav ul {
-    list-style: none;
-
     display: flex;
     align-items: center;
-    justify-content: center;
-
     gap: 28px;
+    list-style: none;
+}
+
+nav ul li {
+    list-style: none;
 }
 
 nav ul li a {
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
-
     transition: 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ff176f;
+    color: #ff1764;
 }
 
 
-/* =========================
+/* =========================================================
    HERO SECTION
-   ========================= */
+   ========================================================= */
 
 .hero {
     position: relative;
-
     min-height: calc(100vh - 72px);
-
+    width: 100%;
     display: flex;
     align-items: center;
+    overflow: hidden;
 
-    background-image: url("images/home-bg.jpg");
+    /* IMPORTANT:
+       Your existing HTML/background image can still work.
+       If your hero already has a background-image in another
+       rule, keep that image declaration there.
+    */
+
+    background-position: center;
     background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-
-    isolation: isolate;
 }
-
-
-/* Dark overlay over background */
 
 .hero-overlay {
     position: absolute;
     inset: 0;
+    z-index: 1;
 
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.88) 0%,
-            rgba(0, 0, 0, 0.65) 42%,
-            rgba(0, 0, 0, 0.28) 75%,
-            rgba(0, 0, 0, 0.35) 100%
+            rgba(0, 0, 0, 0.82) 0%,
+            rgba(0, 0, 0, 0.58) 45%,
+            rgba(0, 0, 0, 0.25) 100%
         );
-
-    z-index: -1;
 }
 
-
-/* =========================
-   HERO CONTENT
-   ========================= */
-
 .hero-content {
+    position: relative;
+    z-index: 5;
+
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 
-    padding: 80px 0;
-
-    position: relative;
-    z-index: 2;
+    padding: 100px 0 80px;
 }
 
 .small-title {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
+    display: inline-block;
     margin-bottom: 12px;
 
     color: #ffffff;
-
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
 }
-
-.small-title:first-letter {
-    color: #ff176f;
-}
-
-
-/* =========================
-   HERO HEADING
-   ========================= */
 
 .hero h1 {
     max-width: 720px;
 
-    font-size: clamp(42px, 6vw, 76px);
+    font-size: clamp(42px, 6vw, 78px);
     line-height: 1.05;
-
     font-weight: 800;
-    letter-spacing: -2px;
 
     color: #ffffff;
-
-    margin-bottom: 22px;
+    margin-bottom: 25px;
 }
 
 .hero h1 span {
-    color: #ff176f;
+    color: #ff1764;
 }
 
-
-/* =========================
-   HERO PARAGRAPH
-   ========================= */
-
 .hero p {
-    max-width: 600px;
-
-    color: rgba(255, 255, 255, 0.88);
+    max-width: 620px;
 
     font-size: 18px;
     line-height: 1.7;
+    color: rgba(255, 255, 255, 0.86);
 
     margin-bottom: 30px;
 }
 
 
-/* =========================
-   HERO BUTTONS
-   ========================= */
+/* =========================================================
+   HERO BUTTONS - IMPORTANT FIX
+   ========================================================= */
 
 .hero-buttons {
     display: flex;
     align-items: center;
+    gap: 15px;
     flex-wrap: wrap;
 
-    gap: 15px;
-
-    margin-bottom: 35px;
+    position: relative;
+    z-index: 20;
 }
 
-.main-btn,
-.outline-btn {
-    display: inline-flex;
+.hero-buttons a {
+    position: relative;
+    z-index: 21;
 
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
 
-    min-height: 50px;
-
-    padding: 13px 25px;
+    min-height: 48px;
+    padding: 13px 24px;
 
     border-radius: 8px;
 
@@ -259,62 +227,54 @@ nav ul li a:hover {
     font-weight: 700;
 
     cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: all 0.3s ease;
 }
 
 
-/* Pink button */
+/* MAIN BUTTON */
 
 .main-btn {
-    background: #ff176f;
-    color: #ffffff;
+    background: #ff1764 !important;
+    color: #ffffff !important;
 
-    border: 2px solid #ff176f;
+    border: 2px solid #ff1764 !important;
 
-    box-shadow: 0 8px 25px rgba(255, 23, 111, 0.25);
+    box-shadow: 0 8px 25px rgba(255, 23, 100, 0.28);
 }
 
 .main-btn:hover {
-    background: #e9005d;
-    border-color: #e9005d;
+    background: #e90050 !important;
+    border-color: #e90050 !important;
 
     transform: translateY(-3px);
-
-    box-shadow: 0 12px 30px rgba(255, 23, 111, 0.35);
+    box-shadow: 0 12px 30px rgba(255, 23, 100, 0.38);
 }
 
 
-/* Outline button */
+/* OUTLINE BUTTON */
 
 .outline-btn {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
 
-    color: #ffffff;
-
-    border: 2px solid rgba(255, 255, 255, 0.55);
+    border: 2px solid rgba(255, 255, 255, 0.65) !important;
 
     backdrop-filter: blur(5px);
 }
 
 .outline-btn:hover {
-    background: #ffffff;
-    color: #111111;
+    background: #ffffff !important;
+    color: #111111 !important;
 
-    border-color: #ffffff;
+    border-color: #ffffff !important;
 
     transform: translateY(-3px);
 }
 
 
-/* =========================
+/* =========================================================
    FEATURES
-   ========================= */
+   ========================================================= */
 
 .features {
     display: flex;
@@ -323,164 +283,159 @@ nav ul li a:hover {
 
     gap: 30px;
 
-    margin-top: 10px;
+    margin-top: 45px;
 }
 
 .feature {
     display: flex;
     flex-direction: column;
 
-    min-width: 120px;
+    min-width: 130px;
 }
 
 .feature strong {
-    display: block;
-
-    color: #ffffff;
-
     font-size: 18px;
-    line-height: 1.2;
-
-    margin-bottom: 4px;
+    color: #ffffff;
+    margin-bottom: 2px;
 }
 
 .feature span {
-    color: rgba(255, 255, 255, 0.75);
-
     font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 
-/* =========================
+/* =========================================================
    GENERAL SECTIONS
-   For About / Contact / other pages
-   ========================= */
+   ========================================================= */
 
 section {
-    position: relative;
+    width: 100%;
 }
+
+section:not(.hero) {
+    padding: 80px 5%;
+    background: #090b10;
+}
+
+section h2 {
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+section h2 span {
+    color: #ff1764;
+}
+
+section p {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* =========================================================
+   ABOUT / WHY CHOOSE US
+   ========================================================= */
 
 .about,
 .about-section,
-.contact,
-.contact-section,
-.page-section {
+.why-us {
     position: relative;
-
-    min-height: 100vh;
-
-    padding: 100px 0;
+    overflow: hidden;
 
     background:
         linear-gradient(
-            rgba(0, 0, 0, 0.76),
-            rgba(0, 0, 0, 0.88)
-        ),
-        url("images/home-bg.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
-    color: #ffffff;
+            rgba(5, 7, 11, 0.90),
+            rgba(5, 7, 11, 0.94)
+        );
 }
-
-
-/* =========================
-   ABOUT / CONTACT CONTENT
-   ========================= */
 
 .about .container,
 .about-section .container,
-.contact .container,
-.contact-section .container,
-.page-section .container {
+.why-us .container {
     position: relative;
     z-index: 2;
 }
 
-.about h1,
-.about h2,
-.about-section h1,
-.about-section h2,
-.contact h1,
-.contact h2,
-.contact-section h1,
-.contact-section h2,
-.page-section h1,
-.page-section h2 {
-    color: #ffffff;
 
-    font-size: clamp(32px, 5vw, 52px);
-
-    line-height: 1.15;
-
-    margin-bottom: 20px;
-}
-
-.about h1 span,
-.about h2 span,
-.about-section h1 span,
-.about-section h2 span,
-.contact h1 span,
-.contact h2 span,
-.contact-section h1 span,
-.contact-section h2 span,
-.page-section h1 span,
-.page-section h2 span {
-    color: #ff176f;
-}
-
-.about p,
-.about-section p,
-.contact p,
-.contact-section p,
-.page-section p {
-    max-width: 800px;
-
-    color: rgba(255, 255, 255, 0.82);
-
-    font-size: 17px;
-    line-height: 1.8;
-
-    margin-bottom: 18px;
-}
-
-
-/* =========================
+/* =========================================================
    CARDS
-   ========================= */
+   ========================================================= */
 
 .card,
-.about-card,
-.contact-card {
-    background: rgba(15, 15, 15, 0.78);
-
+.feature-card,
+.car-card {
+    background: rgba(255, 255, 255, 0.055);
     border: 1px solid rgba(255, 255, 255, 0.10);
 
-    border-radius: 15px;
-
+    border-radius: 16px;
     padding: 25px;
-
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
 
     transition: 0.3s ease;
 }
 
 .card:hover,
-.about-card:hover,
-.contact-card:hover {
+.feature-card:hover,
+.car-card:hover {
     transform: translateY(-5px);
 
-    border-color: rgba(255, 23, 111, 0.45);
+    border-color: rgba(255, 23, 100, 0.45);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
 }
 
 
-/* =========================
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact,
+.contact-section {
+    background:
+        linear-gradient(
+            rgba(5, 7, 11, 0.94),
+            rgba(5, 7, 11, 0.97)
+        );
+}
+
+.contact-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    margin-top: 35px;
+}
+
+.contact-item {
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 14px;
+}
+
+.contact-item h3 {
+    color: #ff1764;
+    margin-bottom: 8px;
+}
+
+.contact-item p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================================
    FORMS
-   ========================= */
+   ========================================================= */
 
 form {
     width: 100%;
@@ -492,33 +447,21 @@ textarea {
     width: 100%;
 
     padding: 14px 16px;
-
     margin-bottom: 15px;
 
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: #11151c;
+    color: #ffffff;
 
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
 
     outline: none;
-
-    background: rgba(255, 255, 255, 0.07);
-
-    color: #ffffff;
-
-    font-size: 15px;
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: rgba(255, 255, 255, 0.55);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #ff176f;
-
-    box-shadow: 0 0 0 3px rgba(255, 23, 111, 0.12);
+    border-color: #ff1764;
 }
 
 textarea {
@@ -526,34 +469,232 @@ textarea {
     resize: vertical;
 }
 
-select option {
-    background: #111111;
+button {
+    border: none;
+    cursor: pointer;
+
+    padding: 13px 24px;
+
+    background: #ff1764;
     color: #ffffff;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #e90050;
+    transform: translateY(-2px);
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-   ========================= */
+   ========================================================= */
 
 footer {
-    background: #050505;
-
+    background: #05070a;
     color: rgba(255, 255, 255, 0.7);
 
     text-align: center;
 
-    padding: 30px 20px;
+    padding: 30px 5%;
 
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 footer a {
-    color: #ff176f;
+    color: #ff1764;
 }
 
-footer a:hover {
-    color: #ffffff;
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    nav {
+        min-height: 62px;
+        padding: 0 18px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav ul li a {
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: calc(100vh - 62px);
+        align-items: flex-end;
+    }
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.18) 0%,
+                rgba(0, 0, 0, 0.55) 48%,
+                rgba(0, 0, 0, 0.94) 100%
+            );
+    }
+
+    .hero-content {
+        width: 88%;
+        padding: 0 0 75px;
+    }
+
+    .small-title {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+
+    .hero h1 {
+        font-size: clamp(34px, 9vw, 50px);
+        line-height: 1.04;
+
+        margin-bottom: 17px;
+
+        max-width: 100%;
+    }
+
+    .hero p {
+        font-size: 13px;
+        line-height: 1.5;
+
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+
+    /* BUTTON FIX MOBILE */
+
+    .hero-buttons {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .hero-buttons a {
+        min-height: 44px;
+
+        padding: 10px 16px;
+
+        font-size: 13px;
+
+        border-radius: 7px;
+    }
+
+
+    /* FEATURES */
+
+    .features {
+        gap: 14px;
+        margin-top: 25px;
+    }
+
+    .feature {
+        min-width: 100px;
+    }
+
+    .feature strong {
+        font-size: 14px;
+    }
+
+    .feature span {
+        font-size: 10px;
+    }
+
+
+    /* SECTIONS */
+
+    section:not(.hero) {
+        padding: 55px 6%;
+    }
+
+    section h2 {
+        font-size: 30px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    nav {
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    nav ul {
+        gap: 8px;
+    }
+
+    nav ul li a {
+        font-size: 9px;
+    }
+
+    .hero-content {
+        width: 86%;
+        padding-bottom: 60px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    .hero-buttons {
+        gap: 8px;
+    }
+
+    .hero-buttons a {
+        padding: 9px 13px;
+        font-size: 12px;
+    }
+
+    .features {
+        gap: 10px;
+    }
+
+    .feature strong {
+        font-size: 12px;
+    }
+
+    .feature span {
+        font-size: 9px;
+    }
 }
 
 
@@ -561,356 +702,18 @@ footer a:hover {
    TABLET
    ========================================================= */
 
-@media (max-width: 900px) {
-
-    nav {
-        min-height: 65px;
-    }
-
-    nav ul {
-        gap: 17px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
-    .hero {
-        min-height: calc(100vh - 65px);
-
-        background-position: center center;
-    }
+@media (min-width: 769px) and (max-width: 1024px) {
 
     .hero-content {
-        padding: 70px 0;
+        width: 88%;
     }
 
     .hero h1 {
-        max-width: 620px;
-        font-size: clamp(40px, 7vw, 60px);
+        font-size: 55px;
     }
 
     .hero p {
         font-size: 16px;
-        max-width: 540px;
-    }
-
-    .features {
-        gap: 22px;
-    }
-
-    .about,
-    .about-section,
-    .contact,
-    .contact-section,
-    .page-section {
-        background-attachment: scroll;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    body {
-        font-size: 14px;
-    }
-
-    .container {
-        width: 92%;
-    }
-
-
-    /* ---------- NAVBAR ---------- */
-
-    nav {
-        width: 92%;
-
-        min-height: 62px;
-
-        gap: 10px;
-    }
-
-    .logo,
-    .logo a {
-        font-size: 20px;
-    }
-
-    nav ul {
-        gap: 10px;
-    }
-
-    nav ul li a {
-        font-size: 11px;
-        font-weight: 600;
-    }
-
-
-    /* ---------- HERO ---------- */
-
-    .hero {
-        min-height: calc(100vh - 62px);
-
-        align-items: center;
-
-        background-position: center center;
-    }
-
-    .hero-overlay {
-        background:
-            linear-gradient(
-                180deg,
-                rgba(0, 0, 0, 0.40) 0%,
-                rgba(0, 0, 0, 0.72) 48%,
-                rgba(0, 0, 0, 0.93) 100%
-            );
-    }
-
-    .hero-content {
-        width: 92%;
-
-        padding: 55px 0 60px;
-    }
-
-
-    /* ---------- SMALL TITLE ---------- */
-
-    .small-title {
-        font-size: 10px;
-
-        margin-bottom: 10px;
-
-        letter-spacing: 0.3px;
-    }
-
-
-    /* ---------- HEADING ---------- */
-
-    .hero h1 {
-        max-width: 100%;
-
-        font-size: clamp(34px, 10vw, 46px);
-
-        line-height: 1.08;
-
-        letter-spacing: -1.2px;
-
-        margin-bottom: 16px;
-    }
-
-
-    /* ---------- PARAGRAPH ---------- */
-
-    .hero p {
-        max-width: 100%;
-
-        font-size: 13px;
-
-        line-height: 1.55;
-
-        margin-bottom: 22px;
-    }
-
-
-    /* ---------- BUTTONS ---------- */
-
-    .hero-buttons {
-        width: 100%;
-
-        gap: 10px;
-
-        margin-bottom: 28px;
-    }
-
-    .main-btn,
-    .outline-btn {
-        min-height: 45px;
-
-        padding: 11px 17px;
-
-        border-radius: 7px;
-
-        font-size: 12px;
-    }
-
-
-    /* ---------- FEATURES ---------- */
-
-    .features {
-        width: 100%;
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 15px 18px;
-    }
-
-    .feature {
-        min-width: 0;
-    }
-
-    .feature strong {
-        font-size: 14px;
-    }
-
-    .feature span {
-        font-size: 10px;
-    }
-
-
-    /* ---------- ABOUT / CONTACT ---------- */
-
-    .about,
-    .about-section,
-    .contact,
-    .contact-section,
-    .page-section {
-        min-height: 100vh;
-
-        padding: 65px 0;
-
-        background-position: center center;
-
-        background-attachment: scroll;
-    }
-
-    .about h1,
-    .about h2,
-    .about-section h1,
-    .about-section h2,
-    .contact h1,
-    .contact h2,
-    .contact-section h1,
-    .contact-section h2,
-    .page-section h1,
-    .page-section h2 {
-        font-size: 32px;
-
-        margin-bottom: 15px;
-    }
-
-    .about p,
-    .about-section p,
-    .contact p,
-    .contact-section p,
-    .page-section p {
-        font-size: 14px;
-
-        line-height: 1.7;
-    }
-
-
-    /* ---------- CARDS ---------- */
-
-    .card,
-    .about-card,
-    .contact-card {
-        padding: 18px;
-
-        border-radius: 12px;
-    }
-
-
-    /* ---------- FORM ---------- */
-
-    input,
-    select,
-    textarea {
-        padding: 12px 13px;
-
-        font-size: 14px;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-    nav {
-        min-height: 58px;
-    }
-
-    .logo,
-    .logo a {
-        font-size: 18px;
-    }
-
-    nav ul {
-        gap: 7px;
-    }
-
-    nav ul li a {
-        font-size: 9px;
-    }
-
-    .hero {
-        min-height: calc(100vh - 58px);
-    }
-
-    .hero-content {
-        padding: 45px 0 50px;
-    }
-
-    .hero h1 {
-        font-size: 31px;
-    }
-
-    .hero p {
-        font-size: 12px;
-    }
-
-    .main-btn,
-    .outline-btn {
-        padding: 10px 13px;
-
-        font-size: 11px;
-    }
-
-    .features {
-        gap: 12px;
-    }
-
-    .feature strong {
-        font-size: 13px;
-    }
-
-    .feature span {
-        font-size: 9px;
-    }
-}
-
-
-/* =========================================================
-   LANDSCAPE PHONE
-   ========================================================= */
-
-@media (max-height: 500px) and (max-width: 900px) {
-
-    .hero {
-        min-height: auto;
-    }
-
-    .hero-content {
-        padding: 45px 0;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .hero p {
-        margin-bottom: 18px;
-    }
-
-    .hero-buttons {
-        margin-bottom: 20px;
     }
 }
 
@@ -919,42 +722,38 @@ footer a:hover {
    LAPTOP / DESKTOP
    ========================================================= */
 
-@media (min-width: 1200px) {
-
-    nav {
-        min-height: 78px;
-    }
-
-    .hero {
-        min-height: calc(100vh - 78px);
-    }
+@media (min-width: 1025px) {
 
     .hero-content {
-        padding: 100px 0;
+        padding-left: 2%;
     }
 
-    .hero h1 {
-        font-size: 76px;
+    .hero-buttons a {
+        min-width: 145px;
     }
+}
 
-    .hero p {
-        font-size: 18px;
-    }
 
-    .main-btn,
-    .outline-btn {
-        min-height: 54px;
+/* =========================================================
+   ACCESSIBILITY / SAFETY
+   ========================================================= */
 
-        padding: 14px 28px;
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #ff1764;
+    outline-offset: 3px;
+}
 
-        font-size: 16px;
-    }
 
-    .feature strong {
-        font-size: 20px;
-    }
+/* =========================================================
+   PREVENT HORIZONTAL SCROLL
+   ========================================================= */
 
-    .feature span {
-        font-size: 14px;
-    }
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
