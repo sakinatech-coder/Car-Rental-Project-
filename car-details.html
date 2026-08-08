@@ -7,20 +7,16 @@
 
     <title>Car Details | DriveEasy</title>
 
-    <link rel="stylesheet" href="car-details.css">
+    <link rel="stylesheet" href="cars.css">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- ================= HEADER ================= -->
 
-<header class="details-navbar">
+<header>
 
-    <div class="details-logo">
-        <a href="index.html">
-            Drive<span>Easy</span>
-        </a>
-    </div>
+    <h2 class="logo">DriveEasy</h2>
 
     <nav>
         <a href="index.html">Home</a>
@@ -34,158 +30,177 @@
 
 <!-- ================= CAR DETAILS ================= -->
 
-<main class="details-page">
+<section class="cars">
 
-    <div class="details-card">
+    <h1 id="pageTitle">Car Details</h1>
 
-        <div class="details-image-box">
+    <div class="car-container">
 
-            <img id="carImage" src="" alt="Car">
+        <div class="car-card">
 
-        </div>
+            <img
+                id="carImage"
+                src="images/Thar-dashboard.jpg"
+                alt="Car Dashboard"
+            >
 
-
-        <div class="details-info">
-
-            <p class="details-small">
-                PREMIUM RENTAL CAR
-            </p>
-
-            <h1 id="carName">
-                Car Name
-            </h1>
-
-            <h2 id="carPrice">
-                ₹0 / Day
+            <h2 id="carName">
+                Mahindra Thar
             </h2>
 
+            <p id="carPrice">
+                ₹3500 / Day
+            </p>
 
-            <div class="car-specs">
+            <p id="carSpecs">
+                Manual | Diesel | 4 Seats
+            </p>
 
-                <div>
-                    <strong>⚙️ Transmission</strong>
-                    <span id="carTransmission">-</span>
-                </div>
+            <p>
+                ✨ Premium & Well Maintained Car
+            </p>
 
-                <div>
-                    <strong>⛽ Fuel</strong>
-                    <span id="carFuel">-</span>
-                </div>
+            <p>
+                🛡️ Safe & Reliable
+            </p>
 
-                <div>
-                    <strong>👥 Seats</strong>
-                    <span id="carSeats">-</span>
-                </div>
+            <p>
+                📞 24/7 Customer Support
+            </p>
 
-            </div>
+            <br>
 
-
-            <div class="car-features">
-
-                <h3>Why Choose This Car?</h3>
-
-                <p>✨ Premium & Well Maintained</p>
-                <p>🛡️ Safe & Reliable</p>
-                <p>📞 24/7 Customer Support</p>
-                <p>🚗 Perfect for Your Journey</p>
-
-            </div>
-
-
-            <div class="details-buttons">
-
-                <a href="book.html" class="book-btn">
-                    Book This Car 🚗
-                </a>
-
-                <a href="cars.html" class="back-btn">
-                    ← Back to Cars
-                </a>
-
-            </div>
+            <a href="book.html" class="btn">
+                Book This Car 🚗
+            </a>
 
         </div>
 
     </div>
 
-</main>
+</section>
 
 
 <!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
+const params =
+    new URLSearchParams(window.location.search);
 
-const car = params.get("car");
-
-
-const cars = {
-
-    thar: {
-        name: "Mahindra Thar",
-        price: "₹3500 / Day",
-        image: "images/Thar-front.jpg",
-        transmission: "Manual",
-        fuel: "Diesel",
-        seats: "4 Seats"
-    },
-
-    scorpio: {
-        name: "Mahindra Scorpio",
-        price: "₹3000 / Day",
-        image: "images/scorpio-front.jpg",
-        transmission: "Manual",
-        fuel: "Diesel",
-        seats: "7 Seats"
-    },
-
-    bmw: {
-        name: "BMW 5 Series",
-        price: "₹9000 / Day",
-        image: "images/bmw-front.jpg",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        seats: "5 Seats"
-    },
-
-    lamborghini: {
-        name: "Lamborghini Huracan",
-        price: "₹25000 / Day",
-        image: "images/lamborghini-front.jpg",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        seats: "2 Seats"
-    }
-
-};
+const car =
+    params.get("car");
 
 
-const selectedCar = cars[car] || cars.thar;
+const carImage =
+    document.getElementById("carImage");
+
+const carName =
+    document.getElementById("carName");
+
+const carPrice =
+    document.getElementById("carPrice");
+
+const carSpecs =
+    document.getElementById("carSpecs");
+
+const pageTitle =
+    document.getElementById("pageTitle");
 
 
-document.getElementById("carImage").src =
-    selectedCar.image;
+if (car === "Mahindra Thar") {
 
-document.getElementById("carImage").alt =
-    selectedCar.name;
+    pageTitle.textContent =
+        "Mahindra Thar Details";
 
-document.getElementById("carName").textContent =
-    selectedCar.name;
+    carName.textContent =
+        "Mahindra Thar";
 
-document.getElementById("carPrice").textContent =
-    selectedCar.price;
+    carImage.src =
+        "images/Thar-dashboard.jpg";
 
-document.getElementById("carTransmission").textContent =
-    selectedCar.transmission;
+    carImage.alt =
+        "Mahindra Thar Dashboard";
 
-document.getElementById("carFuel").textContent =
-    selectedCar.fuel;
+    carPrice.textContent =
+        "₹3500 / Day";
 
-document.getElementById("carSeats").textContent =
-    selectedCar.seats;
+    carSpecs.textContent =
+        "Manual | Diesel | 4 Seats";
+
+}
+
+
+else if (car === "Mahindra Scorpio") {
+
+    pageTitle.textContent =
+        "Mahindra Scorpio Details";
+
+    carName.textContent =
+        "Mahindra Scorpio";
+
+    carImage.src =
+        "images/scorpio-dashboard.jpg";
+
+    carImage.alt =
+        "Mahindra Scorpio Dashboard";
+
+    carPrice.textContent =
+        "₹3000 / Day";
+
+    carSpecs.textContent =
+        "Manual | Diesel | 7 Seats";
+
+}
+
+
+else if (car === "BMW 5 Series") {
+
+    pageTitle.textContent =
+        "BMW 5 Series Details";
+
+    carName.textContent =
+        "BMW 5 Series";
+
+    carImage.src =
+        "images/bmw-interior.jpg";
+
+    carImage.alt =
+        "BMW 5 Series Interior";
+
+    carPrice.textContent =
+        "₹9000 / Day";
+
+    carSpecs.textContent =
+        "Automatic | Petrol | 5 Seats";
+
+}
+
+
+else if (car === "Lamborghini Huracan") {
+
+    pageTitle.textContent =
+        "Lamborghini Huracan Details";
+
+    carName.textContent =
+        "Lamborghini Huracan";
+
+    carImage.src =
+        "images/lamborghini-Interior.jpg";
+
+    carImage.alt =
+        "Lamborghini Huracan Interior";
+
+    carPrice.textContent =
+        "₹25000 / Day";
+
+    carSpecs.textContent =
+        "Automatic | Petrol | 2 Seats";
+
+}
 
 </script>
 
 </body>
+
 </html>
