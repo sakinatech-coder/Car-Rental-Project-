@@ -1,40 +1,108 @@
-// ===============================
+// =====================================
 // DRIVE EASY - FINAL JAVASCRIPT
-// ===============================
+// =====================================
 
-// Search Car
-const searchForm = document.querySelector(".search form");
+
+// =====================================
+// SEARCH CAR
+// =====================================
+
+const searchForm = document.getElementById("searchForm");
 
 if (searchForm) {
-    searchForm.addEventListener("submit", function(event) {
+
+    searchForm.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
-        alert("Car search feature is ready! 🚗");
+        const brand = document.getElementById("brandSelect").value;
+        const fuel = document.getElementById("fuelSelect").value;
+        const price = document.getElementById("priceSelect").value;
+
+        const cards = document.querySelectorAll(".car-card");
+
+        let found = false;
+
+        cards.forEach(function (card) {
+
+            const cardCar = card.getAttribute("data-car");
+            const cardFuel = card.getAttribute("data-fuel");
+            const cardPrice = card.getAttribute("data-price");
+
+            let show = true;
+
+            if (brand !== "" && brand !== cardCar) {
+                show = false;
+            }
+
+            if (fuel !== "" && fuel !== cardFuel) {
+                show = false;
+            }
+
+            if (price !== "" && price !== cardPrice) {
+                show = false;
+            }
+
+            if (show) {
+                card.style.display = "";
+                found = true;
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+
+        // Scroll to cars
+
+        document.getElementById("cars").scrollIntoView({
+            behavior: "smooth"
+        });
+
+
+        if (!found) {
+            alert("Sorry! No car found with these options. 🚗");
+        }
+
     });
+
 }
 
 
-// ===============================
-// Booking Form
-// ===============================
+// =====================================
+// BOOKING FORM
+// =====================================
 
 const bookingForm = document.querySelector(".booking-form");
 
 if (bookingForm) {
 
-    bookingForm.addEventListener("submit", function(event) {
+    bookingForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const car = document.getElementById("car").value;
-        const pickup = document.getElementById("pickup").value;
-        const returnDate = document.getElementById("returnDate").value;
+        const nameElement = document.getElementById("name");
+        const carElement = document.getElementById("car");
+        const pickupElement = document.getElementById("pickup");
+        const returnElement = document.getElementById("returnDate");
 
-        if (returnDate < pickup) {
-            alert("Return date cannot be before pickup date.");
+        if (!nameElement || !carElement || !pickupElement || !returnElement) {
             return;
         }
+
+        const name = nameElement.value;
+        const car = carElement.value;
+        const pickup = pickupElement.value;
+        const returnDate = returnElement.value;
+
+
+        if (returnDate < pickup) {
+
+            alert("Return date cannot be before pickup date.");
+
+            return;
+        }
+
 
         alert(
             "🎉 Booking Confirmed!\n\n" +
@@ -43,24 +111,30 @@ if (bookingForm) {
             "Pickup Date: " + pickup + "\n" +
             "Return Date: " + returnDate
         );
+
     });
+
 }
 
 
-// ===============================
-// Button Animation
-// ===============================
+// =====================================
+// BUTTON ANIMATION
+// =====================================
 
 const buttons = document.querySelectorAll(".btn");
 
-buttons.forEach(function(button) {
+buttons.forEach(function (button) {
 
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
+
         button.style.transform = "scale(0.95)";
 
-        setTimeout(function() {
+        setTimeout(function () {
+
             button.style.transform = "";
+
         }, 150);
+
     });
 
 });
