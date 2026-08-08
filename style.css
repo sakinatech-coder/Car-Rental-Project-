@@ -1185,3 +1185,286 @@ html{
         font-size: 21px;
     }
 }
+/* ==============================
+   FINAL HERO FIX
+================================ */
+
+.hero {
+    position: relative !important;
+    min-height: calc(100vh - 70px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background-image: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=90") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+
+/* Dark overlay */
+
+.hero-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    background: rgba(0, 0, 0, 0.50) !important;
+
+    z-index: 1 !important;
+}
+
+
+/* Hero content */
+
+.hero-content {
+    position: relative !important;
+    z-index: 5 !important;
+
+    width: 90% !important;
+    max-width: 850px !important;
+
+    text-align: center !important;
+
+    color: white !important;
+
+    padding: 40px 25px !important;
+
+    background: rgba(0, 0, 0, 0.40) !important;
+
+    border-radius: 20px !important;
+
+    backdrop-filter: blur(5px) !important;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,0.30) !important;
+}
+
+
+/* Small label */
+
+.hero-tag {
+    color: white !important;
+
+    background: #e63946 !important;
+
+    padding: 8px 18px !important;
+
+    border-radius: 30px !important;
+
+    display: inline-block !important;
+
+    font-weight: 700 !important;
+
+    margin-bottom: 15px !important;
+}
+
+
+/* Heading */
+
+.hero h1 {
+    color: white !important;
+
+    font-size: 52px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.1 !important;
+
+    margin: 10px 0 20px !important;
+
+    text-shadow: 0 3px 15px rgba(0,0,0,0.8) !important;
+}
+
+
+.hero h1 span {
+    color: #ff4d5a !important;
+}
+
+
+/* Paragraph */
+
+.hero p {
+    color: white !important;
+
+    font-size: 18px !important;
+
+    line-height: 1.6 !important;
+
+    margin: 0 auto 25px !important;
+
+    max-width: 650px !important;
+
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8) !important;
+}
+
+
+/* Buttons */
+
+.hero-buttons {
+    display: flex !important;
+
+    justify-content: center !important;
+
+    align-items: center !important;
+
+    gap: 15px !important;
+
+    flex-wrap: wrap !important;
+}
+
+
+.hero-btn {
+    display: inline-block !important;
+
+    background: #e63946 !important;
+
+    color: white !important;
+
+    padding: 14px 28px !important;
+
+    border-radius: 8px !important;
+
+    text-decoration: none !important;
+
+    font-weight: 700 !important;
+
+    box-shadow: 0 8px 25px rgba(230,57,70,0.45) !important;
+}
+
+
+.hero-btn:hover {
+    background: #ff4d5a !important;
+
+    transform: translateY(-3px) !important;
+}
+
+
+.secondary-btn {
+    display: inline-block !important;
+
+    color: white !important;
+
+    border: 2px solid white !important;
+
+    background: transparent !important;
+
+    padding: 12px 26px !important;
+
+    border-radius: 8px !important;
+
+    text-decoration: none !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* Features */
+
+.hero-features {
+    display: flex !important;
+
+    justify-content: center !important;
+
+    gap: 40px !important;
+
+    margin-top: 35px !important;
+
+    flex-wrap: wrap !important;
+}
+
+
+.hero-features strong {
+    color: white !important;
+
+    font-size: 24px !important;
+}
+
+
+.hero-features small {
+    color: white !important;
+
+    font-size: 13px !important;
+}
+
+
+/* ==============================
+   NAVBAR FIX
+================================ */
+
+nav {
+    background: white !important;
+
+    color: #222 !important;
+
+    box-shadow: 0 3px 15px rgba(0,0,0,0.10) !important;
+}
+
+
+nav a {
+    color: #222 !important;
+
+    text-decoration: none !important;
+}
+
+
+nav a:hover {
+    color: #e63946 !important;
+}
+
+
+/* Logo */
+
+nav .logo,
+nav h1,
+nav .brand {
+    color: #e63946 !important;
+}
+
+
+/* Book Now */
+
+nav a:last-child {
+    background: #e63946 !important;
+
+    color: white !important;
+
+    padding: 10px 18px !important;
+
+    border-radius: 7px !important;
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: calc(100vh - 60px) !important;
+    }
+
+    .hero-content {
+        width: 88% !important;
+
+        padding: 30px 18px !important;
+    }
+
+    .hero h1 {
+        font-size: 38px !important;
+    }
+
+    .hero p {
+        font-size: 15px !important;
+    }
+
+    .hero-features {
+        gap: 20px !important;
+    }
+
+    .hero-features strong {
+        font-size: 20px !important;
+    }
+}
