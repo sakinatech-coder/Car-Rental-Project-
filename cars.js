@@ -173,7 +173,6 @@ if (bookingForm) {
 const detailButtons =
     document.querySelectorAll(".car-card .btn");
 
-
 detailButtons.forEach(function (button) {
 
     button.addEventListener("click", function (event) {
@@ -186,36 +185,33 @@ detailButtons.forEach(function (button) {
             return;
         }
 
-        const image =
-            card.querySelector("img").getAttribute("src");
-
         const carName =
-            card.querySelector("h2").textContent;
+            card.querySelector("h2").textContent.trim();
 
-        const paragraphs =
-            card.querySelectorAll("p");
+        let carType = "";
 
-        const price =
-            paragraphs[0].textContent;
+        if (carName === "Mahindra Thar") {
+            carType = "thar";
+        }
 
-        const specifications =
-            paragraphs[1].textContent;
+        else if (carName === "Mahindra Scorpio") {
+            carType = "scorpio";
+        }
 
+        else if (carName === "BMW 5 Series") {
+            carType = "bmw";
+        }
 
-        alert(
-            "🚗 CAR DETAILS\n\n" +
-            carName + "\n\n" +
-            "💰 " + price + "\n" +
-            "⚙️ " + specifications + "\n\n" +
-            "✨ Premium & Well Maintained Car\n" +
-            "🛡️ Safe & Reliable\n" +
-            "📞 24/7 Customer Support"
-        );
+        else if (carName === "Lamborghini Huracan") {
+            carType = "lamborghini";
+        }
+
+        window.location.href =
+            "car-details.html?car=" + carType;
 
     });
 
 });
-
 
 // =====================================
 // BUTTON ANIMATION
