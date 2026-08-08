@@ -1,1093 +1,600 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>DriveEasy Car Rental</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        /* ================= CAR POPUP ================= */
-
-        .car-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .car-modal-content {
-            background: white;
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow-y: auto;
-            border-radius: 15px;
-            padding: 30px;
-            position: relative;
-            text-align: center;
-        }
-
-        .close-btn {
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            border: none;
-            background: #ff3c00;
-            color: white;
-            font-size: 25px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .car-modal-content h2 {
-            margin-bottom: 15px;
-        }
-
-        .car-modal-content p {
-            line-height: 1.7;
-        }
-
-        .car-features {
-            margin: 15px 0;
-            line-height: 2;
-            font-size: 17px;
-        }
-
-        .car-gallery {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .car-gallery img {
-            width: 250px;
-            height: 170px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        /* ================= CAR CARD ================= */
-
-        .car-card {
-            cursor: pointer;
-        }
-
-        .car-card img {
-            cursor: pointer;
-        }
-
-        .car-card button {
-            cursor: pointer;
-        }
-
-    </style>
-
-</head>
-
-
-<body>
-
-
-<!-- ================= HEADER ================= -->
-
-<header class="navbar">
-
-    <div class="logo">
-        <a href="index.html">DriveEasy</a>
-    </div>
-
-    <nav>
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#cars">Cars</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-
-            <li>
-                <a href="book.html" class="book-btn">
-                    Book Now
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-        <span class="hero-tag">🚘 PREMIUM CAR RENTALS</span>
-
-        <h1>
-            Find Your <span>Perfect Rental Car</span>
-        </h1>
-
-        <p>
-            Drive your dream car without the dream price.
-            Choose from premium, comfortable and reliable cars
-            for every journey.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="cars.html" class="hero-btn">Explore Cars 🚗</a>
-            <a href="#about" class="secondary-btn">Learn More</a>
-        </div>
-
-        <div class="hero-features">
-            <div>
-                <strong>100+</strong>
-                <small>Premium Cars</small>
-            </div>
-
-            <div>
-                <strong>24/7</strong>
-                <small>Customer Support</small>
-            </div>
-
-            <div>
-                <strong>100%</strong>
-                <small>Safe & Reliable</small>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ================= SEARCH ================= -->
-
-<section class="search">
-
-    <h2>Find Your Car</h2>
-
-    <form id="searchForm">
-
-        <select id="brandSelect">
-
-            <option value="">Select Brand</option>
-
-            <option value="thar">
-                Mahindra
-            </option>
-
-            <option value="bmw">
-                BMW
-            </option>
-
-            <option value="scorpio">
-                Scorpio
-            </option>
-
-            <option value="lamborghini">
-                Lamborghini
-            </option>
-
-        </select>
-
-
-        <select id="fuelSelect">
-
-            <option value="">Fuel Type</option>
-
-            <option value="petrol">
-                Petrol
-            </option>
-
-            <option value="diesel">
-                Diesel
-            </option>
-
-        </select>
-
-
-        <select id="priceSelect">
-
-            <option value="">Price Per Day</option>
-
-            <option value="3500">
-                ₹3500
-            </option>
-
-            <option value="4000">
-                ₹4000
-            </option>
-
-            <option value="7000">
-                ₹7000
-            </option>
-
-            <option value="15000">
-                ₹15000
-            </option>
-
-        </select>
-
-
-        <button type="submit">
-            Search Car
-        </button>
-
-    </form>
-
-</section>
-
-
-<!-- ================= AVAILABLE CARS ================= -->
-
-<section id="cars">
-
-    <h2>Available Cars</h2>
-
-
-    <div class="car-container">
-
-
-        <!-- ================= THAR ================= -->
-
-        <div class="car-card"
-             data-car="thar"
-             data-fuel="diesel"
-             data-price="3500"
-             onclick="showCar('thar')">
-
-            <img
-                src="images/Thar-front.jpg"
-                alt="Mahindra Thar"
-            >
-
-            <h3>
-                Mahindra Thar
-            </h3>
-
-            <p>
-                ₹3500 / Day
-            </p>
-
-            <p>
-                ❄️ AC &nbsp;
-                👥 5 Seats &nbsp;
-                ⛽ Diesel
-                <br>
-                🚀 155 km/h &nbsp;
-                ⚙️ Manual
-            </p>
-
-            <button
-                class="view-details"
-                onclick="event.stopPropagation(); showCar('thar')"
-            >
-                View Details
-            </button>
-
-            <br><br>
-
-            <a
-                href="book.html"
-                class="btn"
-                onclick="event.stopPropagation();"
-            >
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- ================= BMW ================= -->
-
-        <div class="car-card"
-             data-car="bmw"
-             data-fuel="petrol"
-             data-price="7000"
-             onclick="showCar('bmw')">
-
-            <img
-                src="images/bmw-front.jpg"
-                alt="BMW X5"
-            >
-
-            <h3>
-                BMW X5
-            </h3>
-
-            <p>
-                ₹7000 / Day
-            </p>
-
-            <p>
-                ❄️ AC &nbsp;
-                👥 5 Seats &nbsp;
-                ⛽ Petrol
-                <br>
-                🚀 243 km/h &nbsp;
-                ⚙️ Automatic
-            </p>
-
-            <button
-                class="view-details"
-                onclick="event.stopPropagation(); showCar('bmw')"
-            >
-                View Details
-            </button>
-
-            <br><br>
-
-            <a
-                href="book.html"
-                class="btn"
-                onclick="event.stopPropagation();"
-            >
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- ================= SCORPIO ================= -->
-
-        <div class="car-card"
-             data-car="scorpio"
-             data-fuel="diesel"
-             data-price="4000"
-             onclick="showCar('scorpio')">
-
-            <img
-                src="images/scorpio-front.jpg"
-                alt="Scorpio N"
-            >
-
-            <h3>
-                Scorpio N
-            </h3>
-
-            <p>
-                ₹4000 / Day
-            </p>
-
-            <p>
-                ❄️ AC &nbsp;
-                👥 7 Seats &nbsp;
-                ⛽ Diesel
-                <br>
-                🚀 165 km/h &nbsp;
-                ⚙️ Automatic
-            </p>
-
-            <button
-                class="view-details"
-                onclick="event.stopPropagation(); showCar('scorpio')"
-            >
-                View Details
-            </button>
-
-            <br><br>
-
-            <a
-                href="book.html"
-                class="btn"
-                onclick="event.stopPropagation();"
-            >
-                Book Now
-            </a>
-
-        </div>
-
-
-        <!-- ================= LAMBORGHINI ================= -->
-
-        <div class="car-card"
-             data-car="lamborghini"
-             data-fuel="petrol"
-             data-price="15000"
-             onclick="showCar('lamborghini')">
-
-            <img
-                src="images/lamborghini-front.jpg"
-                alt="Lamborghini"
-            >
-
-            <h3>
-                Lamborghini
-            </h3>
-
-            <p>
-                ₹15000 / Day
-            </p>
-
-            <p>
-                ❄️ AC &nbsp;
-                👥 2 Seats &nbsp;
-                ⛽ Petrol
-                <br>
-                🚀 325 km/h &nbsp;
-                ⚙️ Automatic
-            </p>
-
-            <button
-                class="view-details"
-                onclick="event.stopPropagation(); showCar('lamborghini')"
-            >
-                View Details
-            </button>
-
-            <br><br>
-
-            <a
-                href="book.html"
-                class="btn"
-                onclick="event.stopPropagation();"
-            >
-                Book Now
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- ================= CAR POPUP ================= -->
-
-<div
-    id="carModal"
-    class="car-modal"
->
-
-    <div class="car-modal-content">
-
-
-        <button
-            class="close-btn"
-            onclick="closeCar()"
-        >
-            ×
-        </button>
-
-
-        <h2 id="carTitle"></h2>
-
-
-        <p id="carDescription"></p>
-
-
-        <div
-            class="car-features"
-            id="carFeatures"
-        ></div>
-
-
-        <h3>
-            Interior & Dashboard
-        </h3>
-
-
-        <div class="car-gallery">
-
-
-            <img
-                id="carFront"
-                src=""
-                alt="Car Front"
-            >
-
-
-            <img
-                id="carInterior"
-                src=""
-                alt="Car Interior"
-            >
-
-
-            <img
-                id="carDashboard"
-                src=""
-                alt="Car Dashboard"
-            >
-
-
-        </div>
-
-
-        <br>
-
-
-        <a
-            href="book.html"
-            class="btn"
-        >
-            Book This Car
-        </a>
-
-
-    </div>
-
-</div>
-
-
-<!-- ================= JAVASCRIPT ================= -->
-
-<script>
-
-
-/* ================= SHOW CAR ================= */
-
-function showCar(car) {
-
-
-    const modal =
-        document.getElementById("carModal");
-
-
-    const title =
-        document.getElementById("carTitle");
-
-
-    const description =
-        document.getElementById("carDescription");
-
-
-    const features =
-        document.getElementById("carFeatures");
-
-
-    const front =
-        document.getElementById("carFront");
-
-
-    const interior =
-        document.getElementById("carInterior");
-
-
-    const dashboard =
-        document.getElementById("carDashboard");
-
-
-    /* Reset images */
-
-    dashboard.style.display = "block";
-
-
-    /* ================= THAR ================= */
-
-    if (car === "thar") {
-
-
-        title.innerText =
-            "Mahindra Thar";
-
-
-        description.innerText =
-            "Mahindra Thar is a powerful SUV with comfortable interior, modern dashboard and excellent performance.";
-
-
-        features.innerHTML =
-            "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Diesel<br>" +
-            "🚀 155 km/h &nbsp; ⚙️ Manual<br>" +
-            "💰 ₹3500 / Day";
-
-
-        front.src =
-            "images/Thar-front.jpg";
-
-
-        interior.src =
-            "images/Thar-interior.jpg";
-
-
-        dashboard.src =
-            "images/Thar-dashboard.jpg";
-
-    }
-
-
-    /* ================= BMW ================= */
-
-    if (car === "bmw") {
-
-
-        title.innerText =
-            "BMW X5";
-
-
-        description.innerText =
-            "BMW X5 is a premium luxury SUV with advanced technology, comfortable seats and digital features.";
-
-
-        features.innerHTML =
-            "❄️ AC &nbsp; 👥 5 Seats &nbsp; ⛽ Petrol<br>" +
-            "🚀 243 km/h &nbsp; ⚙️ Automatic<br>" +
-            "💰 ₹7000 / Day";
-
-
-        front.src =
-            "images/bmw-front.jpg";
-
-
-        interior.src =
-            "images/bmw-interior.jpg";
-
-    }
-
-
-    /* ================= SCORPIO ================= */
-
-    if (car === "scorpio") {
-
-
-        title.innerText =
-            "Scorpio N";
-
-
-        description.innerText =
-            "Scorpio N is a spacious SUV with comfortable seating, modern interior and powerful performance.";
-
-
-        features.innerHTML =
-            "❄️ AC &nbsp; 👥 7 Seats &nbsp; ⛽ Diesel<br>" +
-            "🚀 165 km/h &nbsp; ⚙️ Automatic<br>" +
-            "💰 ₹4000 / Day";
-
-
-        front.src =
-            "images/scorpio-front.jpg";
-
-
-        interior.src =
-            "images/scorpio-interior.jpg";
-
-
-        dashboard.src =
-            "images/scorpio-dashboard.jpg";
-
-    }
-
-
-    /* ================= LAMBORGHINI ================= */
-
-    if (car === "lamborghini") {
-
-
-        title.innerText =
-            "Lamborghini";
-
-
-        description.innerText =
-            "Lamborghini is a high-performance sports car with a premium luxury interior and advanced digital features.";
-
-
-        features.innerHTML =
-            "❄️ AC &nbsp; 👥 2 Seats &nbsp; ⛽ Petrol<br>" +
-            "🚀 325 km/h &nbsp; ⚙️ Automatic<br>" +
-            "💰 ₹15000 / Day";
-
-
-        front.src =
-            "images/lamborghini-front.jpg";
-
-
-        interior.src =
-            "images/lamborghini-interior.jpg";
-
-    }
-
-
-    /* Open popup */
-
-    modal.style.display =
-        "flex";
-
-}
-
-
-/* ================= CLOSE CAR ================= */
-
-function closeCar() {
-
-    document.getElementById("carModal").style.display =
-        "none";
-
-}
-
-
-/* ================= CLICK OUTSIDE POPUP ================= */
-
-document
-    .getElementById("carModal")
-    .addEventListener("click", function(event) {
-
-        if (event.target === this) {
-
-            closeCar();
-
-        }
-
-    });
-
-
-/* ================= SEARCH ================= */
-
-document
-    .getElementById("searchForm")
-    .addEventListener("submit", function(event) {
-
-
-        event.preventDefault();
-
-
-        const brand =
-            document.getElementById("brandSelect").value;
-
-
-        const fuel =
-            document.getElementById("fuelSelect").value;
-
-
-        const price =
-            document.getElementById("priceSelect").value;
-
-
-        const cards =
-            document.querySelectorAll(".car-card");
-
-
-        cards.forEach(function(card) {
-
-
-            const cardCar =
-                card.getAttribute("data-car");
-
-
-            const cardFuel =
-                card.getAttribute("data-fuel");
-
-
-            const cardPrice =
-                card.getAttribute("data-price");
-
-
-            let show = true;
-
-
-            if (brand !== "" && brand !== cardCar) {
-
-                show = false;
-
-            }
-
-
-            if (fuel !== "" && fuel !== cardFuel) {
-
-                show = false;
-
-            }
-
-
-            if (price !== "" && price !== cardPrice) {
-
-                show = false;
-
-            }
-
-
-            if (show) {
-
-                card.style.display = "";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-
-    }); 11
-
-
-</script>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
-    <h2>
-        About Us
-    </h2>
-
-    <p>
-
-        DriveEasy is a trusted car rental service
-        offering premium, comfortable and affordable
-        cars f 11or every journey.
-
-    </p>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact">
-
-    <h2>
-        Contact Us
-    </h2>
-
-    <p>
-        Email: driveeasy@gmail.com
-    </p>
-
-    <p>
-        Phone: +91 98765 43210
-    </p>
-
-    <p>
-        Address: Chandigarh, India
-    </p>
-
-</section>
-
-
-<!-- ================= EXTERNAL JAVASCRIPT ================= -->
-
-<script src="script.js"></script>
-
-
-</body>
-
-</html>
 /* =========================================
-   PREMIUM AVAILABLE CARS
+   DRIVE EASY - FINAL STYLE
 ========================================= */
 
-#cars {
-    padding: 80px 6%;
-    background: #f7f8fa;
-    text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#cars > h2 {
-    font-size: 38px;
-    font-weight: 800;
-    margin-bottom: 45px;
-    color: #171717;
+html {
+    scroll-behavior: smooth;
 }
 
-.car-container {
-    max-width: 1200px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6fa;
+    color: #222;
+    line-height: 1.6;
 }
 
 
-/* CAR CARD */
+/* =========================================
+   NAVBAR
+========================================= */
 
-.car-card {
-    position: relative;
-
-    background: #ffffff;
-
-    border-radius: 18px;
-
-    padding: 15px;
-
-    overflow: hidden;
-
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-
-    transition: all 0.35s ease;
-
-    text-align: left;
-}
-
-.car-card:hover {
-    transform: translateY(-10px);
-
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
-}
-
-
-/* CAR IMAGE */
-
-.car-card img {
+.navbar {
     width: 100%;
-    height: 190px;
-
-    object-fit: cover;
-
-    border-radius: 13px;
-
-    display: block;
-
-    transition: transform 0.4s ease;
+    min-height: 70px;
+    background: rgba(255, 255, 255, 0.97);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
 }
 
-.car-card:hover img {
-    transform: scale(1.04);
-}
-
-
-/* CAR NAME */
-
-.car-card h3 {
-    font-size: 21px;
-
-    margin: 17px 5px 8px;
-
-    color: #171717;
-}
-
-
-/* PRICE */
-
-.car-card p:nth-of-type(1) {
-    color: #e63946;
-
-    font-size: 19px;
-
-    font-weight: 800;
-
-    margin: 0 5px 10px;
-}
-
-
-/* FEATURES */
-
-.car-card p:nth-of-type(2) {
-    color: #666;
-
-    font-size: 13px;
-
-    line-height: 1.8;
-
-    margin: 0 5px 15px;
-}
-
-
-/* VIEW DETAILS */
-
-.car-card .view-details {
-    background: #171717;
-
-    color: white;
-
-    border: none;
-
-    padding: 10px 15px;
-
-    border-radius: 7px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.car-card .view-details:hover {
-    background: #e63946;
-}
-
-
-/* BOOK NOW */
-
-.car-card .btn {
-    display: inline-block;
-
-    background: #e63946;
-
-    color: white;
-
-    padding: 10px 17px;
-
-    border-radius: 7px;
-
+.logo a {
     text-decoration: none;
+    color: #e63946;
+    font-size: 27px;
+    font-weight: 800;
+}
 
-    font-size: 14px;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+}
 
-    font-weight: 700;
-
+.nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 7px;
     transition: 0.3s;
 }
 
-.car-card .btn:hover {
-    background: #c92f3b;
+.nav-links a:hover {
+    background: #e63946;
+    color: white;
+}
 
+.nav-links .book-btn {
+    background: #e63946;
+    color: white;
+}
+
+.nav-links .book-btn:hover {
+    background: #c92535;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 680px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.48),
+            rgba(0, 0, 0, 0.60)
+        ),
+        url("images/hero-car.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(230, 57, 70, 0.12),
+        rgba(0, 0, 0, 0.20)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    padding: 30px 20px;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: #e63946;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.45);
+}
+
+.hero h1 span {
+    color: #ff4050;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 0 auto 28px;
+    font-size: 18px;
+    color: #f2f2f2;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-btn,
+.secondary-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.hero-btn {
+    background: #e63946;
+    color: white;
+}
+
+.hero-btn:hover {
+    background: #ff5360;
     transform: translateY(-2px);
 }
 
+.secondary-btn {
+    border: 2px solid white;
+    color: white;
+}
 
-/* MOBILE */
+.secondary-btn:hover {
+    background: white;
+    color: #222;
+}
 
-@media (max-width: 1000px) {
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+    margin-top: 45px;
+    flex-wrap: wrap;
+}
 
-    .car-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.hero-features div {
+    display: flex;
+    flex-direction: column;
+}
 
+.hero-features strong {
+    font-size: 24px;
+}
+
+.hero-features small {
+    color: #ddd;
 }
 
 
-@media (max-width: 600px) {
+/* =========================================
+   SEARCH
+========================================= */
 
-    #cars {
-        padding: 55px 5%;
+.search {
+    width: 90%;
+    max-width: 1100px;
+    margin: -45px auto 60px;
+    position: relative;
+    z-index: 5;
+    background: white;
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
+}
+
+.search h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.search form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.search select,
+.search button {
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.search select {
+    min-width: 180px;
+    background: white;
+}
+
+.search button {
+    background: #e63946;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search button:hover {
+    background: #c92535;
+}
+
+
+/* =========================================
+   AVAILABLE CARS
+========================================= */
+
+#cars {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+}
+
+#cars > h2 {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+.car-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.car-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    padding-bottom: 22px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
+    transition: 0.3s;
+}
+
+.car-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.car-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.car-card h3 {
+    font-size: 23px;
+    margin: 18px 20px 5px;
+}
+
+.car-card p {
+    margin: 6px 20px;
+    color: #666;
+}
+
+.car-card p:first-of-type {
+    color: #e63946;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.view-details,
+.btn {
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 17px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.view-details {
+    margin-left: 20px;
+    background: #222;
+    color: white;
+}
+
+.view-details:hover {
+    background: #e63946;
+}
+
+.car-card .btn {
+    margin-left: 20px;
+    background: #e63946;
+    color: white;
+}
+
+.car-card .btn:hover {
+    background: #c92535;
+}
+
+
+/* =========================================
+   CAR POPUP
+========================================= */
+
+.car-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.car-modal-content {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 18px;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border: none;
+    background: #e63946;
+    color: white;
+    font-size: 25px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.car-modal-content h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.car-modal-content p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.car-features {
+    margin: 18px 0;
+    line-height: 2;
+    font-size: 17px;
+}
+
+.car-gallery {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.car-gallery img {
+    width: 250px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+#about {
+    background: white;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+#about h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+#about p {
+    max-width: 750px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+#contact {
+    background: #181818;
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+#contact h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    color: #ddd;
+    margin: 8px 0;
+}
+
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 12px 18px;
+        flex-direction: column;
+        gap: 10px;
     }
 
-    #cars > h2 {
-        font-size: 30px;
+    .logo a {
+        font-size: 24px;
+    }
 
-        margin-bottom: 30px;
+    .nav-links {
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero-features {
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .hero-features strong {
+        font-size: 20px;
+    }
+
+    .search {
+        width: 92%;
+        margin-top: -30px;
+        padding: 20px 15px;
+    }
+
+    .search form {
+        flex-direction: column;
+    }
+
+    .search select,
+    .search button {
+        width: 100%;
     }
 
     .car-container {
         grid-template-columns: 1fr;
-
-        gap: 20px;
     }
 
     .car-card img {
         height: 220px;
     }
 
+    #cars > h2 {
+        font-size: 29px;
+    }
+
+    .car-modal-content {
+        padding: 25px 15px;
+    }
+
+    .car-gallery img {
+        width: 100%;
+        height: 190px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 31px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .hero-features {
+        gap: 18px;
+    }
+
+    .hero-features strong {
+        font-size: 18px;
+    }
+
+    .hero-features small {
+        font-size: 11px;
+    }
+
+    .car-card h3 {
+        font-size: 20px;
+    }
 }
