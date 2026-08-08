@@ -7,16 +7,268 @@
 
     <title>Car Details | DriveEasy</title>
 
-    <link rel="stylesheet" href="cars.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07090d;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            background: #0d1118;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff2020;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ff2020;
+        }
+
+        /* ================= MAIN ================= */
+
+        .details-section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .page-title p {
+            color: #ff2020;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .page-title h1 {
+            font-size: 38px;
+        }
+
+        /* ================= CARD ================= */
+
+        .details-card {
+            background: #11151c;
+            border: 1px solid #252a33;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        /* ================= IMAGES ================= */
+
+        .car-images {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 8px;
+            padding: 8px;
+            background: #080b10;
+        }
+
+        .main-image {
+            height: 420px;
+        }
+
+        .side-images {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .side-images img,
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .details-content {
+            padding: 35px;
+        }
+
+        .details-content h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #ff2020;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .specifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .spec {
+            background: #1b2029;
+            border: 1px solid #303641;
+            padding: 12px 18px;
+            border-radius: 8px;
+            color: #ddd;
+        }
+
+        .description {
+            color: #b9bec8;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 25px;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .book-btn {
+            display: inline-block;
+            background: #ff2020;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .book-btn:hover {
+            background: #d91515;
+            transform: translateY(-2px);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 14px 28px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            border-color: #ff2020;
+            color: #ff2020;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .details-section {
+                width: 94%;
+                margin: 30px auto;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .car-images {
+                grid-template-columns: 1fr;
+            }
+
+            .main-image {
+                height: 260px;
+            }
+
+            .side-images {
+                height: 260px;
+            }
+
+            .details-content {
+                padding: 22px;
+            }
+
+            .details-content h2 {
+                font-size: 25px;
+            }
+
+            .price {
+                font-size: 21px;
+            }
+
+            .book-btn,
+            .back-btn {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+                width: 100%;
+            }
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- ================= NAVBAR ================= -->
 
 <header>
 
-    <h2 class="logo">DriveEasy</h2>
+    <div class="logo">
+        Drive<span>Easy</span>
+    </div>
 
     <nav>
         <a href="index.html">Home</a>
@@ -30,48 +282,99 @@
 
 <!-- ================= CAR DETAILS ================= -->
 
-<section class="cars">
+<section class="details-section">
 
-    <h1 id="pageTitle">Car Details</h1>
+    <div class="page-title">
 
-    <div class="car-container">
+        <p>DRIVE EASY</p>
 
-        <div class="car-card">
+        <h1>Car Details</h1>
 
-            <img
-                id="carImage"
-                src="images/Thar-dashboard.jpg"
-                alt="Car Dashboard"
-            >
+    </div>
+
+
+    <div class="details-card">
+
+        <!-- ================= IMAGES ================= -->
+
+        <div class="car-images">
+
+            <div class="main-image">
+
+                <img
+                    id="mainCarImage"
+                    src="images/Thar-front.jpg"
+                    alt="Car"
+                >
+
+            </div>
+
+
+            <div class="side-images">
+
+                <img
+                    id="interiorImage"
+                    src="images/Thar-Interior.jpg"
+                    alt="Car Interior"
+                >
+
+                <img
+                    id="dashboardImage"
+                    src="images/Thar-dashboard.jpg"
+                    alt="Car Dashboard"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= INFORMATION ================= -->
+
+        <div class="details-content">
 
             <h2 id="carName">
                 Mahindra Thar
             </h2>
 
-            <p id="carPrice">
+            <div class="price" id="carPrice">
                 ₹3500 / Day
+            </div>
+
+
+            <div class="specifications">
+
+                <div class="spec" id="carTransmission">
+                    ⚙️ Manual
+                </div>
+
+                <div class="spec" id="carFuel">
+                    ⛽ Diesel
+                </div>
+
+                <div class="spec" id="carSeats">
+                    👥 4 Seats
+                </div>
+
+            </div>
+
+
+            <p class="description" id="carDescription">
+
+                Enjoy a premium and comfortable driving
+                experience with this well-maintained car.
+                Perfect for road trips, family journeys,
+                business travel and weekend adventures.
+
             </p>
 
-            <p id="carSpecs">
-                Manual | Diesel | 4 Seats
-            </p>
 
-            <p>
-                ✨ Premium & Well Maintained Car
-            </p>
-
-            <p>
-                🛡️ Safe & Reliable
-            </p>
-
-            <p>
-                📞 24/7 Customer Support
-            </p>
-
-            <br>
-
-            <a href="book.html" class="btn">
+            <a href="book.html" class="book-btn">
                 Book This Car 🚗
+            </a>
+
+            <a href="cars.html" class="back-btn">
+                ← Back to Cars
             </a>
 
         </div>
@@ -85,119 +388,104 @@
 
 <script>
 
-const params =
-    new URLSearchParams(window.location.search);
+    const params =
+        new URLSearchParams(window.location.search);
 
-const car =
-    params.get("car");
-
-
-const carImage =
-    document.getElementById("carImage");
-
-const carName =
-    document.getElementById("carName");
-
-const carPrice =
-    document.getElementById("carPrice");
-
-const carSpecs =
-    document.getElementById("carSpecs");
-
-const pageTitle =
-    document.getElementById("pageTitle");
+    const car =
+        params.get("car");
 
 
-if (car === "Mahindra Thar") {
+    const cars = {
 
-    pageTitle.textContent =
-        "Mahindra Thar Details";
-
-    carName.textContent =
-        "Mahindra Thar";
-
-    carImage.src =
-        "images/Thar-dashboard.jpg";
-
-    carImage.alt =
-        "Mahindra Thar Dashboard";
-
-    carPrice.textContent =
-        "₹3500 / Day";
-
-    carSpecs.textContent =
-        "Manual | Diesel | 4 Seats";
-
-}
+        thar: {
+            name: "Mahindra Thar",
+            price: "₹3500 / Day",
+            transmission: "⚙️ Manual",
+            fuel: "⛽ Diesel",
+            seats: "👥 4 Seats",
+            front: "images/Thar-front.jpg",
+            interior: "images/Thar-Interior.jpg",
+            dashboard: "images/Thar-dashboard.jpg",
+            description:
+                "Mahindra Thar is a powerful and stylish SUV, perfect for road trips, adventures and comfortable long journeys."
+        },
 
 
-else if (car === "Mahindra Scorpio") {
-
-    pageTitle.textContent =
-        "Mahindra Scorpio Details";
-
-    carName.textContent =
-        "Mahindra Scorpio";
-
-    carImage.src =
-        "images/scorpio-dashboard.jpg";
-
-    carImage.alt =
-        "Mahindra Scorpio Dashboard";
-
-    carPrice.textContent =
-        "₹3000 / Day";
-
-    carSpecs.textContent =
-        "Manual | Diesel | 7 Seats";
-
-}
+        scorpio: {
+            name: "Mahindra Scorpio",
+            price: "₹3000 / Day",
+            transmission: "⚙️ Manual",
+            fuel: "⛽ Diesel",
+            seats: "👥 7 Seats",
+            front: "images/scorpio-front.jpg",
+            interior: "images/scorpio-Interior.jpg",
+            dashboard: "images/scorpio-dashboard.jpg",
+            description:
+                "Mahindra Scorpio offers a spacious interior, powerful performance and a comfortable experience for family journeys."
+        },
 
 
-else if (car === "BMW 5 Series") {
-
-    pageTitle.textContent =
-        "BMW 5 Series Details";
-
-    carName.textContent =
-        "BMW 5 Series";
-
-    carImage.src =
-        "images/bmw-interior.jpg";
-
-    carImage.alt =
-        "BMW 5 Series Interior";
-
-    carPrice.textContent =
-        "₹9000 / Day";
-
-    carSpecs.textContent =
-        "Automatic | Petrol | 5 Seats";
-
-}
+        bmw: {
+            name: "BMW 5 Series",
+            price: "₹9000 / Day",
+            transmission: "⚙️ Automatic",
+            fuel: "⛽ Petrol",
+            seats: "👥 5 Seats",
+            front: "images/bmw-front.jpg",
+            interior: "images/bmw-interior.jpg",
+            dashboard: "images/bmw-dashboard.jpg",
+            description:
+                "BMW 5 Series delivers luxury, comfort and powerful performance for premium business trips and special journeys."
+        },
 
 
-else if (car === "Lamborghini Huracan") {
+        lamborghini: {
+            name: "Lamborghini Huracan",
+            price: "₹25000 / Day",
+            transmission: "⚙️ Automatic",
+            fuel: "⛽ Petrol",
+            seats: "👥 2 Seats",
+            front: "images/lamborghini-front.jpg",
+            interior: "images/lamborghini-Interior.jpg",
+            dashboard: "images/lamborghini-dashboard.jpg",
+            description:
+                "Lamborghini Huracan delivers an exciting supercar experience with premium styling and outstanding performance."
+        }
 
-    pageTitle.textContent =
-        "Lamborghini Huracan Details";
+    };
 
-    carName.textContent =
-        "Lamborghini Huracan";
 
-    carImage.src =
-        "images/lamborghini-Interior.jpg";
+    const selectedCar =
+        cars[car] || cars.thar;
 
-    carImage.alt =
-        "Lamborghini Huracan Interior";
 
-    carPrice.textContent =
-        "₹25000 / Day";
+    document.getElementById("carName").textContent =
+        selectedCar.name;
 
-    carSpecs.textContent =
-        "Automatic | Petrol | 2 Seats";
+    document.getElementById("carPrice").textContent =
+        selectedCar.price;
 
-}
+    document.getElementById("carTransmission").textContent =
+        selectedCar.transmission;
+
+    document.getElementById("carFuel").textContent =
+        selectedCar.fuel;
+
+    document.getElementById("carSeats").textContent =
+        selectedCar.seats;
+
+    document.getElementById("carDescription").textContent =
+        selectedCar.description;
+
+
+    document.getElementById("mainCarImage").src =
+        selectedCar.front;
+
+    document.getElementById("interiorImage").src =
+        selectedCar.interior;
+
+    document.getElementById("dashboardImage").src =
+        selectedCar.dashboard;
 
 </script>
 
