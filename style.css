@@ -1,7 +1,12 @@
+
 /* =========================================================
    DRIVE EASY - FINAL RESPONSIVE STYLE
    Mobile + Tablet + Laptop + Desktop
-========================================================= */
+   ========================================================= */
+
+/* =========================
+   RESET
+   ========================= */
 
 * {
     margin: 0;
@@ -15,15 +20,10 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #0b0b0d;
+    background: #080808;
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
 }
 
 img {
@@ -31,503 +31,495 @@ img {
     display: block;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-/* =========================================================
-   NAVBAR
-========================================================= */
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
 
-header,
-.navbar,
-nav {
+
+/* =========================
+   GENERAL CONTAINER
+   ========================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER / NAVBAR
+   ========================= */
+
+header {
     width: 100%;
     position: relative;
     z-index: 1000;
-}
-
-.navbar {
-    min-height: 70px;
-    padding: 0 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(8, 8, 10, 0.92);
-    backdrop-filter: blur(12px);
+    background: rgba(5, 5, 5, 0.88);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.logo {
+nav {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 72px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.logo,
+.logo a {
     font-size: 24px;
     font-weight: 800;
+    letter-spacing: -0.5px;
     color: #ffffff;
-    white-space: nowrap;
 }
 
 .logo span {
-    color: #ff2768;
+    color: #ff176f;
 }
 
-.nav-links {
+nav ul {
+    list-style: none;
+
     display: flex;
     align-items: center;
-    gap: 8px;
-    list-style: none;
+    justify-content: center;
+
+    gap: 28px;
 }
 
-.nav-links a {
-    display: inline-block;
-    padding: 10px 15px;
+nav ul li a {
     color: #ffffff;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    border-radius: 8px;
+
     transition: 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-    background: #ff2768;
-    color: #ffffff;
+nav ul li a:hover {
+    color: #ff176f;
 }
 
 
-/* =========================================================
-   HERO / HOME
-========================================================= */
+/* =========================
+   HERO SECTION
+   ========================= */
 
 .hero {
-    min-height: calc(100vh - 70px);
-    width: 100%;
     position: relative;
 
-    background-image: url("images/home-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    min-height: calc(100vh - 72px);
 
     display: flex;
     align-items: center;
-    overflow: hidden;
+
+    background-image: url("images/home-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    isolation: isolate;
 }
+
+
+/* Dark overlay over background */
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    z-index: 1;
 
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.82) 0%,
-            rgba(0, 0, 0, 0.60) 42%,
-            rgba(0, 0, 0, 0.18) 100%
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(0, 0, 0, 0.65) 42%,
+            rgba(0, 0, 0, 0.28) 75%,
+            rgba(0, 0, 0, 0.35) 100%
         );
+
+    z-index: -1;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
 
-    width: 100%;
+/* =========================
+   HERO CONTENT
+   ========================= */
+
+.hero-content {
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 6%;
+
+    padding: 80px 0;
+
+    position: relative;
+    z-index: 2;
 }
 
 .small-title {
-    display: inline-block;
-    margin-bottom: 15px;
-    padding: 7px 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 
-    background: rgba(255, 39, 104, 0.16);
-    border: 1px solid rgba(255, 39, 104, 0.5);
-    border-radius: 30px;
+    margin-bottom: 12px;
 
     color: #ffffff;
-    font-size: 12px;
+
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-.hero h1 {
-    max-width: 700px;
-    margin-bottom: 20px;
+.small-title:first-letter {
+    color: #ff176f;
+}
 
-    font-size: clamp(40px, 6vw, 76px);
+
+/* =========================
+   HERO HEADING
+   ========================= */
+
+.hero h1 {
+    max-width: 720px;
+
+    font-size: clamp(42px, 6vw, 76px);
     line-height: 1.05;
+
     font-weight: 800;
+    letter-spacing: -2px;
+
     color: #ffffff;
+
+    margin-bottom: 22px;
 }
 
 .hero h1 span {
-    color: #ff2768;
+    color: #ff176f;
 }
+
+
+/* =========================
+   HERO PARAGRAPH
+   ========================= */
 
 .hero p {
-    max-width: 620px;
-    margin-bottom: 28px;
+    max-width: 600px;
 
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 17px;
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 18px;
     line-height: 1.7;
+
+    margin-bottom: 30px;
 }
 
 
-/* =========================================================
+/* =========================
    HERO BUTTONS
-========================================================= */
+   ========================= */
 
 .hero-buttons {
     display: flex;
     align-items: center;
-    gap: 14px;
     flex-wrap: wrap;
+
+    gap: 15px;
+
     margin-bottom: 35px;
 }
 
 .main-btn,
 .outline-btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
-    min-height: 48px;
-    padding: 13px 24px;
+    min-height: 50px;
 
-    border-radius: 9px;
+    padding: 13px 25px;
+
+    border-radius: 8px;
+
     font-size: 15px;
     font-weight: 700;
 
     cursor: pointer;
-    transition: all 0.3s ease;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
+
+/* Pink button */
+
 .main-btn {
-    background: #ff2768;
+    background: #ff176f;
     color: #ffffff;
-    border: 2px solid #ff2768;
-    box-shadow: 0 8px 25px rgba(255, 39, 104, 0.25);
+
+    border: 2px solid #ff176f;
+
+    box-shadow: 0 8px 25px rgba(255, 23, 111, 0.25);
 }
 
 .main-btn:hover {
-    background: #ff4b82;
-    border-color: #ff4b82;
+    background: #e9005d;
+    border-color: #e9005d;
+
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(255, 39, 104, 0.4);
+
+    box-shadow: 0 12px 30px rgba(255, 23, 111, 0.35);
 }
 
+
+/* Outline button */
+
 .outline-btn {
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+
     color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.8);
+
+    border: 2px solid rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(5px);
 }
 
 .outline-btn:hover {
     background: #ffffff;
     color: #111111;
+
+    border-color: #ffffff;
+
     transform: translateY(-3px);
 }
 
 
-/* =========================================================
+/* =========================
    FEATURES
-========================================================= */
+   ========================= */
 
 .features {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 35px;
+
+    gap: 30px;
+
+    margin-top: 10px;
 }
 
 .feature {
-    min-width: 110px;
+    display: flex;
+    flex-direction: column;
+
+    min-width: 120px;
 }
 
 .feature strong {
     display: block;
-    margin-bottom: 2px;
 
     color: #ffffff;
-    font-size: 25px;
-    font-weight: 800;
+
+    font-size: 18px;
+    line-height: 1.2;
+
+    margin-bottom: 4px;
 }
 
 .feature span {
-    display: block;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 13px;
 }
 
 
-/* =========================================================
-   COMMON PAGE SECTIONS
-========================================================= */
+/* =========================
+   GENERAL SECTIONS
+   For About / Contact / other pages
+   ========================= */
 
-.page-section,
-.about-section,
-.contact-section,
-.cars-section,
-.book-section {
+section {
     position: relative;
+}
+
+.about,
+.about-section,
+.contact,
+.contact-section,
+.page-section {
+    position: relative;
+
     min-height: 100vh;
-    padding: 100px 6%;
-    background-color: #0b0b0d;
+
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.76),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("images/home-bg.jpg");
+
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #ffffff;
 }
 
-.page-section::before,
-.about-section::before,
-.contact-section::before,
-.cars-section::before,
-.book-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
 
-    background: rgba(0, 0, 0, 0.70);
-    pointer-events: none;
-}
+/* =========================
+   ABOUT / CONTACT CONTENT
+   ========================= */
 
-.page-section > *,
-.about-section > *,
-.contact-section > *,
-.cars-section > *,
-.book-section > * {
+.about .container,
+.about-section .container,
+.contact .container,
+.contact-section .container,
+.page-section .container {
     position: relative;
     z-index: 2;
 }
 
-
-/* =========================================================
-   ABOUT PAGE BACKGROUND
-========================================================= */
-
-.about-section {
-    background-image: url("images/home-bg.jpg");
-}
-
-
-/* =========================================================
-   CONTACT PAGE BACKGROUND
-========================================================= */
-
-.contact-section {
-    background-image: url("images/home-bg.jpg");
-}
-
-
-/* =========================================================
-   CARS PAGE BACKGROUND
-========================================================= */
-
-.cars-section {
-    background-image: url("images/home-bg.jpg");
-}
-
-
-/* =========================================================
-   BOOK PAGE BACKGROUND
-========================================================= */
-
-.book-section {
-    background-image: url("images/home-bg.jpg");
-}
-
-
-/* =========================================================
-   SECTION CONTAINER
-========================================================= */
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-
-/* =========================================================
-   HEADINGS
-========================================================= */
-
-.section-title {
-    margin-bottom: 15px;
-
+.about h1,
+.about h2,
+.about-section h1,
+.about-section h2,
+.contact h1,
+.contact h2,
+.contact-section h1,
+.contact-section h2,
+.page-section h1,
+.page-section h2 {
     color: #ffffff;
+
     font-size: clamp(32px, 5vw, 52px);
+
     line-height: 1.15;
-    font-weight: 800;
+
+    margin-bottom: 20px;
 }
 
-.section-title span {
-    color: #ff2768;
+.about h1 span,
+.about h2 span,
+.about-section h1 span,
+.about-section h2 span,
+.contact h1 span,
+.contact h2 span,
+.contact-section h1 span,
+.contact-section h2 span,
+.page-section h1 span,
+.page-section h2 span {
+    color: #ff176f;
 }
 
-.section-subtitle {
-    max-width: 700px;
-    margin-bottom: 45px;
+.about p,
+.about-section p,
+.contact p,
+.contact-section p,
+.page-section p {
+    max-width: 800px;
 
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 16px;
-}
+    color: rgba(255, 255, 255, 0.82);
 
+    font-size: 17px;
+    line-height: 1.8;
 
-/* =========================================================
-   ABOUT CONTENT
-========================================================= */
-
-.about-content {
-    max-width: 900px;
-}
-
-.about-content h2 {
-    margin-bottom: 15px;
-    font-size: 32px;
-}
-
-.about-content h3 {
-    margin-top: 25px;
-    margin-bottom: 8px;
-    color: #ff2768;
-}
-
-.about-content p {
-    margin-bottom: 15px;
-    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 18px;
 }
 
 
-/* =========================================================
+/* =========================
    CARDS
-========================================================= */
+   ========================= */
 
 .card,
-.car-card,
-.info-card {
-    background: rgba(20, 20, 24, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 16px;
-    overflow: hidden;
+.about-card,
+.contact-card {
+    background: rgba(15, 15, 15, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 15px;
+
+    padding: 25px;
+
     backdrop-filter: blur(10px);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
     transition: 0.3s ease;
 }
 
 .card:hover,
-.car-card:hover,
-.info-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(255, 39, 104, 0.5);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+.about-card:hover,
+.contact-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255, 23, 111, 0.45);
 }
 
 
-/* =========================================================
-   CAR GRID
-========================================================= */
-
-.car-grid,
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.car-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.car-card-content {
-    padding: 22px;
-}
-
-.car-card h3 {
-    margin-bottom: 7px;
-    font-size: 21px;
-}
-
-.car-card p {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.contact-card {
-    padding: 28px;
-
-    background: rgba(15, 15, 18, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-}
-
-.contact-card h3 {
-    margin-bottom: 10px;
-    color: #ff2768;
-}
-
-.contact-card p {
-    color: rgba(255, 255, 255, 0.75);
-}
-
-
-/* =========================================================
+/* =========================
    FORMS
-========================================================= */
+   ========================= */
 
 form {
     width: 100%;
-    max-width: 700px;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 7px;
-
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
 }
 
 input,
-textarea,
-select {
+select,
+textarea {
     width: 100%;
-    padding: 14px 15px;
 
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.07);
+    padding: 14px 16px;
+
+    margin-bottom: 15px;
 
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 9px;
+
+    border-radius: 8px;
+
     outline: none;
 
-    font-family: inherit;
-    font-size: 15px;
+    background: rgba(255, 255, 255, 0.07);
 
-    transition: 0.3s ease;
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.55);
 }
 
 input:focus,
-textarea:focus,
-select:focus {
-    border-color: #ff2768;
-    box-shadow: 0 0 0 3px rgba(255, 39, 104, 0.12);
+select:focus,
+textarea:focus {
+    border-color: #ff176f;
+
+    box-shadow: 0 0 0 3px rgba(255, 23, 111, 0.12);
 }
 
 textarea {
@@ -541,76 +533,86 @@ select option {
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+   ========================= */
 
 footer {
-    padding: 35px 6%;
+    background: #050505;
+
+    color: rgba(255, 255, 255, 0.7);
+
     text-align: center;
 
-    background: #070708;
+    padding: 30px 20px;
+
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 14px;
 }
 
-footer span {
-    color: #ff2768;
+footer a {
+    color: #ff176f;
 }
 
-
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
-
-.menu-toggle {
-    display: none;
+footer a:hover {
+    color: #ffffff;
 }
 
 
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 900px) {
 
-    .navbar {
-        padding: 0 4%;
+    nav {
+        min-height: 65px;
     }
 
-    .nav-links {
-        gap: 2px;
+    nav ul {
+        gap: 17px;
     }
 
-    .nav-links a {
-        padding: 9px 10px;
-        font-size: 13px;
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: calc(100vh - 65px);
+
+        background-position: center center;
     }
 
     .hero-content {
-        padding: 70px 5%;
+        padding: 70px 0;
     }
 
     .hero h1 {
-        max-width: 650px;
+        max-width: 620px;
+        font-size: clamp(40px, 7vw, 60px);
     }
 
-    .car-grid,
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero p {
+        font-size: 16px;
+        max-width: 540px;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
+    .features {
+        gap: 22px;
+    }
+
+    .about,
+    .about-section,
+    .contact,
+    .contact-section,
+    .page-section {
+        background-attachment: scroll;
     }
 }
 
 
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -618,190 +620,243 @@ footer span {
         font-size: 14px;
     }
 
-    /* NAVBAR */
-
-    .navbar {
-        min-height: 62px;
-        padding: 0 18px;
+    .container {
+        width: 92%;
     }
 
-    .logo {
+
+    /* ---------- NAVBAR ---------- */
+
+    nav {
+        width: 92%;
+
+        min-height: 62px;
+
+        gap: 10px;
+    }
+
+    .logo,
+    .logo a {
         font-size: 20px;
     }
 
-    .nav-links {
-        gap: 0;
+    nav ul {
+        gap: 10px;
     }
 
-    .nav-links a {
-        padding: 7px 6px;
+    nav ul li a {
         font-size: 11px;
+        font-weight: 600;
     }
 
-    /* HERO */
+
+    /* ---------- HERO ---------- */
 
     .hero {
         min-height: calc(100vh - 62px);
+
+        align-items: center;
+
         background-position: center center;
     }
 
     .hero-overlay {
         background:
             linear-gradient(
-                90deg,
-                rgba(0, 0, 0, 0.82),
-                rgba(0, 0, 0, 0.50)
+                180deg,
+                rgba(0, 0, 0, 0.40) 0%,
+                rgba(0, 0, 0, 0.72) 48%,
+                rgba(0, 0, 0, 0.93) 100%
             );
     }
 
     .hero-content {
-        padding: 60px 22px 70px;
+        width: 92%;
+
+        padding: 55px 0 60px;
     }
 
+
+    /* ---------- SMALL TITLE ---------- */
+
     .small-title {
-        font-size: 9px;
-        padding: 6px 9px;
-        margin-bottom: 12px;
+        font-size: 10px;
+
+        margin-bottom: 10px;
+
+        letter-spacing: 0.3px;
     }
+
+
+    /* ---------- HEADING ---------- */
 
     .hero h1 {
         max-width: 100%;
-        margin-bottom: 15px;
 
-        font-size: clamp(34px, 10vw, 48px);
+        font-size: clamp(34px, 10vw, 46px);
+
         line-height: 1.08;
+
+        letter-spacing: -1.2px;
+
+        margin-bottom: 16px;
     }
+
+
+    /* ---------- PARAGRAPH ---------- */
 
     .hero p {
         max-width: 100%;
-        margin-bottom: 22px;
 
         font-size: 13px;
+
         line-height: 1.55;
+
+        margin-bottom: 22px;
     }
 
-    /* BUTTONS */
+
+    /* ---------- BUTTONS ---------- */
 
     .hero-buttons {
+        width: 100%;
+
         gap: 10px;
+
         margin-bottom: 28px;
     }
 
     .main-btn,
     .outline-btn {
-        min-height: 43px;
-        padding: 10px 15px;
+        min-height: 45px;
+
+        padding: 11px 17px;
+
+        border-radius: 7px;
+
         font-size: 12px;
-        border-radius: 8px;
     }
 
-    /* FEATURES */
+
+    /* ---------- FEATURES ---------- */
 
     .features {
-        gap: 20px;
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px 18px;
     }
 
     .feature {
-        min-width: 75px;
+        min-width: 0;
     }
 
     .feature strong {
-        font-size: 19px;
+        font-size: 14px;
     }
 
     .feature span {
-        font-size: 9px;
+        font-size: 10px;
     }
 
-    /* COMMON SECTIONS */
 
-    .page-section,
+    /* ---------- ABOUT / CONTACT ---------- */
+
+    .about,
     .about-section,
+    .contact,
     .contact-section,
-    .cars-section,
-    .book-section {
+    .page-section {
         min-height: 100vh;
-        padding: 70px 20px;
+
+        padding: 65px 0;
+
+        background-position: center center;
+
+        background-attachment: scroll;
     }
 
-    .section-title {
-        font-size: 34px;
+    .about h1,
+    .about h2,
+    .about-section h1,
+    .about-section h2,
+    .contact h1,
+    .contact h2,
+    .contact-section h1,
+    .contact-section h2,
+    .page-section h1,
+    .page-section h2 {
+        font-size: 32px;
+
+        margin-bottom: 15px;
     }
 
-    .section-subtitle {
-        margin-bottom: 30px;
+    .about p,
+    .about-section p,
+    .contact p,
+    .contact-section p,
+    .page-section p {
         font-size: 14px;
+
+        line-height: 1.7;
     }
 
-    /* CARDS */
 
-    .car-grid,
-    .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
+    /* ---------- CARDS ---------- */
 
-    .car-card img {
-        height: 200px;
-    }
-
-    /* ABOUT */
-
-    .about-content h2 {
-        font-size: 27px;
-    }
-
-    .about-content p {
-        font-size: 14px;
-    }
-
-    /* CONTACT */
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
+    .card,
+    .about-card,
     .contact-card {
-        padding: 20px;
+        padding: 18px;
+
+        border-radius: 12px;
     }
 
-    /* FORM */
+
+    /* ---------- FORM ---------- */
 
     input,
-    textarea,
-    select {
-        padding: 12px;
-        font-size: 14px;
-    }
+    select,
+    textarea {
+        padding: 12px 13px;
 
-    footer {
-        padding: 25px 18px;
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
 
 /* =========================================================
    VERY SMALL PHONES
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 380px) {
 
-    .navbar {
-        padding: 0 10px;
+    nav {
+        min-height: 58px;
     }
 
-    .logo {
+    .logo,
+    .logo a {
         font-size: 18px;
     }
 
-    .nav-links a {
-        padding: 6px 4px;
+    nav ul {
+        gap: 7px;
+    }
+
+    nav ul li a {
         font-size: 9px;
     }
 
+    .hero {
+        min-height: calc(100vh - 58px);
+    }
+
     .hero-content {
-        padding: 45px 16px;
+        padding: 45px 0 50px;
     }
 
     .hero h1 {
@@ -814,19 +869,92 @@ footer span {
 
     .main-btn,
     .outline-btn {
-        padding: 9px 12px;
+        padding: 10px 13px;
+
         font-size: 11px;
     }
 
     .features {
-        gap: 13px;
+        gap: 12px;
     }
 
     .feature strong {
-        font-size: 17px;
+        font-size: 13px;
     }
 
     .feature span {
-        font-size: 8px;
+        font-size: 9px;
     }
 }
+
+
+/* =========================================================
+   LANDSCAPE PHONE
+   ========================================================= */
+
+@media (max-height: 500px) and (max-width: 900px) {
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding: 45px 0;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        margin-bottom: 18px;
+    }
+
+    .hero-buttons {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* =========================================================
+   LAPTOP / DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    nav {
+        min-height: 78px;
+    }
+
+    .hero {
+        min-height: calc(100vh - 78px);
+    }
+
+    .hero-content {
+        padding: 100px 0;
+    }
+
+    .hero h1 {
+        font-size: 76px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .main-btn,
+    .outline-btn {
+        min-height: 54px;
+
+        padding: 14px 28px;
+
+        font-size: 16px;
+    }
+
+    .feature strong {
+        font-size: 20px;
+    }
+
+    .feature span {
+        font-size: 14px;
+    }
