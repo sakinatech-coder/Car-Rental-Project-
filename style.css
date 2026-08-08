@@ -1,12 +1,7 @@
 /* =========================================================
-   DRIVE EASY - FINAL RESPONSIVE STYLE.CSS
-   Phone + Tablet + Laptop + PC
-   ========================================================= */
-
-
-/* =========================
-   RESET
-   ========================= */
+   DRIVE EASY - FINAL RESPONSIVE STYLE
+   Mobile + Tablet + Laptop + Desktop
+========================================================= */
 
 * {
     margin: 0;
@@ -20,15 +15,10 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #080808;
+    background: #0b0b0d;
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
-}
-
-img {
-    max-width: 100%;
-    display: block;
 }
 
 a {
@@ -36,553 +26,591 @@ a {
     color: inherit;
 }
 
-button,
-input,
-select,
-textarea {
-    font-family: inherit;
+img {
+    max-width: 100%;
+    display: block;
 }
 
 
-/* =========================
-   GENERAL CONTAINER
-   ========================= */
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-
-/* =========================
-   HEADER / NAVBAR
-   ========================= */
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
+header,
+.navbar,
+nav {
     width: 100%;
+    position: relative;
     z-index: 1000;
-
-    background: rgba(0, 0, 0, 0.72);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-nav,
 .navbar {
-    width: 90%;
-    max-width: 1200px;
     min-height: 70px;
-    margin: auto;
-
+    padding: 0 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    background: rgba(8, 8, 10, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-
-/* =========================
-   LOGO
-   ========================= */
-
 .logo {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 800;
     color: #ffffff;
-    letter-spacing: -1px;
+    white-space: nowrap;
 }
 
 .logo span {
-    color: #ff174f;
+    color: #ff2768;
 }
 
-
-/* =========================
-   NAVIGATION LINKS
-   ========================= */
-
-nav ul,
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 8px;
     list-style: none;
 }
 
-nav ul li,
-.nav-links li {
-    list-style: none;
-}
-
-nav a,
 .nav-links a {
+    display: inline-block;
+    padding: 10px 15px;
     color: #ffffff;
     font-size: 14px;
     font-weight: 600;
+    border-radius: 8px;
     transition: 0.3s ease;
 }
 
-nav a:hover,
-.nav-links a:hover {
-    color: #ff174f;
-}
-
-
-/* =========================
-   BUTTONS
-   ========================= */
-
-.btn,
-button,
-.book-btn,
-.book-now,
-.explore-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-    cursor: pointer;
-
-    padding: 12px 22px;
-    border-radius: 7px;
-
-    background: #ff174f;
+.nav-links a:hover,
+.nav-links a.active {
+    background: #ff2768;
     color: #ffffff;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    transition: all 0.3s ease;
-}
-
-.btn:hover,
-button:hover,
-.book-btn:hover,
-.book-now:hover,
-.explore-btn:hover {
-    background: #ff315f;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 23, 79, 0.30);
 }
 
 
-/* Secondary button */
-
-.btn-secondary {
-    background: transparent;
-    border: 1px solid #ffffff;
-}
-
-.btn-secondary:hover {
-    background: #ffffff;
-    color: #111111;
-}
-
-
-/* =========================
-   HERO SECTION
-   ========================= */
+/* =========================================================
+   HERO / HOME
+========================================================= */
 
 .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
+    width: 100%;
     position: relative;
-
-    display: flex;
-    align-items: center;
 
     background-image: url("images/home-bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
+    display: flex;
+    align-items: center;
     overflow: hidden;
 }
 
-
-/* Dark overlay */
-
-.hero::before {
-    content: "";
+.hero-overlay {
     position: absolute;
     inset: 0;
+    z-index: 1;
 
     background:
         linear-gradient(
             90deg,
             rgba(0, 0, 0, 0.82) 0%,
-            rgba(0, 0, 0, 0.58) 45%,
-            rgba(0, 0, 0, 0.25) 100%
+            rgba(0, 0, 0, 0.60) 42%,
+            rgba(0, 0, 0, 0.18) 100%
         );
 }
-
-
-/* Hero content */
 
 .hero-content {
     position: relative;
     z-index: 2;
 
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    margin: auto;
-
-    padding-top: 70px;
+    margin: 0 auto;
+    padding: 80px 6%;
 }
 
-.hero-content h1 {
+.small-title {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 7px 13px;
+
+    background: rgba(255, 39, 104, 0.16);
+    border: 1px solid rgba(255, 39, 104, 0.5);
+    border-radius: 30px;
+
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.hero h1 {
     max-width: 700px;
+    margin-bottom: 20px;
 
-    font-size: clamp(42px, 6vw, 76px);
+    font-size: clamp(40px, 6vw, 76px);
     line-height: 1.05;
-
     font-weight: 800;
-    margin-bottom: 22px;
+    color: #ffffff;
 }
 
-.hero-content h1 span {
-    color: #ff174f;
+.hero h1 span {
+    color: #ff2768;
 }
 
-.hero-content p {
+.hero p {
     max-width: 620px;
+    margin-bottom: 28px;
 
-    color: #dddddd;
+    color: rgba(255, 255, 255, 0.86);
     font-size: 17px;
-
-    margin-bottom: 30px;
+    line-height: 1.7;
 }
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
 .hero-buttons {
     display: flex;
+    align-items: center;
+    gap: 14px;
     flex-wrap: wrap;
-    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.main-btn,
+.outline-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 13px 24px;
+
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main-btn {
+    background: #ff2768;
+    color: #ffffff;
+    border: 2px solid #ff2768;
+    box-shadow: 0 8px 25px rgba(255, 39, 104, 0.25);
+}
+
+.main-btn:hover {
+    background: #ff4b82;
+    border-color: #ff4b82;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 39, 104, 0.4);
+}
+
+.outline-btn {
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.outline-btn:hover {
+    background: #ffffff;
+    color: #111111;
+    transform: translateY(-3px);
 }
 
 
-/* =========================
-   HERO STATS
-   ========================= */
+/* =========================================================
+   FEATURES
+========================================================= */
 
-.stats {
+.features {
     display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 45px;
-
-    margin-top: 40px;
+    gap: 35px;
 }
 
-.stat {
-    min-width: 90px;
+.feature {
+    min-width: 110px;
 }
 
-.stat h3 {
+.feature strong {
+    display: block;
+    margin-bottom: 2px;
+
+    color: #ffffff;
     font-size: 25px;
     font-weight: 800;
-    color: #ffffff;
 }
 
-.stat p {
-    margin: 0;
+.feature span {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 12px;
-    color: #bbbbbb;
 }
 
 
-/* =========================
-   SECTION COMMON
-   ========================= */
+/* =========================================================
+   COMMON PAGE SECTIONS
+========================================================= */
 
-section {
-    padding: 90px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.section-title h2 {
-    font-size: clamp(30px, 4vw, 46px);
-    margin-bottom: 12px;
-}
-
-.section-title p {
-    color: #aaaaaa;
-}
-
-
-/* =========================
-   ABOUT SECTION
-   ========================= */
-
-.about,
+.page-section,
 .about-section,
-#about {
+.contact-section,
+.cars-section,
+.book-section {
     position: relative;
-
-    background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.72),
-            rgba(0, 0, 0, 0.86)
-        ),
-        url("images/home-bg.jpg");
-
+    min-height: 100vh;
+    padding: 100px 6%;
+    background-color: #0b0b0d;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-
-    color: #ffffff;
+    background-repeat: no-repeat;
 }
 
+.page-section::before,
+.about-section::before,
+.contact-section::before,
+.cars-section::before,
+.book-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.70);
+    pointer-events: none;
+}
+
+.page-section > *,
+.about-section > *,
+.contact-section > *,
+.cars-section > *,
+.book-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   ABOUT PAGE BACKGROUND
+========================================================= */
+
+.about-section {
+    background-image: url("images/home-bg.jpg");
+}
+
+
+/* =========================================================
+   CONTACT PAGE BACKGROUND
+========================================================= */
+
+.contact-section {
+    background-image: url("images/home-bg.jpg");
+}
+
+
+/* =========================================================
+   CARS PAGE BACKGROUND
+========================================================= */
+
+.cars-section {
+    background-image: url("images/home-bg.jpg");
+}
+
+
+/* =========================================================
+   BOOK PAGE BACKGROUND
+========================================================= */
+
+.book-section {
+    background-image: url("images/home-bg.jpg");
+}
+
+
+/* =========================================================
+   SECTION CONTAINER
+========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.section-title {
+    margin-bottom: 15px;
+
+    color: #ffffff;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.section-title span {
+    color: #ff2768;
+}
+
+.section-subtitle {
+    max-width: 700px;
+    margin-bottom: 45px;
+
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   ABOUT CONTENT
+========================================================= */
+
 .about-content {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-
-    padding: 35px;
-
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    border-radius: 18px;
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    max-width: 900px;
 }
 
 .about-content h2 {
-    font-size: 36px;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
+    font-size: 32px;
 }
 
 .about-content h3 {
-    color: #ff174f;
-    margin: 22px 0 8px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    color: #ff2768;
 }
 
 .about-content p {
-    color: #dddddd;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.78);
 }
 
 
-/* =========================
-   WHY CHOOSE US
-   ========================= */
+/* =========================================================
+   CARDS
+========================================================= */
 
-.why-us,
-.features {
-    background: #090909;
-}
-
-.features-grid,
-.why-grid {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.feature-card,
-.why-card {
-    padding: 28px 22px;
-
-    background: rgba(255, 255, 255, 0.06);
+.card,
+.car-card,
+.info-card {
+    background: rgba(20, 20, 24, 0.82);
     border: 1px solid rgba(255, 255, 255, 0.09);
-
-    border-radius: 15px;
-
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
     transition: 0.3s ease;
 }
 
-.feature-card:hover,
-.why-card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(255, 23, 79, 0.6);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-}
-
-.feature-card h3,
-.why-card h3 {
-    margin: 12px 0 8px;
-}
-
-.feature-card p,
-.why-card p {
-    color: #aaaaaa;
-    font-size: 14px;
+.card:hover,
+.car-card:hover,
+.info-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 39, 104, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 
-/* =========================
-   CONTACT SECTION
-   ========================= */
+/* =========================================================
+   CAR GRID
+========================================================= */
 
-.contact,
-.contact-section,
-#contact {
-    position: relative;
-
-    background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.78),
-            rgba(0, 0, 0, 0.88)
-        ),
-        url("images/home-bg.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.contact-container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-
+.car-grid,
+.cards-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.contact-info,
-.contact-form {
-    padding: 35px;
-
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    border-radius: 18px;
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+.car-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
-.contact-info h2,
-.contact-form h2 {
-    margin-bottom: 20px;
+.car-card-content {
+    padding: 22px;
 }
 
-.contact-info p {
-    color: #dddddd;
-    margin-bottom: 12px;
+.car-card h3 {
+    margin-bottom: 7px;
+    font-size: 21px;
+}
+
+.car-card p {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 
-/* =========================
-   FORM
-   ========================= */
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.contact-card {
+    padding: 28px;
+
+    background: rgba(15, 15, 18, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-card h3 {
+    margin-bottom: 10px;
+    color: #ff2768;
+}
+
+.contact-card p {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================================================
+   FORMS
+========================================================= */
 
 form {
     width: 100%;
+    max-width: 700px;
 }
 
 .form-group {
     margin-bottom: 18px;
 }
 
-label {
+.form-group label {
     display: block;
     margin-bottom: 7px;
 
+    color: #ffffff;
     font-size: 14px;
     font-weight: 600;
 }
 
 input,
-select,
-textarea {
+textarea,
+select {
     width: 100%;
-
-    padding: 13px 15px;
+    padding: 14px 15px;
 
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.07);
 
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 8px;
-
+    border-radius: 9px;
     outline: none;
+
+    font-family: inherit;
+    font-size: 15px;
 
     transition: 0.3s ease;
 }
 
 input:focus,
-select:focus,
-textarea:focus {
-    border-color: #ff174f;
-    box-shadow: 0 0 0 3px rgba(255, 23, 79, 0.12);
+textarea:focus,
+select:focus {
+    border-color: #ff2768;
+    box-shadow: 0 0 0 3px rgba(255, 39, 104, 0.12);
 }
 
 textarea {
-    min-height: 130px;
+    min-height: 140px;
     resize: vertical;
 }
 
+select option {
+    background: #111111;
+    color: #ffffff;
+}
 
-/* =========================
+
+/* =========================================================
    FOOTER
-   ========================= */
+========================================================= */
 
 footer {
-    padding: 35px 20px;
-
+    padding: 35px 6%;
     text-align: center;
 
-    background: #050505;
+    background: #070708;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-    color: #aaaaaa;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 14px;
 }
 
 footer span {
-    color: #ff174f;
+    color: #ff2768;
 }
 
 
-/* =========================
-   RESPONSIVE - TABLET
-   ========================= */
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 900px) {
 
-    nav,
     .navbar {
-        width: 94%;
+        padding: 0 4%;
     }
 
-    nav ul,
     .nav-links {
-        gap: 15px;
+        gap: 2px;
     }
 
-    .features-grid,
-    .why-grid {
+    .nav-links a {
+        padding: 9px 10px;
+        font-size: 13px;
+    }
+
+    .hero-content {
+        padding: 70px 5%;
+    }
+
+    .hero h1 {
+        max-width: 650px;
+    }
+
+    .car-grid,
+    .cards-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .contact-container {
+    .contact-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero-content h1 {
-        font-size: 52px;
     }
 }
 
 
-/* =========================
-   RESPONSIVE - PHONE
-   ========================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
@@ -592,281 +620,213 @@ footer span {
 
     /* NAVBAR */
 
-    header {
-        position: fixed;
-    }
-
-    nav,
     .navbar {
         min-height: 62px;
-        width: 92%;
-
-        gap: 10px;
+        padding: 0 18px;
     }
 
     .logo {
         font-size: 20px;
     }
 
-    nav ul,
     .nav-links {
-        gap: 10px;
+        gap: 0;
     }
 
-    nav a,
     .nav-links a {
+        padding: 7px 6px;
         font-size: 11px;
     }
-
-    nav .btn,
-    .nav-links .btn {
-        padding: 8px 11px;
-        font-size: 10px;
-    }
-
 
     /* HERO */
 
     .hero {
-        min-height: 100vh;
-
-        background-position: 62% center;
+        min-height: calc(100vh - 62px);
+        background-position: center center;
     }
 
-    .hero::before {
+    .hero-overlay {
         background:
             linear-gradient(
-                180deg,
-                rgba(0, 0, 0, 0.55),
-                rgba(0, 0, 0, 0.86)
+                90deg,
+                rgba(0, 0, 0, 0.82),
+                rgba(0, 0, 0, 0.50)
             );
     }
 
     .hero-content {
-        width: 90%;
-        padding-top: 70px;
-        padding-bottom: 40px;
+        padding: 60px 22px 70px;
     }
 
-    .hero-content h1 {
-        font-size: 42px;
+    .small-title {
+        font-size: 9px;
+        padding: 6px 9px;
+        margin-bottom: 12px;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        margin-bottom: 15px;
+
+        font-size: clamp(34px, 10vw, 48px);
         line-height: 1.08;
-        margin-bottom: 16px;
     }
 
-    .hero-content p {
-        font-size: 14px;
-        line-height: 1.6;
+    .hero p {
+        max-width: 100%;
         margin-bottom: 22px;
+
+        font-size: 13px;
+        line-height: 1.55;
     }
+
+    /* BUTTONS */
 
     .hero-buttons {
         gap: 10px;
+        margin-bottom: 28px;
     }
 
-    .btn,
-    .book-btn,
-    .book-now,
-    .explore-btn {
-        padding: 11px 16px;
+    .main-btn,
+    .outline-btn {
+        min-height: 43px;
+        padding: 10px 15px;
         font-size: 12px;
+        border-radius: 8px;
     }
-
-
-    /* STATS */
-
-    .stats {
-        gap: 25px;
-        margin-top: 28px;
-    }
-
-    .stat h3 {
-        font-size: 21px;
-    }
-
-    .stat p {
-        font-size: 10px;
-    }
-
-
-    /* SECTIONS */
-
-    section {
-        padding: 60px 0;
-    }
-
-    .section-title {
-        margin-bottom: 30px;
-    }
-
-    .section-title h2 {
-        font-size: 30px;
-    }
-
-
-    /* ABOUT */
-
-    .about,
-    .about-section,
-    #about {
-        background-attachment: scroll;
-        background-position: center;
-    }
-
-    .about-content {
-        width: 92%;
-        padding: 23px 18px;
-        border-radius: 14px;
-    }
-
-    .about-content h2 {
-        font-size: 28px;
-    }
-
-    .about-content p {
-        font-size: 13px;
-    }
-
 
     /* FEATURES */
 
-    .features-grid,
-    .why-grid {
-        width: 92%;
-        grid-template-columns: 1fr;
-        gap: 14px;
+    .features {
+        gap: 20px;
     }
 
-    .feature-card,
-    .why-card {
-        padding: 21px 18px;
+    .feature {
+        min-width: 75px;
     }
 
+    .feature strong {
+        font-size: 19px;
+    }
 
-    /* CONTACT */
+    .feature span {
+        font-size: 9px;
+    }
 
-    .contact,
+    /* COMMON SECTIONS */
+
+    .page-section,
+    .about-section,
     .contact-section,
-    #contact {
-        background-attachment: scroll;
+    .cars-section,
+    .book-section {
+        min-height: 100vh;
+        padding: 70px 20px;
     }
 
-    .contact-container {
-        width: 92%;
+    .section-title {
+        font-size: 34px;
+    }
+
+    .section-subtitle {
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+
+    /* CARDS */
+
+    .car-grid,
+    .cards-grid {
         grid-template-columns: 1fr;
         gap: 18px;
     }
 
-    .contact-info,
-    .contact-form {
-        padding: 23px 18px;
-        border-radius: 14px;
+    .car-card img {
+        height: 200px;
     }
 
-    .contact-info h2,
-    .contact-form h2 {
-        font-size: 25px;
+    /* ABOUT */
+
+    .about-content h2 {
+        font-size: 27px;
     }
 
+    .about-content p {
+        font-size: 14px;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 20px;
+    }
 
     /* FORM */
 
     input,
-    select,
-    textarea {
-        font-size: 14px;
+    textarea,
+    select {
         padding: 12px;
+        font-size: 14px;
     }
 
-
-    /* FOOTER */
-
     footer {
-        padding: 28px 15px;
+        padding: 25px 18px;
         font-size: 12px;
     }
 }
 
 
-/* =========================
+/* =========================================================
    VERY SMALL PHONES
-   ========================= */
+========================================================= */
 
 @media (max-width: 380px) {
+
+    .navbar {
+        padding: 0 10px;
+    }
 
     .logo {
         font-size: 18px;
     }
 
-    nav ul,
-    .nav-links {
-        gap: 7px;
-    }
-
-    nav a,
     .nav-links a {
+        padding: 6px 4px;
         font-size: 9px;
     }
 
-    .hero-content h1 {
-        font-size: 35px;
+    .hero-content {
+        padding: 45px 16px;
     }
 
-    .hero-content p {
+    .hero h1 {
+        font-size: 31px;
+    }
+
+    .hero p {
         font-size: 12px;
     }
 
-    .stats {
-        gap: 17px;
+    .main-btn,
+    .outline-btn {
+        padding: 9px 12px;
+        font-size: 11px;
     }
 
-    .stat h3 {
-        font-size: 18px;
+    .features {
+        gap: 13px;
     }
 
-    .stat p {
-        font-size: 9px;
-    }
-}
-
-
-/* =========================
-   SMOOTH ANIMATION
-   ========================= */
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
+    .feature strong {
+        font-size: 17px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-content {
-    animation: fadeUp 0.9s ease forwards;
-}
-
-
-/* =========================
-   MOBILE SAFETY
-   ========================= */
-
-@media (max-width: 600px) {
-
-    img {
-        height: auto;
-    }
-
-    .container {
-        width: 92%;
-    }
-
-    button,
-    a {
-        -webkit-tap-highlight-color: transparent;
+    .feature span {
+        font-size: 8px;
     }
 }
