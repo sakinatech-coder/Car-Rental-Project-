@@ -1,6 +1,6 @@
-/* =========================================
-   DRIVE EASY - FINAL STYLE
-========================================= */
+/* ===============================
+   DRIVE EASY - HOME PAGE
+================================ */
 
 * {
     margin: 0;
@@ -14,587 +14,738 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f6fa;
-    color: #222;
-    line-height: 1.6;
+    background: #080808;
+    color: white;
 }
 
 
-/* =========================================
+/* ===============================
    NAVBAR
-========================================= */
+================================ */
 
 .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 70px;
-    background: rgba(255, 255, 255, 0.97);
+    height: 78px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 7%;
-    position: sticky;
-    top: 0;
+
     z-index: 1000;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
 
 .logo a {
     text-decoration: none;
-    color: #e63946;
+    color: white;
+
     font-size: 27px;
     font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.nav-links {
+
+.logo span {
+    color: #ff304f;
+}
+
+
+.navbar nav {
     display: flex;
     align-items: center;
     gap: 12px;
-    list-style: none;
 }
 
-.nav-links a {
+
+.navbar nav a {
     text-decoration: none;
-    color: #222;
-    font-size: 15px;
+    color: white;
+
+    font-size: 14px;
     font-weight: 600;
-    padding: 10px 15px;
+
+    padding: 10px 16px;
+
     border-radius: 7px;
+
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    background: #e63946;
-    color: white;
-}
 
-.nav-links .book-btn {
-    background: #e63946;
-    color: white;
-}
-
-.nav-links .book-btn:hover {
-    background: #c92535;
+.navbar nav a:hover,
+.navbar nav a.active {
+    background: #ff304f;
 }
 
 
-/* =========================================
+.navbar .nav-book {
+    background: #ff304f;
+    padding: 11px 20px;
+}
+
+
+.navbar .nav-book:hover {
+    background: white;
+    color: #ff304f;
+}
+
+
+/* ===============================
    HERO
-========================================= */
+================================ */
 
 .hero {
-    min-height: 680px;
+
+    min-height: 100vh;
+
     position: relative;
+
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
 
-    background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.48),
-            rgba(0, 0, 0, 0.60)
-        ),
-        url("images/hero-car.jpg");
+    background-image: url("images/home-bg.jpg");
 
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 
-    color: white;
+    overflow: hidden;
 }
+
+
+/* DARK OVERLAY */
 
 .hero-overlay {
+
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(230, 57, 70, 0.12),
-        rgba(0, 0, 0, 0.20)
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.88) 0%,
+            rgba(0,0,0,0.60) 45%,
+            rgba(0,0,0,0.25) 100%
+        );
+
 }
+
+
+/* HERO CONTENT */
 
 .hero-content {
+
     position: relative;
     z-index: 2;
-    max-width: 850px;
-    padding: 30px 20px;
+
+    max-width: 650px;
+
+    margin-left: 8%;
+
+    padding-top: 80px;
 }
 
-.hero-tag {
+
+.small-title {
+
     display: inline-block;
-    background: #e63946;
-    color: white;
-    padding: 8px 18px;
+
+    background: rgba(255,48,79,0.15);
+
+    border: 1px solid #ff304f;
+
+    color: #ff526b;
+
+    padding: 9px 18px;
+
     border-radius: 30px;
+
     font-size: 13px;
     font-weight: bold;
-    margin-bottom: 20px;
+
+    margin-bottom: 22px;
 }
+
 
 .hero h1 {
-    font-size: 55px;
-    line-height: 1.15;
-    margin-bottom: 20px;
+
+    font-size: clamp(45px, 6vw, 78px);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+
     font-weight: 800;
-    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.45);
 }
+
 
 .hero h1 span {
-    color: #ff4050;
+    color: #ff304f;
 }
 
-.hero p {
-    max-width: 700px;
-    margin: 0 auto 28px;
-    font-size: 18px;
-    color: #f2f2f2;
+
+.hero-content > p {
+
+    max-width: 590px;
+
+    color: #e0e0e0;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
 }
+
+
+/* ===============================
+   BUTTONS
+================================ */
 
 .hero-buttons {
+
     display: flex;
-    justify-content: center;
+
     gap: 15px;
-    flex-wrap: wrap;
+
+    margin-bottom: 45px;
 }
 
-.hero-btn,
-.secondary-btn {
+
+.main-btn,
+.outline-btn {
+
     display: inline-block;
+
     text-decoration: none;
-    padding: 13px 25px;
+
+    padding: 14px 25px;
+
     border-radius: 8px;
+
     font-weight: bold;
+
     transition: 0.3s;
 }
 
-.hero-btn {
-    background: #e63946;
+
+.main-btn {
+
+    background: #ff304f;
+
     color: white;
+
+    box-shadow: 0 10px 30px rgba(255,48,79,0.3);
 }
 
-.hero-btn:hover {
-    background: #ff5360;
-    transform: translateY(-2px);
+
+.main-btn:hover {
+
+    transform: translateY(-3px);
+
+    background: #ff1739;
+
+    box-shadow: 0 15px 35px rgba(255,48,79,0.45);
 }
 
-.secondary-btn {
-    border: 2px solid white;
+
+.outline-btn {
+
     color: white;
+
+    border: 1px solid white;
+
+    background: rgba(255,255,255,0.05);
 }
 
-.secondary-btn:hover {
+
+.outline-btn:hover {
+
     background: white;
-    color: #222;
+
+    color: black;
+
+    transform: translateY(-3px);
 }
 
-.hero-features {
+
+/* ===============================
+   FEATURES
+================================ */
+
+.features {
+
     display: flex;
-    justify-content: center;
-    gap: 55px;
-    margin-top: 45px;
-    flex-wrap: wrap;
+
+    gap: 50px;
 }
 
-.hero-features div {
+
+.feature {
+
     display: flex;
+
     flex-direction: column;
-}
 
-.hero-features strong {
-    font-size: 24px;
-}
-
-.hero-features small {
-    color: #ddd;
+    gap: 5px;
 }
 
 
-/* =========================================
-   SEARCH
-========================================= */
+.feature strong {
 
-.search {
-    width: 90%;
-    max-width: 1100px;
-    margin: -45px auto 60px;
-    position: relative;
-    z-index: 5;
-    background: white;
-    padding: 28px;
-    border-radius: 15px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
+    font-size: 27px;
+
+    color: white;
 }
 
-.search h2 {
+
+.feature span {
+
+    font-size: 12px;
+
+    color: #bbbbbb;
+}
+
+
+/* ===============================
+   WHY US
+================================ */
+
+.why-us {
+
+    padding: 100px 7%;
+
+    background: #101010;
+
     text-align: center;
-    margin-bottom: 20px;
-    color: #222;
 }
 
-.search form {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+
+.section-title p {
+
+    color: #ff304f;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
 }
 
-.search select,
-.search button {
-    height: 48px;
-    padding: 0 16px;
-    border: 1px solid #ddd;
-    border-radius: 7px;
+
+.section-title h2 {
+
+    font-size: 42px;
+
+    margin-bottom: 50px;
+}
+
+
+.section-title h2 span {
+
+    color: #ff304f;
+}
+
+
+.why-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.why-card {
+
+    background: #181818;
+
+    border: 1px solid #292929;
+
+    padding: 35px 22px;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+
+.why-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #ff304f;
+
+    box-shadow:
+        0 15px 40px rgba(255,48,79,0.15);
+}
+
+
+.icon {
+
+    font-size: 38px;
+
+    margin-bottom: 18px;
+}
+
+
+.why-card h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 20px;
+}
+
+
+.why-card p {
+
+    color: #aaa;
+
+    line-height: 1.7;
+
     font-size: 14px;
 }
 
-.search select {
-    min-width: 180px;
-    background: white;
-}
 
-.search button {
-    background: #e63946;
-    color: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.search button:hover {
-    background: #c92535;
-}
-
-
-/* =========================================
-   AVAILABLE CARS
-========================================= */
-
-#cars {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto 80px;
-}
-
-#cars > h2 {
-    text-align: center;
-    font-size: 35px;
-    margin-bottom: 35px;
-}
-
-.car-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-}
-
-.car-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    padding-bottom: 22px;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
-    transition: 0.3s;
-}
-
-.car-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.car-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-}
-
-.car-card h3 {
-    font-size: 23px;
-    margin: 18px 20px 5px;
-}
-
-.car-card p {
-    margin: 6px 20px;
-    color: #666;
-}
-
-.car-card p:first-of-type {
-    color: #e63946;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.view-details,
-.btn {
-    display: inline-block;
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 10px 17px;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.view-details {
-    margin-left: 20px;
-    background: #222;
-    color: white;
-}
-
-.view-details:hover {
-    background: #e63946;
-}
-
-.car-card .btn {
-    margin-left: 20px;
-    background: #e63946;
-    color: white;
-}
-
-.car-card .btn:hover {
-    background: #c92535;
-}
-
-
-/* =========================================
-   CAR POPUP
-========================================= */
-
-.car-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.78);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.car-modal-content {
-    background: white;
-    width: 100%;
-    max-width: 900px;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 18px;
-    padding: 30px;
-    position: relative;
-    text-align: center;
-}
-
-.close-btn {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    border: none;
-    background: #e63946;
-    color: white;
-    font-size: 25px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.car-modal-content h2 {
-    font-size: 30px;
-    margin-bottom: 12px;
-    color: #222;
-}
-
-.car-modal-content p {
-    line-height: 1.7;
-    color: #555;
-}
-
-.car-features {
-    margin: 18px 0;
-    line-height: 2;
-    font-size: 17px;
-}
-
-.car-gallery {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.car-gallery img {
-    width: 250px;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
-/* =========================================
+/* ===============================
    ABOUT
-========================================= */
+================================ */
 
-#about {
-    background: white;
-    text-align: center;
-    padding: 75px 20px;
+.about-section {
+
+    padding: 110px 8%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0a0a0a,
+            #151515
+        );
 }
 
-#about h2 {
-    font-size: 35px;
+
+.about-content {
+
+    max-width: 700px;
+}
+
+
+.about-small {
+
+    color: #ff304f;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
     margin-bottom: 15px;
 }
 
-#about p {
-    max-width: 750px;
-    margin: auto;
-    color: #666;
-    font-size: 17px;
+
+.about-content h2 {
+
+    font-size: 50px;
+
+    margin-bottom: 25px;
 }
 
 
-/* =========================================
+.about-content h2 span {
+
+    color: #ff304f;
+}
+
+
+.about-content p:not(.about-small) {
+
+    color: #aaa;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+
+.about-content .main-btn {
+
+    margin-top: 15px;
+}
+
+
+/* ===============================
    CONTACT
-========================================= */
+================================ */
 
-#contact {
-    background: #181818;
-    color: white;
+.contact-section {
+
+    padding: 100px 7%;
+
+    background: #0d0d0d;
+
     text-align: center;
-    padding: 65px 20px;
 }
 
-#contact h2 {
+
+.contact-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+
+.contact-box {
+
+    background: #171717;
+
+    border: 1px solid #292929;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+
+.contact-box:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #ff304f;
+}
+
+
+.contact-icon {
+
     font-size: 35px;
-    margin-bottom: 20px;
-}
 
-#contact p {
-    color: #ddd;
-    margin: 8px 0;
+    margin-bottom: 15px;
 }
 
 
-/* =========================================
-   RESPONSIVE MOBILE
-========================================= */
+.contact-box h3 {
 
-@media (max-width: 768px) {
+    margin-bottom: 10px;
+}
+
+
+.contact-box p {
+
+    color: #aaa;
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    background: #050505;
+
+    border-top: 1px solid #222;
+}
+
+
+.footer-logo {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+
+.footer-logo span {
+
+    color: #ff304f;
+}
+
+
+footer > p {
+
+    color: #888;
+
+    margin-bottom: 25px;
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+}
+
+
+.footer-links a {
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.footer-links a:hover {
+
+    color: #ff304f;
+}
+
+
+footer .copyright {
+
+    font-size: 12px;
+
+    color: #555;
+
+    margin: 0;
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 800px) {
 
     .navbar {
-        padding: 12px 18px;
+
+        height: auto;
+
+        padding: 15px 5%;
+
         flex-direction: column;
-        gap: 10px;
+
+        gap: 12px;
     }
 
-    .logo a {
-        font-size: 24px;
-    }
 
-    .nav-links {
-        gap: 5px;
+    .navbar nav {
+
+        gap: 3px;
+
         flex-wrap: wrap;
+
         justify-content: center;
     }
 
-    .nav-links a {
-        font-size: 12px;
-        padding: 8px 10px;
-    }
 
-    .hero {
-        min-height: 600px;
-    }
+    .navbar nav a {
 
-    .hero h1 {
-        font-size: 36px;
-    }
+        padding: 7px 9px;
 
-    .hero p {
-        font-size: 15px;
-    }
-
-    .hero-features {
-        gap: 25px;
-        margin-top: 30px;
-    }
-
-    .hero-features strong {
-        font-size: 20px;
-    }
-
-    .search {
-        width: 92%;
-        margin-top: -30px;
-        padding: 20px 15px;
-    }
-
-    .search form {
-        flex-direction: column;
-    }
-
-    .search select,
-    .search button {
-        width: 100%;
-    }
-
-    .car-container {
-        grid-template-columns: 1fr;
-    }
-
-    .car-card img {
-        height: 220px;
-    }
-
-    #cars > h2 {
-        font-size: 29px;
-    }
-
-    .car-modal-content {
-        padding: 25px 15px;
-    }
-
-    .car-gallery img {
-        width: 100%;
-        height: 190px;
-    }
-}
-
-
-/* =========================================
-   SMALL PHONES
-========================================= */
-
-@media (max-width: 480px) {
-
-    .hero h1 {
-        font-size: 31px;
-    }
-
-    .hero p {
-        font-size: 14px;
-    }
-
-    .hero-btn,
-    .secondary-btn {
-        width: 100%;
-    }
-
-    .hero-features {
-        gap: 18px;
-    }
-
-    .hero-features strong {
-        font-size: 18px;
-    }
-
-    .hero-features small {
         font-size: 11px;
     }
 
-    .car-card h3 {
-        font-size: 20px;
+
+    .hero {
+
+        min-height: 100vh;
+
+        background-position: center;
     }
+
+
+    .hero-content {
+
+        margin-left: 0;
+
+        padding: 130px 7% 60px;
+
+        text-align: center;
+    }
+
+
+    .hero h1 {
+
+        font-size: 43px;
+    }
+
+
+    .hero-content > p {
+
+        font-size: 14px;
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+
+    .features {
+
+        justify-content: center;
+
+        gap: 25px;
+    }
+
+
+    .feature strong {
+
+        font-size: 22px;
+    }
+
+
+    .why-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .section-title h2 {
+
+        font-size: 34px;
+    }
+
+
+    .about-content h2 {
+
+        font-size: 38px;
+    }
+
+
+    .contact-container {
+
+        grid-template-columns: 1fr;
+    }
+
 }
