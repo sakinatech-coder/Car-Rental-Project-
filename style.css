@@ -836,7 +836,7 @@ document
         });
 
 
-    });
+    }); 11
 
 
 </script>
@@ -854,7 +854,7 @@ document
 
         DriveEasy is a trusted car rental service
         offering premium, comfortable and affordable
-        cars for every journey.
+        cars f 11or every journey.
 
     </p>
 
@@ -892,3 +892,202 @@ document
 </body>
 
 </html>
+/* =========================================
+   PREMIUM AVAILABLE CARS
+========================================= */
+
+#cars {
+    padding: 80px 6%;
+    background: #f7f8fa;
+    text-align: center;
+}
+
+#cars > h2 {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 45px;
+    color: #171717;
+}
+
+.car-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+
+/* CAR CARD */
+
+.car-card {
+    position: relative;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+    transition: all 0.35s ease;
+
+    text-align: left;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* CAR IMAGE */
+
+.car-card img {
+    width: 100%;
+    height: 190px;
+
+    object-fit: cover;
+
+    border-radius: 13px;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.car-card:hover img {
+    transform: scale(1.04);
+}
+
+
+/* CAR NAME */
+
+.car-card h3 {
+    font-size: 21px;
+
+    margin: 17px 5px 8px;
+
+    color: #171717;
+}
+
+
+/* PRICE */
+
+.car-card p:nth-of-type(1) {
+    color: #e63946;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    margin: 0 5px 10px;
+}
+
+
+/* FEATURES */
+
+.car-card p:nth-of-type(2) {
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin: 0 5px 15px;
+}
+
+
+/* VIEW DETAILS */
+
+.car-card .view-details {
+    background: #171717;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.car-card .view-details:hover {
+    background: #e63946;
+}
+
+
+/* BOOK NOW */
+
+.car-card .btn {
+    display: inline-block;
+
+    background: #e63946;
+
+    color: white;
+
+    padding: 10px 17px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.car-card .btn:hover {
+    background: #c92f3b;
+
+    transform: translateY(-2px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+
+    .car-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    #cars {
+        padding: 55px 5%;
+    }
+
+    #cars > h2 {
+        font-size: 30px;
+
+        margin-bottom: 30px;
+    }
+
+    .car-container {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .car-card img {
+        height: 220px;
+    }
+
+}
